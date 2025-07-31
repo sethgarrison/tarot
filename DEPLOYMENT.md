@@ -28,30 +28,39 @@ Set environment variables in your deployment platform (Vercel, Netlify, etc.):
 
 **Note:** GitHub Pages doesn't support environment variables. For GitHub Pages deployment, consider using Vercel or Netlify instead.
 
-### 2. GitHub Pages Configuration
-The application is configured for GitHub Pages deployment:
-- Base path: `/tarot/`
+### 2. Netlify Configuration
+The application is configured for Netlify deployment:
+- Base path: `/` (root)
 - Build output: `dist/`
-- Homepage: `https://sethgarrison.github.io/tarot`
+- Custom domain support
+- Environment variables support
 
 ### 3. Image Assets
 Ensure all tarot card images are in the `public/tarot-images/` directory.
 
 ## Deployment Steps
 
-### Option 1: Deploy to Vercel (Recommended)
+### Option 1: Deploy to Netlify (Recommended)
 
-1. **Connect your repository** to Vercel
-2. **Set environment variables** in Vercel dashboard:
+1. **Go to [netlify.com](https://netlify.com)** and sign up/login
+2. **Click "Add new site"** → **"Import an existing project"**
+3. **Connect your GitHub repository**
+4. **Configure build settings:**
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+5. **Set environment variables** in Netlify dashboard (Site settings → Environment variables):
    - `VITE_SUPABASE_URL`: Your Supabase project URL
    - `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
-3. **Deploy** - Vercel will automatically build and deploy your app
+6. **Deploy** - Netlify will automatically build and deploy your app
 
-### Option 2: Deploy to Netlify
+### Option 2: Deploy to Vercel
 
-1. **Connect your repository** to Netlify
-2. **Set environment variables** in Netlify dashboard
-3. **Deploy** - Netlify will automatically build and deploy your app
+1. **Go to [vercel.com](https://vercel.com)** and sign up/login
+2. **Import your GitHub repository**
+3. **Set environment variables** in Vercel dashboard:
+   - `VITE_SUPABASE_URL`: Your Supabase project URL
+   - `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
+4. **Deploy** - Vercel will automatically build and deploy your app
 
 ### Option 3: Deploy to GitHub Pages (Limited)
 
