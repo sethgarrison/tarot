@@ -1,0 +1,158 @@
+{
+  "overview": {
+    "title": "Understanding Tarot Cards",
+    "description": "Tarot cards are a powerful tool for divination, self-reflection, and spiritual guidance. A traditional tarot deck consists of 78 cards divided into two main categories: the Major Arcana and the Minor Arcana.",
+    "total_cards": 78,
+    "major_arcana_count": 22,
+    "minor_arcana_count": 56
+  },
+  "major_arcana": {
+    "title": "The Major Arcana",
+    "subtitle": "The Greater Mysteries",
+    "description": "The Major Arcana consists of 22 cards that represent significant life events, spiritual lessons, and archetypal energies. These cards carry the most weight in a reading and often indicate major turning points or profound spiritual insights.",
+    "characteristics": [
+      "Represent major life themes and spiritual lessons",
+      "Indicate significant turning points and transformations",
+      "Carry more weight in readings than Minor Arcana",
+      "Often represent archetypal energies and universal experiences",
+      "Can indicate long-term influences and karmic patterns"
+    ],
+    "numbering": "Cards are numbered 0-21, with The Fool as 0 and The World as 21",
+    "themes": [
+      "Spiritual growth and enlightenment",
+      "Life cycles and transformations",
+      "Archetypal energies and universal experiences",
+      "Karmic patterns and soul lessons",
+      "Major life decisions and turning points"
+    ]
+  },
+  "minor_arcana": {
+    "title": "The Minor Arcana",
+    "subtitle": "The Lesser Mysteries",
+    "description": "The Minor Arcana consists of 56 cards divided into four suits, each representing different aspects of daily life and human experience. These cards provide practical guidance and reflect the everyday situations we encounter.",
+    "characteristics": [
+      "Represent daily life and practical matters",
+      "Provide specific guidance for everyday situations",
+      "Reflect immediate influences and short-term energies",
+      "Offer practical advice and actionable insights",
+      "Show the details and nuances of life circumstances"
+    ],
+    "structure": {
+      "suits": 4,
+      "cards_per_suit": 14,
+      "number_cards": "Ace through 10 (10 cards per suit)",
+      "court_cards": "Page, Knight, Queen, King (4 cards per suit)"
+    }
+  },
+  "suits": {
+    "wands": {
+      "name": "Wands",
+      "element": "Fire",
+      "description": "Wands represent creativity, passion, energy, and spiritual growth. They are associated with inspiration, ambition, and the spark of new ideas.",
+      "keywords": ["creativity", "passion", "energy", "inspiration", "ambition", "spiritual growth", "action", "enthusiasm"],
+      "life_areas": [
+        "Career and professional development",
+        "Creative projects and artistic endeavors",
+        "Spiritual growth and personal development",
+        "Passion and romantic relationships",
+        "New ventures and opportunities"
+      ],
+      "personality_traits": [
+        "Energetic and enthusiastic",
+        "Creative and innovative",
+        "Passionate and driven",
+        "Spontaneous and adventurous",
+        "Optimistic and inspiring"
+      ]
+    },
+    "cups": {
+      "name": "Cups",
+      "element": "Water",
+      "description": "Cups represent emotions, relationships, intuition, and matters of the heart. They are associated with love, compassion, and emotional fulfillment.",
+      "keywords": ["emotions", "relationships", "intuition", "love", "compassion", "creativity", "spirituality", "healing"],
+      "life_areas": [
+        "Romantic relationships and love",
+        "Emotional well-being and healing",
+        "Intuition and psychic abilities",
+        "Family and close friendships",
+        "Creative expression and artistic pursuits"
+      ],
+      "personality_traits": [
+        "Emotional and sensitive",
+        "Intuitive and empathetic",
+        "Romantic and idealistic",
+        "Creative and artistic",
+        "Compassionate and caring"
+      ]
+    },
+    "swords": {
+      "name": "Swords",
+      "element": "Air",
+      "description": "Swords represent intellect, communication, challenges, and mental clarity. They are associated with thoughts, decisions, and the power of the mind.",
+      "keywords": ["intellect", "communication", "challenges", "mental clarity", "truth", "justice", "conflict", "transformation"],
+      "life_areas": [
+        "Intellectual pursuits and education",
+        "Communication and self-expression",
+        "Decision-making and problem-solving",
+        "Legal matters and justice",
+        "Mental health and clarity"
+      ],
+      "personality_traits": [
+        "Intellectual and analytical",
+        "Direct and honest",
+        "Strategic and logical",
+        "Truth-seeking and just",
+        "Mental and communicative"
+      ]
+    },
+    "pentacles": {
+      "name": "Pentacles",
+      "element": "Earth",
+      "description": "Pentacles represent material wealth, practical matters, health, and physical manifestation. They are associated with abundance, security, and tangible results.",
+      "keywords": ["wealth", "practicality", "health", "abundance", "security", "material success", "stability", "manifestation"],
+      "life_areas": [
+        "Financial matters and wealth",
+        "Career and professional success",
+        "Health and physical well-being",
+        "Home and family life",
+        "Material goals and achievements"
+      ],
+      "personality_traits": [
+        "Practical and grounded",
+        "Reliable and responsible",
+        "Ambitious and hardworking",
+        "Generous and abundant",
+        "Stable and secure"
+      ]
+    }
+  },
+  "card_types": {
+    "number_cards": {
+      "title": "Number Cards (Ace-10)",
+      "description": "Number cards represent specific energies and lessons associated with their numerical value. Each number carries its own symbolic meaning and energy.",
+      "structure": "Each suit contains cards numbered Ace (1) through 10",
+      "significance": "Represent specific life lessons, energies, and situations"
+    },
+    "court_cards": {
+      "title": "Court Cards (Page, Knight, Queen, King)",
+      "description": "Court cards represent people, personalities, or aspects of yourself. They can indicate actual people in your life or qualities you need to embody.",
+      "structure": "Each suit contains four court cards: Page, Knight, Queen, King",
+      "significance": "Represent people, personalities, or aspects of character"
+    }
+  },
+  "reading_guidance": {
+    "upright_vs_reversed": {
+      "title": "Upright vs. Reversed Cards",
+      "description": "Cards can appear upright or reversed in a reading, each offering different insights and meanings.",
+      "upright": "Represents the card's natural energy and positive expression",
+      "reversed": "Indicates blocked energy, internal reflection, or alternative interpretations"
+    },
+    "interpretation_tips": [
+      "Consider the card's position in the spread",
+      "Look at surrounding cards for context",
+      "Trust your intuition and personal connection",
+      "Consider both traditional meanings and personal symbolism",
+      "Remember that tarot is a tool for guidance, not prediction"
+    ]
+  }
+} 

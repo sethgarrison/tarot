@@ -1,0 +1,402 @@
+.card-reader {
+  margin: 0 auto;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Drawing Area */
+.drawing-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.8) 100%);
+  border-radius: 20px;
+  /* border: 2px solid rgba(64, 224, 208, 0.3); */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  margin-top: 20px;
+}
+
+.deck-container {
+  position: relative;
+  perspective: 1000px;
+}
+
+.deck {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  cursor: pointer;
+}
+
+.deck:hover {
+  transform: rotateY(10deg) translateZ(20px);
+}
+
+.deck-back {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-radius: 15px;
+  border: 3px solid rgba(64, 224, 208, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.deck-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(64, 224, 208, 0.1) 50%, transparent 70%);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.deck-symbol {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.deck-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #40e0d0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Drawing Instructions */
+.drawing-instructions {
+  text-align: center;
+  max-width: 600px;
+}
+
+.drawing-instructions h2 {
+  font-size: 2.5rem;
+  margin: 0 0 20px 0;
+  background: linear-gradient(45deg, #40e0d0, #48d1cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.instruction-text {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+  font-style: italic;
+}
+
+.reading-tips {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 30px 0;
+  border-left: 4px solid #40e0d0;
+}
+
+.reading-tips h3 {
+  color: #40e0d0;
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+}
+
+.reading-tips ul {
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.reading-tips li {
+  margin-bottom: 10px;
+}
+
+/* Draw Card Button */
+.draw-card-btn {
+  background: linear-gradient(45deg, #40e0d0, #48d1cc);
+  color: #000000;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(64, 224, 208, 0.3);
+  margin-top: 20px;
+}
+
+.draw-card-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(64, 224, 208, 0.4);
+}
+
+.draw-card-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Reading Area */
+.reading-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.reading-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.reading-header h2 {
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+  color: #40e0d0;
+}
+
+.reading-subtitle {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Loading and Animation States */
+.drawing-animation,
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 60px 20px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(64, 224, 208, 0.3);
+  border-top: 4px solid #40e0d0;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.drawing-animation p,
+.loading p {
+  color: #ccc;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Card Display */
+.card-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.reading-card {
+  animation: cardReveal 1s ease-out;
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+}
+
+/* Reading Actions */
+.reading-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.draw-again-btn {
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  color: #fff;
+  border: 2px solid rgba(64, 224, 208, 0.3);
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.draw-again-btn:hover {
+  background: linear-gradient(45deg, rgba(64, 224, 208, 0.1), rgba(72, 209, 204, 0.1));
+  border-color: rgba(64, 224, 208, 0.5);
+  transform: translateY(-2px);
+}
+
+.reading-guidance {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 25px;
+  max-width: 600px;
+  border-left: 4px solid #40e0d0;
+}
+
+.reading-guidance h3 {
+  color: #40e0d0;
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+}
+
+.reading-guidance ul {
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.reading-guidance li {
+  margin-bottom: 10px;
+}
+
+.reading-guidance strong {
+  color: #ffd700;
+}
+
+/* Error and No Card States */
+.error-message,
+.no-card {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.8) 100%);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 107, 107, 0.3);
+}
+
+.error-message h3 {
+  color: #ff6b6b;
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+}
+
+.error-message p,
+.no-card p {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin: 0 0 20px 0;
+}
+
+.retry-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+  .drawing-area {
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .deck {
+    width: 150px;
+    height: 225px;
+  }
+
+  .drawing-instructions h2 {
+    font-size: 2rem;
+  }
+
+  .instruction-text {
+    font-size: 1rem;
+  }
+
+  .reading-header h2 {
+    font-size: 2rem;
+  }
+
+  .draw-card-btn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
+
+  .reading-guidance {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .deck {
+    width: 120px;
+    height: 180px;
+  }
+
+  .deck-symbol {
+    font-size: 3rem;
+  }
+
+  .deck-text {
+    font-size: 1rem;
+  }
+
+  .drawing-instructions h2 {
+    font-size: 1.8rem;
+  }
+
+  .reading-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .draw-card-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+} 

@@ -1,0 +1,133 @@
+# Tarot App Deployment Guide
+
+## Current Status ✅
+
+The application has been successfully cleaned up and is ready for deployment:
+
+- ✅ All console.log statements removed for production
+- ✅ TypeScript compilation errors fixed
+- ✅ Build process working correctly
+- ✅ Application tested locally
+
+## Pre-Deployment Checklist
+
+### 1. Environment Variables
+Make sure your Supabase environment variables are properly configured:
+
+```bash
+# These should be set in your deployment environment
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+### 2. GitHub Pages Configuration
+The application is configured for GitHub Pages deployment:
+- Base path: `/tarot/`
+- Build output: `dist/`
+- Homepage: `https://sethgarrison.github.io/tarot`
+
+### 3. Image Assets
+Ensure all tarot card images are in the `public/tarot-images/` directory.
+
+## Deployment Steps
+
+### Option 1: Deploy to GitHub Pages
+
+1. **Push your code to GitHub:**
+   ```bash
+   git add .
+   git commit -m "Ready for deployment - cleaned up logging and fixed TypeScript errors"
+   git push origin main
+   ```
+
+2. **Deploy using npm script:**
+   ```bash
+   npm run deploy
+   ```
+
+3. **Configure GitHub Pages:**
+   - Go to your repository settings
+   - Navigate to "Pages" section
+   - Set source to "Deploy from a branch"
+   - Select "gh-pages" branch
+   - Save
+
+### Option 2: Deploy to Vercel/Netlify
+
+1. **Connect your repository** to Vercel or Netlify
+2. **Set environment variables** in the deployment platform
+3. **Deploy** - the build process is already configured
+
+## Post-Deployment Verification
+
+1. **Check the deployed site** at `https://sethgarrison.github.io/tarot`
+2. **Test all features:**
+   - Card Reader (drawing cards)
+   - Deck page (browsing all cards)
+   - Tutorial page (learning content)
+   - Card flipping and interactions
+3. **Verify Supabase connection** is working in production
+
+## Troubleshooting
+
+### Common Issues:
+
+1. **Environment Variables Not Set**
+   - Ensure `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are configured
+   - Check that the variables are accessible in the deployment environment
+
+2. **Images Not Loading**
+   - Verify all tarot card images are in `public/tarot-images/`
+   - Check that the image paths match the card names
+
+3. **Build Failures**
+   - Run `npm run build` locally to test
+   - Check for any TypeScript errors
+   - Ensure all dependencies are installed
+
+4. **CORS Issues**
+   - Verify Supabase CORS settings include your domain
+   - Check that the Supabase project is properly configured
+
+## Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## File Structure
+
+```
+tarot/
+├── src/
+│   ├── components/          # React components
+│   ├── hooks/              # Custom hooks for data fetching
+│   ├── services/           # API services
+│   ├── types/              # TypeScript type definitions
+│   └── styles/             # CSS files
+├── public/
+│   └── tarot-images/       # Tarot card images
+├── scripts/                # Migration and utility scripts
+└── dist/                   # Production build output
+```
+
+## Features
+
+- 🔮 **Card Reader**: Draw random cards with interpretations
+- 🎴 **Deck Browser**: Browse all 78 tarot cards with filtering
+- 📚 **Tutorial**: Learn about tarot basics and card meanings
+- 🌐 **Multi-language Support**: Ready for English/Spanish translations
+- 📱 **Responsive Design**: Works on desktop and mobile
+- ⚡ **Fast Loading**: Optimized with SWR caching
+
+The application is now production-ready! 🎉 
