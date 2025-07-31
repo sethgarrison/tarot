@@ -1,6 +1,7 @@
 import useSWR from 'swr';
 import { supabaseTarotAPI } from '../services/supabaseAPI';
 import type { TarotCard, TarotCardDetail } from '../types/tarot';
+import { getImagePath, checkImageExists } from '../utils/imageUtils';
 
 // Hook to get all cards
 export const useAllCards = (language: string = 'en') => {
@@ -170,7 +171,7 @@ export const useTutorialSection = (sectionKey: string, language: string = 'en') 
 export const useCardImage = (cardName: string) => {
   return useSWR<string>(
     cardName ? `card-image-${cardName}` : null,
-    () => Promise.resolve(`/tarot/tarot-images/${cardName.toLowerCase().replace(/\s+/g, '_')}.jpg`),
+    () => Promise.resolve(getImagePath(cardName)),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
@@ -185,12 +186,7 @@ export const useCardImageExists = (cardName: string) => {
   return useSWR<boolean>(
     cardName ? `card-image-exists-${cardName}` : null,
     async () => {
-      try {
-        const response = await fetch(`/tarot/tarot-images/${cardName.toLowerCase().replace(/\s+/g, '_')}.jpg`);
-        return response.ok;
-      } catch {
-        return false;
-      }
+      return await checkImageExists(cardName);
     },
     {
       revalidateOnFocus: false,

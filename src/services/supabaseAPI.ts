@@ -1,15 +1,21 @@
 import { createClient } from '@supabase/supabase-js';
 import type { TarotCard, TarotCardDetail } from '../types/tarot';
 
-// Supabase client
+// Supabase configuration - using environment variables only
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseKey) {
-  throw new Error('Missing Supabase environment variables');
+// Check if we have valid credentials
+const hasValidCredentials = supabaseUrl && supabaseKey;
+
+if (!hasValidCredentials) {
+  console.error('❌ Supabase credentials not configured properly');
+  console.error('Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables');
+  console.error('For development: create a .env file');
+  console.error('For production: set environment variables in your deployment platform');
 }
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = hasValidCredentials ? createClient(supabaseUrl, supabaseKey) : null;
 
 // Helper function to transform database card to API format
 function transformCardFromDB(dbCard: {
@@ -67,6 +73,10 @@ function getCardWithLanguage(dbCard: {
 class SupabaseTarotService {
   // Get all cards
   async getAllCards(): Promise<TarotCard[]> {
+    if (!supabase) {
+      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+    }
+    
     try {
       const { data, error } = await supabase
         .from('cards')
@@ -85,6 +95,10 @@ class SupabaseTarotService {
 
   // Get all cards with language support
   async getAllCardsWithLanguage(language: string = 'en'): Promise<any[]> {
+    if (!supabase) {
+      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+    }
+    
     try {
       const { data, error } = await supabase
         .from('cards')
@@ -103,6 +117,10 @@ class SupabaseTarotService {
 
   // Get a specific card by name
   async getCardByName(name: string): Promise<TarotCard> {
+    if (!supabase) {
+      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+    }
+    
     try {
       const { data, error } = await supabase
         .from('cards')
@@ -122,6 +140,10 @@ class SupabaseTarotService {
 
   // Get a specific card by short name
   async getCardByNameShort(nameShort: string): Promise<TarotCard> {
+    if (!supabase) {
+      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+    }
+    
     try {
       const { data, error } = await supabase
         .from('cards')
@@ -141,6 +163,10 @@ class SupabaseTarotService {
 
   // Get a random card
   async getRandomCard(): Promise<TarotCard> {
+    if (!supabase) {
+      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+    }
+    
     try {
       // First get all cards to select randomly from
       const { data: allCards, error: fetchError } = await supabase
@@ -167,6 +193,10 @@ class SupabaseTarotService {
 
   // Get multiple random cards
   async getRandomCards(count: number): Promise<TarotCardDetail[]> {
+    if (!supabase) {
+      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+    }
+    
     try {
       // First get all cards to select randomly from
       const { data: allCards, error: fetchError } = await supabase
@@ -193,6 +223,10 @@ class SupabaseTarotService {
 
   // Get cards by suit
   async getCardsBySuit(suit: string): Promise<TarotCard[]> {
+    if (!supabase) {
+      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+    }
+    
     try {
       const { data, error } = await supabase
         .from('cards')
@@ -213,6 +247,10 @@ class SupabaseTarotService {
 
   // Get cards by type (major/minor arcana)
   async getCardsByType(type: 'major' | 'minor'): Promise<TarotCard[]> {
+    if (!supabase) {
+      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+    }
+    
     try {
       const { data, error } = await supabase
         .from('cards')
@@ -242,6 +280,10 @@ class SupabaseTarotService {
 
   // Search cards by name
   async searchCards(query: string): Promise<TarotCard[]> {
+    if (!supabase) {
+      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+    }
+    
     try {
       const { data, error } = await supabase
         .from('cards')
@@ -261,6 +303,10 @@ class SupabaseTarotService {
 
   // Get tutorials
   async getTutorials(language: string = 'en'): Promise<any[]> {
+    if (!supabase) {
+      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+    }
+    
     try {
       const { data, error } = await supabase
         .from('tutorials')
@@ -284,6 +330,10 @@ class SupabaseTarotService {
 
   // Get a specific tutorial section
   async getTutorialSection(sectionKey: string, language: string = 'en'): Promise<any> {
+    if (!supabase) {
+      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+    }
+    
     try {
       const { data, error } = await supabase
         .from('tutorials')

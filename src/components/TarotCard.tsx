@@ -40,6 +40,12 @@ export const TarotCardComponent: React.FC<TarotCardProps> = ({
   const { data: imagePath } = useCardImage(card.name);
   const { data: imageExists } = useCardImageExists(card.name);
 
+  // Debug logging (only in development)
+  if (import.meta.env.DEV) {
+    console.log(`Card name: "${card.name}", Image path: ${imagePath}, Exists: ${imageExists}`);
+    console.log(`Expected filename: ${card.name.toLowerCase().replace(/\s+/g, '_')}.jpg`);
+  }
+
   const getCardTypeLabel = (type: string) => {
     return type === 'major' ? 'Major Arcana' : 'Minor Arcana';
   };

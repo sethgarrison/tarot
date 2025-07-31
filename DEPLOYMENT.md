@@ -14,11 +14,19 @@ The application has been successfully cleaned up and is ready for deployment:
 ### 1. Environment Variables
 Make sure your Supabase environment variables are properly configured:
 
+**For Development:**
+Create a `.env` file in your project root:
 ```bash
-# These should be set in your deployment environment
 VITE_SUPABASE_URL=your_supabase_url
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
+
+**For Production:**
+Set environment variables in your deployment platform (Vercel, Netlify, etc.):
+- `VITE_SUPABASE_URL`: Your Supabase project URL
+- `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
+
+**Note:** GitHub Pages doesn't support environment variables. For GitHub Pages deployment, consider using Vercel or Netlify instead.
 
 ### 2. GitHub Pages Configuration
 The application is configured for GitHub Pages deployment:
@@ -31,7 +39,23 @@ Ensure all tarot card images are in the `public/tarot-images/` directory.
 
 ## Deployment Steps
 
-### Option 1: Deploy to GitHub Pages
+### Option 1: Deploy to Vercel (Recommended)
+
+1. **Connect your repository** to Vercel
+2. **Set environment variables** in Vercel dashboard:
+   - `VITE_SUPABASE_URL`: Your Supabase project URL
+   - `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
+3. **Deploy** - Vercel will automatically build and deploy your app
+
+### Option 2: Deploy to Netlify
+
+1. **Connect your repository** to Netlify
+2. **Set environment variables** in Netlify dashboard
+3. **Deploy** - Netlify will automatically build and deploy your app
+
+### Option 3: Deploy to GitHub Pages (Limited)
+
+**Note:** GitHub Pages doesn't support environment variables, so Supabase functionality won't work.
 
 1. **Push your code to GitHub:**
    ```bash
