@@ -3,7 +3,7 @@
   command = "npm run build"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "18.20"
 
 # Disable secret scanning since we use environment variables properly
 [build.processing.secrets_scanning]
