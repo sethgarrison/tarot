@@ -10,14 +10,7 @@ type AppPage = 'drawer' | 'deck' | 'tutorial';
 function App() {
   const [currentPage, setCurrentPage] = useState<AppPage>('drawer');
 
-  // Add error boundary and debugging
-  console.log('App component rendering...');
-  console.log('Environment variables:', {
-    VITE_SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL ? 'SET' : 'NOT SET',
-    VITE_SUPABASE_ANON_KEY: import.meta.env.VITE_SUPABASE_ANON_KEY ? 'SET' : 'NOT SET',
-    BASE_URL: import.meta.env.BASE_URL,
-    MODE: import.meta.env.MODE
-  });
+  // App component rendering
 
   return (
     <SWRProvider>

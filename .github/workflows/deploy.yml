@@ -1,10 +1,11 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (DISABLED - Using Netlify)
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # Disabled - using Netlify for deployment
+  # push:
+  #   branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
 
 jobs:
   build-and-deploy:
