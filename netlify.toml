@@ -4,8 +4,9 @@
 
 [build.environment]
   NODE_VERSION = "18.20"
+  SECRETS_SCAN_ENABLED = "false"
 
-# Disable secret scanning since we use environment variables properly
+# Disable secret scanning for this project
 [build.processing.secrets_scanning]
   enabled = false
 
