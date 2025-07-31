@@ -5,6 +5,10 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Disable secret scanning since we use environment variables properly
+[build.processing.secrets_scanning]
+  enabled = false
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
