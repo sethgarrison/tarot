@@ -6,13 +6,12 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // Check if we have valid credentials
-const hasValidCredentials = supabaseUrl && supabaseKey;
+const hasValidCredentials = supabaseUrl && supabaseKey && 
+  supabaseUrl !== 'NOT SET' && supabaseKey !== 'NOT SET';
 
 if (!hasValidCredentials) {
-  console.error('❌ Supabase credentials not configured properly');
-  console.error('Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables');
-  console.error('For development: create a .env file');
-  console.error('For production: set environment variables in your deployment platform');
+  console.warn('⚠️ Supabase credentials not configured - using fallback mode');
+  console.warn('For full functionality, deploy to Vercel/Netlify with environment variables');
 }
 
 const supabase = hasValidCredentials ? createClient(supabaseUrl, supabaseKey) : null;
@@ -74,7 +73,8 @@ class SupabaseTarotService {
   // Get all cards
   async getAllCards(): Promise<TarotCard[]> {
     if (!supabase) {
-      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+      console.warn('Supabase not configured - returning empty array');
+      return [];
     }
     
     try {
@@ -96,7 +96,8 @@ class SupabaseTarotService {
   // Get all cards with language support
   async getAllCardsWithLanguage(language: string = 'en'): Promise<any[]> {
     if (!supabase) {
-      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+      console.warn('Supabase not configured - returning empty array');
+      return [];
     }
     
     try {
@@ -118,7 +119,7 @@ class SupabaseTarotService {
   // Get a specific card by name
   async getCardByName(name: string): Promise<TarotCard> {
     if (!supabase) {
-      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+      throw new Error('Supabase not configured - cannot fetch specific card');
     }
     
     try {
@@ -141,7 +142,7 @@ class SupabaseTarotService {
   // Get a specific card by short name
   async getCardByNameShort(nameShort: string): Promise<TarotCard> {
     if (!supabase) {
-      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+      throw new Error('Supabase not configured - cannot fetch specific card');
     }
     
     try {
@@ -164,7 +165,7 @@ class SupabaseTarotService {
   // Get a random card
   async getRandomCard(): Promise<TarotCard> {
     if (!supabase) {
-      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+      throw new Error('Supabase not configured - cannot fetch random card');
     }
     
     try {
