@@ -78,6 +78,100 @@
   margin: 0 auto;
 }
 
+/* Desktop Navigation */
+.nav-desktop {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Mobile Navigation */
+.nav-mobile {
+  display: none;
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.nav-dropdown-toggle {
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-dropdown-toggle:hover {
+  background: rgba(64, 224, 208, 0.1);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.nav-dropdown-label {
+  flex: 1;
+  text-align: left;
+}
+
+.nav-dropdown-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+  margin-left: 10px;
+}
+
+.nav-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--background-dark);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: 12px 20px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.nav-dropdown-item:hover {
+  background: rgba(64, 224, 208, 0.1);
+  color: var(--primary-color);
+}
+
+.nav-dropdown-item.active {
+  background: rgba(64, 224, 208, 0.15);
+  color: var(--primary-color);
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .header-top {
@@ -89,13 +183,11 @@
     font-size: 2rem;
   }
   
-  .app-navigation {
-    flex-direction: column;
-    align-items: center;
+  .nav-desktop {
+    display: none;
   }
   
-  .nav-btn {
-    width: 100%;
-    max-width: 300px;
+  .nav-mobile {
+    display: block;
   }
 }

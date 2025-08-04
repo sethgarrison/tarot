@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslations } from '../../../utils/translationUtils';
 import { TutorialContentCard } from './TutorialContentCard';
 
 interface TutorialMajorArcanaProps {
@@ -7,6 +8,8 @@ interface TutorialMajorArcanaProps {
 }
 
 export const TutorialMajorArcana: React.FC<TutorialMajorArcanaProps> = ({ content, title }) => {
+  const { t } = useTranslations();
+
   if (!content) return null;
 
   return (
@@ -18,26 +21,26 @@ export const TutorialMajorArcana: React.FC<TutorialMajorArcanaProps> = ({ conten
       </div>
 
       <div className="content-grid">
-        <TutorialContentCard title="Characteristics">
+        <TutorialContentCard title={t('tutorialComponents.sections.characteristics')}>
           <ul>
             {Array.isArray(content.characteristics) ? content.characteristics.map((char: string, index: number) => (
               <li key={index}>{char}</li>
             )) : (
-              <li>{typeof content.characteristics === 'string' ? content.characteristics : 'No characteristics available'}</li>
+              <li>{typeof content.characteristics === 'string' ? content.characteristics : t('tutorialComponents.fallbacks.noCharacteristics')}</li>
             )}
           </ul>
         </TutorialContentCard>
 
-        <TutorialContentCard title="Numbering">
+        <TutorialContentCard title={t('tutorialComponents.sections.numbering')}>
           <p>{typeof content.numbering === 'string' ? content.numbering : JSON.stringify(content.numbering)}</p>
         </TutorialContentCard>
 
-        <TutorialContentCard title="Themes">
+        <TutorialContentCard title={t('tutorialComponents.sections.themes')}>
           <ul>
             {Array.isArray(content.themes) ? content.themes.map((theme: string, index: number) => (
               <li key={index}>{theme}</li>
             )) : (
-              <li>{typeof content.themes === 'string' ? content.themes : 'No themes available'}</li>
+              <li>{typeof content.themes === 'string' ? content.themes : t('tutorialComponents.fallbacks.noThemes')}</li>
             )}
           </ul>
         </TutorialContentCard>

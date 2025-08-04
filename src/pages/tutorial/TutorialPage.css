@@ -31,22 +31,122 @@
   margin: 0;
 }
 
-/* Tutorial Container */
+/* Tutorial Container - Updated for top navigation */
 .tutorial-container {
   display: flex;
-  gap: 30px;
+  flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
+  gap: 30px;
 }
 
-.tutorial-sidebar {
-  flex: 0 0 250px;
+/* Top Navigation Container */
+.tutorial-nav-container {
+  width: 100%;
+  background: var(--background-dark);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .tutorial-nav {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Desktop Navigation */
+.tutorial-nav-desktop {
+  display: flex;
+}
+
+/* Mobile Navigation */
+.tutorial-nav-mobile {
+  display: none;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.tutorial-dropdown-toggle {
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.tutorial-dropdown-toggle:hover {
+  background: rgba(64, 224, 208, 0.1);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.tutorial-dropdown-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+  margin-left: 10px;
+}
+
+.tutorial-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.tutorial-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--background-dark);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 2px;
+}
+
+.tutorial-dropdown-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tutorial-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.tutorial-dropdown-item:hover {
+  background: rgba(64, 224, 208, 0.1);
+  color: var(--primary-color);
+}
+
+.tutorial-dropdown-item.active {
+  background: rgba(64, 224, 208, 0.15);
+  color: var(--primary-color);
 }
 
 /* Image styling for tarot-gold icons */
@@ -79,11 +179,11 @@
   opacity: 1;
 }
 
-/* Update nav-item to accommodate images */
+/* Update nav-item for horizontal layout */
 .nav-item {
   display: flex;
   align-items: center;
-  padding: 12px 16px;
+  padding: 12px 20px;
   background: transparent;
   border: none !important;
   color: var(--text-primary);
@@ -91,14 +191,17 @@
   font-weight: 400;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-align: left;
+  text-align: center;
   letter-spacing: 0.5px;
+  border-radius: 8px;
+  min-width: 140px;
 }
 
 .nav-item:hover {
   background: rgba(64, 224, 208, 0.1);
   border-color: var(--primary-color);
   color: var(--primary-color);
+  transform: translateY(-2px);
 }
 
 .nav-item.active {
@@ -118,6 +221,7 @@
   border-radius: 8px;
   border: 1px solid var(--border-color);
   text-align: right;
+  flex: 1;
 }
 
 .tutorial-section {
@@ -373,13 +477,12 @@
     font-size: 1rem;
   }
 
-  .tutorial-navigation {
-    flex-direction: column;
-    align-items: center;
+  .tutorial-nav-desktop {
+    display: none;
   }
 
-  .nav-button {
-    min-width: 150px;
+  .tutorial-nav-mobile {
+    display: block;
   }
 
   .section-header h2 {
@@ -524,7 +627,7 @@
 }
 
 /* Remove border from nav and sidebar */
-.tutorial-sidebar,
+.tutorial-nav-container,
 .tutorial-nav,
 .nav-item,
 .tutorial-header,

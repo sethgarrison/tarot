@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
 import { SWRProvider } from './components/SWRProvider'
 import HomePage from './pages/home'
@@ -7,6 +7,8 @@ import DeckPage from './pages/deck'
 import TutorialPage from './pages/tutorial'
 import AdminPage from './pages/admin'
 import LanguageSwitcher from './components/LanguageSwitcher'
+import { useTranslations } from './utils/translationUtils'
+import { usePageTitle } from './utils/pageTitleUtils'
 import './App.css'
 import './utils/languageUtils.css'
 
@@ -28,53 +30,81 @@ export const useLanguage = () => useContext(LanguageContext);
 // Navigation component
 function Navigation() {
   const location = useLocation();
+  const { t } = useTranslations();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   
   const isActive = (path: string) => {
     return location.pathname === path;
   };
 
+  const navItems = [
+    { path: '/', label: t('navigation.home') },
+    { path: '/reader', label: t('navigation.drawCards') },
+    { path: '/deck', label: t('navigation.viewDeck') },
+    { path: '/tutorial', label: t('navigation.tutorial') },
+    { path: '/admin', label: t('navigation.admin') }
+  ];
+
+  const currentPage = navItems.find(item => item.path === location.pathname)?.label || t('navigation.home');
+
   return (
     <nav className="app-navigation">
-      <Link 
-        to="/"
-        className={`nav-btn ${isActive('/') ? 'active' : ''}`}
-      >
-        Home
-      </Link>
-      <Link 
-        to="/reader"
-        className={`nav-btn ${isActive('/reader') ? 'active' : ''}`}
-      >
-        Draw Cards
-      </Link>
-      <Link 
-        to="/deck"
-        className={`nav-btn ${isActive('/deck') ? 'active' : ''}`}
-      >
-        View Deck
-      </Link>
-      <Link 
-        to="/tutorial"
-        className={`nav-btn ${isActive('/tutorial') ? 'active' : ''}`}
-      >
-        Tutorial
-      </Link>
-      <Link 
-        to="/admin"
-        className={`nav-btn ${isActive('/admin') ? 'active' : ''}`}
-      >
-        Admin
-      </Link>
+      {/* Desktop Navigation */}
+      <div className="nav-desktop">
+        {navItems.map((item) => (
+          <Link 
+            key={item.path}
+            to={item.path}
+            className={`nav-btn ${isActive(item.path) ? 'active' : ''}`}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+
+      {/* Mobile Dropdown Navigation */}
+      <div className="nav-mobile">
+        <button 
+          className="nav-dropdown-toggle"
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          aria-expanded={isDropdownOpen}
+        >
+          <span className="nav-dropdown-label">{currentPage}</span>
+          <span className={`nav-dropdown-arrow ${isDropdownOpen ? 'open' : ''}`}>▼</span>
+        </button>
+        
+        {isDropdownOpen && (
+          <div className="nav-dropdown-menu">
+            {navItems.map((item) => (
+              <Link 
+                key={item.path}
+                to={item.path}
+                className={`nav-dropdown-item ${isActive(item.path) ? 'active' : ''}`}
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
     </nav>
   );
 }
 
 function App() {
   const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
+  const { t } = useTranslations();
+  const { updatePageTitle } = usePageTitle();
 
   const setLanguage = (lang: Language) => {
     setCurrentLanguage(lang);
   };
+
+  // Update page title when language changes
+  useEffect(() => {
+    updatePageTitle();
+  }, [currentLanguage]);
 
   return (
     <LanguageContext.Provider value={{ currentLanguage, setLanguage }}>
@@ -83,7 +113,7 @@ function App() {
           <div className="App">
             <header className="App-header">
               <div className="header-top">
-                <h1>Tarot Deck Reader</h1>
+                <h1>{t('header.title')}</h1>
                 <LanguageSwitcher />
               </div>
               <Navigation />

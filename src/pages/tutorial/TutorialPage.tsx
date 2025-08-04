@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTutorials, useTutorialSection } from '../../hooks/useTarotAPI';
 import { useLanguage } from '../../App';
+import { useTranslations } from '../../utils/translationUtils';
 import { TutorialOverview, TutorialMajorArcana, TutorialMinorArcana, TutorialSuits } from './components';
 import './TutorialPage.css';
 
@@ -10,7 +11,9 @@ interface TutorialPageProps {
 
 export const TutorialPage: React.FC<TutorialPageProps> = ({ className = '' }) => {
   const [activeSection, setActiveSection] = useState<string>('overview');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { currentLanguage } = useLanguage();
+  const { t } = useTranslations();
 
   // Fetch tutorials data using global language
   const { error: tutorialsError, isLoading: tutorialsLoading } = useTutorials(currentLanguage);
@@ -20,11 +23,13 @@ export const TutorialPage: React.FC<TutorialPageProps> = ({ className = '' }) =>
   const { data: suitsData, error: suitsError, isLoading: suitsLoading } = useTutorialSection('suits', currentLanguage);
 
   const sections = [
-    { id: 'overview', title: 'Overview', image: '/tarot-gold-1.png' },
-    { id: 'major_arcana', title: 'Major Arcana', image: '/tarot-gold-2.png' },
-    { id: 'minor_arcana', title: 'Minor Arcana', image: '/tarot-gold-3.png' },
-    { id: 'suits', title: 'Suits', image: '/tarot-gold-4.png' }
+    { id: 'overview', title: t('tutorialComponents.sections.history'), image: '/tarot-gold-1.png' },
+    { id: 'major_arcana', title: t('tutorialComponents.sections.majorArcana'), image: '/tarot-gold-2.png' },
+    { id: 'minor_arcana', title: t('tutorialComponents.sections.minorArcana'), image: '/tarot-gold-3.png' },
+    { id: 'suits', title: t('tutorialComponents.sections.cards'), image: '/tarot-gold-4.png' }
   ];
+
+  const currentSection = sections.find(section => section.id === activeSection) || sections[0];
 
   const renderSection = () => {
     if (!activeTutorialData) return null;
@@ -55,10 +60,10 @@ export const TutorialPage: React.FC<TutorialPageProps> = ({ className = '' }) =>
     return (
       <div className="tutorial-page">
         <div className="error-message">
-          <h3>Tutorial Error</h3>
-          <p>Unable to load tutorial content. Please try again later.</p>
+          <h3>{t('tutorialPage.error.title')}</h3>
+          <p>{t('tutorialPage.error.message')}</p>
           <button className="retry-btn" onClick={() => window.location.reload()}>
-            Retry
+            {t('tutorialPage.error.retry')}
           </button>
         </div>
       </div>
@@ -70,7 +75,7 @@ export const TutorialPage: React.FC<TutorialPageProps> = ({ className = '' }) =>
       <div className="tutorial-page">
         <div className="loading">
           <div className="spinner"></div>
-          <p>Loading tutorial content...</p>
+          <p>{t('tutorialPage.loading')}</p>
         </div>
       </div>
     );
@@ -78,14 +83,10 @@ export const TutorialPage: React.FC<TutorialPageProps> = ({ className = '' }) =>
 
   return (
     <div className={`tutorial-page ${className}`}>
-      <div className="tutorial-header">
-        <h1>Tarot Tutorial</h1>
-        <p>Learn the fundamentals of tarot reading and card interpretation</p>
-      </div>
-
       <div className="tutorial-container">
-        <div className="tutorial-sidebar">
-          <nav className="tutorial-nav">
+        <div className="tutorial-nav-container">
+          {/* Desktop Navigation */}
+          <nav className="tutorial-nav tutorial-nav-desktop">
             {sections.map((section) => (
               <button
                 key={section.id}
@@ -96,6 +97,37 @@ export const TutorialPage: React.FC<TutorialPageProps> = ({ className = '' }) =>
                 <span className="nav-title">{section.title}</span>
               </button>
             ))}
+          </nav>
+
+          {/* Mobile Dropdown Navigation */}
+          <nav className="tutorial-nav tutorial-nav-mobile">
+            <button 
+              className="tutorial-dropdown-toggle"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              aria-expanded={isDropdownOpen}
+            >
+              <img src={currentSection.image} alt={currentSection.title} className="nav-icon" />
+              <span className="nav-title">{currentSection.title}</span>
+              <span className={`tutorial-dropdown-arrow ${isDropdownOpen ? 'open' : ''}`}>▼</span>
+            </button>
+            
+            {isDropdownOpen && (
+              <div className="tutorial-dropdown-menu">
+                {sections.map((section) => (
+                  <button
+                    key={section.id}
+                    className={`tutorial-dropdown-item ${activeSection === section.id ? 'active' : ''}`}
+                    onClick={() => {
+                      setActiveSection(section.id);
+                      setIsDropdownOpen(false);
+                    }}
+                  >
+                    <img src={section.image} alt={section.title} className="nav-icon" />
+                    <span className="nav-title">{section.title}</span>
+                  </button>
+                ))}
+              </div>
+            )}
           </nav>
         </div>
 

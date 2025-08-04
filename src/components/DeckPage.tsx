@@ -1,8 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { useAllCards } from '../../hooks/useTarotAPI';
-import { useLanguage } from '../../App';
-import { useTranslations } from '../../utils/translationUtils';
-import TarotCardComponent from '../../components/TarotCard';
+import { useAllCards } from '../hooks/useTarotAPI';
+import { useLanguage } from '../App';
+import TarotCardComponent from './TarotCard';
 
 import './DeckPage.css';
 
@@ -16,7 +15,6 @@ type CardTypeFilter = 'all' | 'number' | 'court';
 
 export const DeckPage: React.FC<DeckPageProps> = ({ className = '' }) => {
   const { currentLanguage } = useLanguage();
-  const { t } = useTranslations();
   const { data: allCards, error, isLoading } = useAllCards(currentLanguage);
   
   // Filter states
@@ -113,7 +111,7 @@ export const DeckPage: React.FC<DeckPageProps> = ({ className = '' }) => {
       <div className={`deck-page ${className}`}>
         <div className="loading">
           <div className="spinner"></div>
-          <p>{t('deckPage.loading')}</p>
+          <p>Loading tarot deck...</p>
         </div>
       </div>
     );
@@ -123,10 +121,10 @@ export const DeckPage: React.FC<DeckPageProps> = ({ className = '' }) => {
     return (
       <div className={`deck-page ${className}`}>
         <div className="error-message">
-          <h3>{t('deckPage.error.title')}</h3>
-          <p>{t('deckPage.error.message')}</p>
+          <h3>Deck Loading Error</h3>
+          <p>Unable to load the tarot deck. Please try again later.</p>
           <button className="retry-btn" onClick={() => window.location.reload()}>
-            {t('deckPage.error.retry')}
+            Retry
           </button>
         </div>
       </div>
@@ -152,62 +150,62 @@ export const DeckPage: React.FC<DeckPageProps> = ({ className = '' }) => {
             onClick={clearFilters}
             disabled={arcanaFilter === 'all' && suitFilter === 'all' && cardTypeFilter === 'all' && !searchQuery}
           >
-            {t('deckPage.filters.clearFilters')}
+            Clear Filters
           </button>
         </div>
 
         <div className="filter-controls">
           <div className="filter-group">
-            <label className="filter-label">{t('deckPage.filters.arcana.label')}</label>
+            <label className="filter-label">Arcana:</label>
             <select 
               value={arcanaFilter} 
               onChange={(e) => setArcanaFilter(e.target.value as FilterType)}
               className="filter-select"
             >
-              <option value="all">{t('deckPage.filters.arcana.allCards')}</option>
-              <option value="major">{t('deckPage.filters.arcana.majorArcana')}</option>
-              <option value="minor">{t('deckPage.filters.arcana.minorArcana')}</option>
+              <option value="all">All Cards</option>
+              <option value="major">Major Arcana</option>
+              <option value="minor">Minor Arcana</option>
             </select>
           </div>
 
           <div className="filter-group">
-            <label className="filter-label">{t('deckPage.filters.suit.label')}</label>
+            <label className="filter-label">Suit:</label>
             <select 
               value={suitFilter} 
               onChange={(e) => setSuitFilter(e.target.value as SuitFilter)}
               className="filter-select"
               disabled={arcanaFilter === 'major'}
             >
-              <option value="all">{t('deckPage.filters.suit.allSuits')}</option>
-              <option value="wands">{t('deckPage.filters.suit.wands')}</option>
-              <option value="cups">{t('deckPage.filters.suit.cups')}</option>
-              <option value="swords">{t('deckPage.filters.suit.swords')}</option>
-              <option value="pentacles">{t('deckPage.filters.suit.pentacles')}</option>
+              <option value="all">All Suits</option>
+              <option value="wands">Wands</option>
+              <option value="cups">Cups</option>
+              <option value="swords">Swords</option>
+              <option value="pentacles">Pentacles</option>
             </select>
           </div>
 
           <div className="filter-group">
-            <label className="filter-label">{t('deckPage.filters.cardType.label')}</label>
+            <label className="filter-label">Card Type:</label>
             <select 
               value={cardTypeFilter} 
               onChange={(e) => setCardTypeFilter(e.target.value as CardTypeFilter)}
               className="filter-select"
               disabled={arcanaFilter === 'major'}
             >
-              <option value="all">{t('deckPage.filters.cardType.allTypes')}</option>
-              <option value="number">{t('deckPage.filters.cardType.numberCards')}</option>
-              <option value="court">{t('deckPage.filters.cardType.courtCards')}</option>
+              <option value="all">All Types</option>
+              <option value="number">Number Cards (Ace-10)</option>
+              <option value="court">Court Cards (Page, Knight, Queen, King)</option>
             </select>
           </div>
         </div>
 
         <div className="filter-stats">
           <span className="stats-text">
-            {t('deckPage.stats.showing', { filtered, total })}
+            Showing {filtered} of {total} cards
           </span>
           {filtered !== total && (
             <span className="filtered-indicator">
-              {t('deckPage.stats.filtered')}
+              (Filtered)
             </span>
           )}
         </div>
@@ -230,13 +228,13 @@ export const DeckPage: React.FC<DeckPageProps> = ({ className = '' }) => {
           <div className="no-cards">
             <div className="no-cards-content">
               <span className="no-cards-icon">🔍</span>
-              <h3>{t('deckPage.emptyState.title')}</h3>
-              <p>{t('deckPage.emptyState.message')}</p>
+              <h3>No cards found</h3>
+              <p>Try adjusting your filters or search terms</p>
               <button 
                 className="clear-filters-btn"
                 onClick={clearFilters}
               >
-                {t('deckPage.filters.clearAllFilters')}
+                Clear All Filters
               </button>
             </div>
           </div>

@@ -1,0 +1,386 @@
+{
+  "en": {
+    "navigation": {
+      "home": "Home",
+      "drawCards": "Draw Cards",
+      "viewDeck": "View Deck",
+      "tutorial": "Tutorial",
+      "admin": "Admin"
+    },
+    "header": {
+      "title": "Tarot Deck Reader"
+    },
+    "pageTitle": {
+      "main": "Tarot Card Tutorial and Reader"
+    },
+    "homePage": {
+      "welcome": "Welcome to Your Tarot Journey",
+      "description": "Discover the mystical world of tarot through intuitive card readings and comprehensive deck exploration.",
+      "drawCardsSection": {
+        "title": "Draw Cards",
+        "description": "Experience intuitive tarot readings with our interactive card drawing interface.",
+        "button": "Start Reading"
+      },
+      "exploreDeckSection": {
+        "title": "Explore Deck",
+        "description": "Browse the complete tarot deck with detailed meanings and interpretations.",
+        "button": "View Cards"
+      },
+      "learnTarotSection": {
+        "title": "Learn Tarot",
+        "description": "Master tarot fundamentals with our comprehensive tutorial and guide.",
+        "button": "Start Learning"
+      }
+    },
+    "languageSwitcher": {
+      "english": "English",
+      "spanish": "Español"
+    },
+    "deckPage": {
+      "loading": "Loading tarot deck...",
+      "error": {
+        "title": "Deck Loading Error",
+        "message": "Unable to load the tarot deck. Please try again later.",
+        "retry": "Retry"
+      },
+      "filters": {
+        "clearFilters": "Clear Filters",
+        "clearAllFilters": "Clear All Filters",
+        "arcana": {
+          "label": "Arcana:",
+          "allCards": "All Cards",
+          "majorArcana": "Major Arcana",
+          "minorArcana": "Minor Arcana"
+        },
+        "suit": {
+          "label": "Suit:",
+          "allSuits": "All Suits",
+          "wands": "Wands",
+          "cups": "Cups",
+          "swords": "Swords",
+          "pentacles": "Pentacles"
+        },
+        "cardType": {
+          "label": "Card Type:",
+          "allTypes": "All Types",
+          "numberCards": "Number Cards (Ace-10)",
+          "courtCards": "Court Cards (Page, Knight, Queen, King)"
+        }
+      },
+      "stats": {
+        "showing": "Showing {filtered} of {total} cards",
+        "filtered": "(Filtered)"
+      },
+      "emptyState": {
+        "title": "No cards found",
+        "message": "Try adjusting your filters or search terms"
+      }
+    },
+    "adminPage": {
+      "loading": "Loading cards...",
+      "error": {
+        "message": "Error: {error}",
+        "loadFailed": "Failed to load cards",
+        "saveFailed": "Failed to save card",
+        "retry": "Retry"
+      },
+      "title": "Card Management",
+      "description": "Edit and manage tarot card content and translations",
+      "filters": {
+        "allCards": "All Cards",
+        "majorArcana": "Major Arcana",
+        "minorArcana": "Minor Arcana"
+      },
+      "table": {
+        "id": "ID",
+        "type": "Type",
+        "actions": "Actions"
+      },
+      "status": {
+        "saving": "Saving...",
+        "saveChanges": "Save changes",
+        "cancelChanges": "Cancel changes"
+      },
+      "hints": {
+        "clickToEdit": "Click to edit"
+      },
+      "emptyState": {
+        "message": "No cards found matching your criteria."
+      }
+    },
+    "tutorialPage": {
+      "title": "Tarot Tutorial",
+      "description": "Learn the fundamentals of tarot reading and card interpretation",
+      "error": {
+        "title": "Tutorial Error",
+        "message": "Unable to load tutorial content. Please try again later.",
+        "retry": "Retry"
+      },
+      "loading": "Loading tutorial content..."
+    },
+    "tutorialComponents": {
+      "sections": {
+        "history": "History",
+        "cards": "Cards",
+        "majorArcana": "Major Arcana",
+        "minorArcana": "Minor Arcana",
+        "interestingTrivia": "Interesting Trivia",
+        "characteristics": "Characteristics",
+        "numbering": "Numbering",
+        "themes": "Themes",
+        "structure": "Structure",
+        "numberCards": "Number Cards",
+        "courtCards": "Court Cards",
+        "chooseSuit": "Choose a Suit",
+        "chooseCard": "Choose a Card",
+        "combinedInterpretation": "Combined Interpretation"
+      },
+      "fallbacks": {
+        "noCharacteristics": "No characteristics available",
+        "noThemes": "No themes available",
+        "noSuitInfo": "No suit information available",
+        "historyNotAvailable": "History content not available",
+        "cardsOverviewNotAvailable": "Cards overview not available",
+        "majorArcanaOverviewNotAvailable": "Major Arcana overview not available",
+        "minorArcanaOverviewNotAvailable": "Minor Arcana overview not available",
+        "triviaNotAvailable": "Trivia not available"
+      }
+    },
+    "tarotCard": {
+      "cardNotFound": "Card not found",
+      "interactions": {
+        "clickToFlip": "Click to flip",
+        "clickToFlipBack": "Click to flip back"
+      },
+      "sections": {
+        "uprightMeaning": "Upright Meaning",
+        "reversedMeaning": "Reversed Meaning",
+        "description": "Description"
+      }
+    },
+    "readerPage": {
+      "retry": "Retry",
+      "welcome": "Welcome to Your Tarot Reading",
+      "instruction": "Take a moment to center yourself and focus on your question or intention. When you're ready, draw a card to receive guidance from the universe.",
+      "readingTips": "Reading Tips",
+      "tip1": "Focus on a specific question or area of your life",
+      "tip2": "Take deep breaths and clear your mind",
+      "tip3": "Trust your intuition when interpreting the card",
+      "tip4": "Remember, tarot offers guidance, not prediction",
+      "drawCard": "🎲 Draw a Card",
+      "drawing": "Drawing...",
+      "yourReading": "Your Tarot Reading",
+      "readingSubtitle": "The universe has chosen this card for you. Take time to reflect on its meaning.",
+      "shuffling": "Shuffling the deck...",
+      "revealing": "Revealing your card...",
+      "drawAnother": "🔄 Draw Another Card",
+      "howToInterpret": "How to Interpret Your Card",
+      "uprightMeaning": "Upright Meaning",
+      "uprightDescription": "The card's natural energy and positive expression",
+      "reversedMeaning": "Reversed Meaning",
+      "reversedDescription": "Blocked energy or alternative interpretations",
+      "personalConnection": "Personal Connection",
+      "personalDescription": "How does this card relate to your question?",
+      "intuition": "Intuition",
+      "intuitionDescription": "Trust your first impressions and feelings",
+      "noCard": "No card was drawn. Please try again.",
+      "drawAgain": "Draw Again",
+      "mysticalInterference": "Mystical Interference",
+      "cardsNotResponding": "The cards are not responding. Please try again later.",
+      "tryAgain": "Try Again",
+      "tarotDeck": "Tarot Deck"
+    }
+  },
+  "es": {
+    "navigation": {
+      "home": "Inicio",
+      "drawCards": "Sacar Cartas",
+      "viewDeck": "Ver Mazo",
+      "tutorial": "Tutorial",
+      "admin": "Admin"
+    },
+    "header": {
+      "title": "Lector de Mazo de Tarot"
+    },
+    "pageTitle": {
+      "main": "Tutorial y Lector de Cartas de Tarot"
+    },
+    "homePage": {
+      "welcome": "Bienvenido a Tu Viaje de Tarot",
+      "description": "Descubre el mundo místico del tarot a través de lecturas intuitivas de cartas y exploración integral del mazo.",
+      "drawCardsSection": {
+        "title": "Sacar Cartas",
+        "description": "Experimenta lecturas intuitivas de tarot con nuestra interfaz interactiva de extracción de cartas.",
+        "button": "Comenzar Lectura"
+      },
+      "exploreDeckSection": {
+        "title": "Explorar Mazo",
+        "description": "Navega por el mazo completo de tarot con significados e interpretaciones detalladas.",
+        "button": "Ver Cartas"
+      },
+      "learnTarotSection": {
+        "title": "Aprender Tarot",
+        "description": "Domina los fundamentos del tarot con nuestro tutorial y guía integral.",
+        "button": "Comenzar a Aprender"
+      }
+    },
+    "languageSwitcher": {
+      "english": "English",
+      "spanish": "Español"
+    },
+    "deckPage": {
+      "loading": "Cargando mazo de tarot...",
+      "error": {
+        "title": "Error al Cargar Mazo",
+        "message": "No se pudo cargar el mazo de tarot. Por favor, inténtalo de nuevo más tarde.",
+        "retry": "Reintentar"
+      },
+      "filters": {
+        "clearFilters": "Limpiar Filtros",
+        "clearAllFilters": "Limpiar Todos los Filtros",
+        "arcana": {
+          "label": "Arcano:",
+          "allCards": "Todas las Cartas",
+          "majorArcana": "Arcano Mayor",
+          "minorArcana": "Arcano Menor"
+        },
+        "suit": {
+          "label": "Palo:",
+          "allSuits": "Todos los Palos",
+          "wands": "Bastos",
+          "cups": "Copas",
+          "swords": "Espadas",
+          "pentacles": "Oros"
+        },
+        "cardType": {
+          "label": "Tipo de Carta:",
+          "allTypes": "Todos los Tipos",
+          "numberCards": "Cartas Numeradas (As-10)",
+          "courtCards": "Cartas de Corte (Paje, Caballero, Reina, Rey)"
+        }
+      },
+      "stats": {
+        "showing": "Mostrando {filtered} de {total} cartas",
+        "filtered": "(Filtrado)"
+      },
+      "emptyState": {
+        "title": "No se encontraron cartas",
+        "message": "Intenta ajustar tus filtros o términos de búsqueda"
+      }
+    },
+    "adminPage": {
+      "loading": "Cargando cartas...",
+      "error": {
+        "message": "Error: {error}",
+        "loadFailed": "Error al cargar cartas",
+        "saveFailed": "Error al guardar carta",
+        "retry": "Reintentar"
+      },
+      "title": "Gestión de Cartas",
+      "description": "Edita y gestiona el contenido de las cartas de tarot y traducciones",
+      "filters": {
+        "allCards": "Todas las Cartas",
+        "majorArcana": "Arcano Mayor",
+        "minorArcana": "Arcano Menor"
+      },
+      "table": {
+        "id": "ID",
+        "type": "Tipo",
+        "actions": "Acciones"
+      },
+      "status": {
+        "saving": "Guardando...",
+        "saveChanges": "Guardar cambios",
+        "cancelChanges": "Cancelar cambios"
+      },
+      "hints": {
+        "clickToEdit": "Haz clic para editar"
+      },
+      "emptyState": {
+        "message": "No se encontraron cartas que coincidan con tus criterios."
+      }
+    },
+    "tutorialPage": {
+      "title": "Tutorial de Tarot",
+      "description": "Aprende los fundamentos de la lectura de tarot e interpretación de cartas",
+      "error": {
+        "title": "Error del Tutorial",
+        "message": "No se pudo cargar el contenido del tutorial. Por favor, inténtalo de nuevo más tarde.",
+        "retry": "Reintentar"
+      },
+      "loading": "Cargando contenido del tutorial..."
+    },
+    "tutorialComponents": {
+      "sections": {
+        "history": "Historia",
+        "cards": "Cartas",
+        "majorArcana": "Arcano Mayor",
+        "minorArcana": "Arcano Menor",
+        "interestingTrivia": "Datos Interesantes",
+        "characteristics": "Características",
+        "numbering": "Numeración",
+        "themes": "Temas",
+        "structure": "Estructura",
+        "numberCards": "Cartas Numeradas",
+        "courtCards": "Cartas de Corte",
+        "chooseSuit": "Elige un Palo",
+        "chooseCard": "Elige una Carta",
+        "combinedInterpretation": "Interpretación Combinada"
+      },
+      "fallbacks": {
+        "noCharacteristics": "No hay características disponibles",
+        "noThemes": "No hay temas disponibles",
+        "noSuitInfo": "No hay información del palo disponible",
+        "historyNotAvailable": "Contenido de historia no disponible",
+        "cardsOverviewNotAvailable": "Resumen de cartas no disponible",
+        "majorArcanaOverviewNotAvailable": "Resumen del Arcano Mayor no disponible",
+        "minorArcanaOverviewNotAvailable": "Resumen del Arcano Menor no disponible",
+        "triviaNotAvailable": "Datos curiosos no disponibles"
+      }
+    },
+    "tarotCard": {
+      "cardNotFound": "Carta no encontrada",
+      "interactions": {
+        "clickToFlip": "Haz clic para voltear",
+        "clickToFlipBack": "Haz clic para voltear de vuelta"
+      },
+      "sections": {
+        "uprightMeaning": "Significado Derecho",
+        "reversedMeaning": "Significado Invertido",
+        "description": "Descripción"
+      }
+    },
+    "readerPage": {
+      "retry": "Reintentar",
+      "welcome": "Bienvenido a Tu Lectura de Tarot",
+      "instruction": "Tómate un momento para centrarte y enfocarte en tu pregunta o intención. Cuando estés listo, saca una carta para recibir orientación del universo.",
+      "readingTips": "Consejos de Lectura",
+      "tip1": "Enfócate en una pregunta específica o área de tu vida",
+      "tip2": "Respira profundamente y limpia tu mente",
+      "tip3": "Confía en tu intuición al interpretar la carta",
+      "tip4": "Recuerda, el tarot ofrece orientación, no predicción",
+      "drawCard": "🎲 Sacar una Carta",
+      "drawing": "Sacando...",
+      "yourReading": "Tu Lectura de Tarot",
+      "readingSubtitle": "El universo ha elegido esta carta para ti. Tómate tiempo para reflexionar sobre su significado.",
+      "shuffling": "Barajando el mazo...",
+      "revealing": "Revelando tu carta...",
+      "drawAnother": "🔄 Sacar Otra Carta",
+      "howToInterpret": "Cómo Interpretar Tu Carta",
+      "uprightMeaning": "Significado Derecho",
+      "uprightDescription": "La energía natural de la carta y su expresión positiva",
+      "reversedMeaning": "Significado Invertido",
+      "reversedDescription": "Energía bloqueada o interpretaciones alternativas",
+      "personalConnection": "Conexión Personal",
+      "personalDescription": "¿Cómo se relaciona esta carta con tu pregunta?",
+      "intuition": "Intuición",
+      "intuitionDescription": "Confía en tus primeras impresiones y sentimientos",
+      "noCard": "No se sacó ninguna carta. Por favor, intenta de nuevo.",
+      "drawAgain": "Sacar de Nuevo",
+      "mysticalInterference": "Interferencia Mística",
+      "cardsNotResponding": "Las cartas no están respondiendo. Por favor, intenta más tarde.",
+      "tryAgain": "Intentar de Nuevo",
+      "tarotDeck": "Mazo de Tarot"
+    }
+  }
+} 

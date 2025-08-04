@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslations } from '../../../utils/translationUtils';
 
 interface TutorialSuitsProps {
   content: any;
@@ -6,6 +7,8 @@ interface TutorialSuitsProps {
 }
 
 export const TutorialSuits: React.FC<TutorialSuitsProps> = ({ content, title }) => {
+  const { t } = useTranslations();
+
   if (!content) return null;
 
   console.log('suits', content);
@@ -52,7 +55,7 @@ export const TutorialSuits: React.FC<TutorialSuitsProps> = ({ content, title }) 
           </div>
         )) : (
           <div className="suit-card">
-            <p>No suit information available</p>
+            <p>{t('tutorialComponents.fallbacks.noSuitInfo')}</p>
           </div>
         )}
       </div>
