@@ -5,7 +5,7 @@ import { getImagePath, checkImageExists } from '../utils/imageUtils';
 
 // Hook to get all cards
 export const useAllCards = (language: string = 'en') => {
-  return useSWR<TarotCard[]>(`all-cards-${language}`, () => supabaseTarotAPI.getAllCards(), {
+  return useSWR<TarotCard[]>(`all-cards-${language}`, () => supabaseTarotAPI.getAllCardsWithLanguage(language), {
     revalidateOnFocus: false,
     revalidateOnReconnect: true,
     dedupingInterval: 60000, // 1 minute
@@ -17,7 +17,7 @@ export const useAllCards = (language: string = 'en') => {
 export const useCardByName = (name: string, language: string = 'en') => {
   return useSWR<TarotCard>(
     name ? `card-${name}-${language}` : null,
-    () => supabaseTarotAPI.getCardByName(name),
+    () => supabaseTarotAPI.getCardByNameWithLanguage(name, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -31,7 +31,7 @@ export const useCardByName = (name: string, language: string = 'en') => {
 export const useCardByNameShort = (nameShort: string, language: string = 'en') => {
   return useSWR<TarotCard>(
     nameShort ? `card-short-${nameShort}-${language}` : null,
-    () => supabaseTarotAPI.getCardByNameShort(nameShort),
+    () => supabaseTarotAPI.getCardByNameShortWithLanguage(nameShort, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -45,7 +45,7 @@ export const useCardByNameShort = (nameShort: string, language: string = 'en') =
 export const useRandomCard = (language: string = 'en') => {
   return useSWR<TarotCard>(
     `random-card-${language}`,
-    () => supabaseTarotAPI.getRandomCard(),
+    () => supabaseTarotAPI.getRandomCardWithLanguage(language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
@@ -59,7 +59,7 @@ export const useRandomCard = (language: string = 'en') => {
 export const useRandomCards = (count: number, language: string = 'en') => {
   return useSWR<TarotCardDetail[]>(
     `random-cards-${count}-${language}`,
-    () => supabaseTarotAPI.getRandomCards(count),
+    () => supabaseTarotAPI.getRandomCardsWithLanguage(count, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
@@ -73,7 +73,7 @@ export const useRandomCards = (count: number, language: string = 'en') => {
 export const useCardsBySuit = (suit: string, language: string = 'en') => {
   return useSWR<TarotCard[]>(
     suit ? `cards-suit-${suit}-${language}` : null,
-    () => supabaseTarotAPI.getCardsBySuit(suit),
+    () => supabaseTarotAPI.getCardsBySuitWithLanguage(suit, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -87,7 +87,7 @@ export const useCardsBySuit = (suit: string, language: string = 'en') => {
 export const useCardsByType = (type: 'major' | 'minor', language: string = 'en') => {
   return useSWR<TarotCard[]>(
     type ? `cards-type-${type}-${language}` : null,
-    () => supabaseTarotAPI.getCardsByType(type),
+    () => supabaseTarotAPI.getCardsByTypeWithLanguage(type, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -101,7 +101,7 @@ export const useCardsByType = (type: 'major' | 'minor', language: string = 'en')
 export const useMajorArcana = (language: string = 'en') => {
   return useSWR<TarotCard[]>(
     `major-arcana-${language}`,
-    () => supabaseTarotAPI.getMajorArcana(),
+    () => supabaseTarotAPI.getMajorArcanaWithLanguage(language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -115,7 +115,7 @@ export const useMajorArcana = (language: string = 'en') => {
 export const useMinorArcana = (language: string = 'en') => {
   return useSWR<TarotCard[]>(
     `minor-arcana-${language}`,
-    () => supabaseTarotAPI.getMinorArcana(),
+    () => supabaseTarotAPI.getMinorArcanaWithLanguage(language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -129,7 +129,7 @@ export const useMinorArcana = (language: string = 'en') => {
 export const useSearchCards = (query: string, language: string = 'en') => {
   return useSWR<TarotCard[]>(
     query ? `search-${query}-${language}` : null,
-    () => supabaseTarotAPI.searchCards(query),
+    () => supabaseTarotAPI.searchCardsWithLanguage(query, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -153,10 +153,10 @@ export const useTutorials = (language: string = 'en') => {
   );
 };
 
-// Hook to get a specific tutorial section
+// Hook to get tutorial section
 export const useTutorialSection = (sectionKey: string, language: string = 'en') => {
   return useSWR<any>(
-    sectionKey ? `tutorial-${sectionKey}-${language}` : null,
+    sectionKey ? `tutorial-section-${sectionKey}-${language}` : null,
     () => supabaseTarotAPI.getTutorialSection(sectionKey, language),
     {
       revalidateOnFocus: false,
@@ -167,16 +167,16 @@ export const useTutorialSection = (sectionKey: string, language: string = 'en') 
   );
 };
 
-// Hook to get card image
+// Hook to get card image path
 export const useCardImage = (cardName: string) => {
   return useSWR<string>(
     cardName ? `card-image-${cardName}` : null,
-    () => Promise.resolve(getImagePath(cardName)),
+    () => getImagePath(cardName),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
-      dedupingInterval: 600000, // 10 minutes
-      errorRetryCount: 3,
+      dedupingInterval: 3600000, // 1 hour
+      errorRetryCount: 1,
     }
   );
 };
@@ -185,14 +185,12 @@ export const useCardImage = (cardName: string) => {
 export const useCardImageExists = (cardName: string) => {
   return useSWR<boolean>(
     cardName ? `card-image-exists-${cardName}` : null,
-    async () => {
-      return await checkImageExists(cardName);
-    },
+    () => checkImageExists(cardName),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
-      dedupingInterval: 600000, // 10 minutes
-      errorRetryCount: 3,
+      dedupingInterval: 3600000, // 1 hour
+      errorRetryCount: 1,
     }
   );
 }; 

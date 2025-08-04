@@ -1,7 +1,29 @@
+// Multilingual content interface
+export interface MultilingualContent {
+  en: string;
+  es?: string;
+}
+
+// Database card interface (matches actual Supabase schema)
+export interface DatabaseCard {
+  name_short: string;
+  name: MultilingualContent;
+  type: string;
+  value: MultilingualContent;
+  value_int: number;
+  meaning_up: MultilingualContent;
+  meaning_rev: MultilingualContent;
+  description: MultilingualContent;
+  suit?: MultilingualContent;
+  image_path?: string;
+}
+
+// Legacy interface for backward compatibility (flattened for API)
 export interface TarotCard {
   type: string;
   name_short: string;
   name: string;
+  name_en?: string; // English name for image lookups
   value: string;
   value_int: number;
   meaning_up: string;
@@ -38,6 +60,13 @@ export interface TarotReading {
 export interface TarotAPIError {
   error: string;
   message: string;
+}
+
+// Admin interface for editing cards
+export interface EditableCard extends DatabaseCard {
+  isEditing: boolean;
+  originalData: DatabaseCard;
+  hasChanges: boolean;
 }
 
 // API endpoints - using the working tarotapi.dev

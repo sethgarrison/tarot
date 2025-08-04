@@ -58,12 +58,13 @@ function getCardWithLanguage(dbCard: {
   return {
     name_short: dbCard.name_short,
     name: (dbCard.name as any)[language] || dbCard.name.en,
+    name_en: dbCard.name.en, // Keep English name for image lookups
     type: dbCard.type,
     value: (dbCard.value as any)[language] || dbCard.value.en,
     value_int: dbCard.value_int,
     meaning_up: (dbCard.meaning_up as any)[language] || dbCard.meaning_up.en,
     meaning_rev: (dbCard.meaning_rev as any)[language] || dbCard.meaning_rev.en,
-    description: (dbCard.description as any)[language] || dbCard.description.en,
+    desc: (dbCard.description as any)[language] || dbCard.description.en,
     suit: dbCard.suit ? ((dbCard.suit as any)[language] || dbCard.suit.en) : undefined,
     image_path: dbCard.image_path
   };
@@ -104,6 +105,198 @@ class SupabaseTarotService {
       const { data, error } = await supabase
         .from('cards')
         .select('*')
+        .order('name_short');
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      return data.map(card => getCardWithLanguage(card, language));
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  // Get card by name with language support
+  async getCardByNameWithLanguage(name: string, language: string = 'en'): Promise<any> {
+    if (!supabase) {
+      console.warn('Supabase not configured - returning empty object');
+      return {};
+    }
+    
+    try {
+      const { data, error } = await supabase
+        .from('cards')
+        .select('*')
+        .eq('name->en', name)
+        .single();
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      return getCardWithLanguage(data, language);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  // Get card by name short with language support
+  async getCardByNameShortWithLanguage(nameShort: string, language: string = 'en'): Promise<any> {
+    if (!supabase) {
+      console.warn('Supabase not configured - returning empty object');
+      return {};
+    }
+    
+    try {
+      const { data, error } = await supabase
+        .from('cards')
+        .select('*')
+        .eq('name_short', nameShort)
+        .single();
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      return getCardWithLanguage(data, language);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  // Get random card with language support
+  async getRandomCardWithLanguage(language: string = 'en'): Promise<any> {
+    if (!supabase) {
+      console.warn('Supabase not configured - returning empty object');
+      return {};
+    }
+    
+    try {
+      // Get all cards first
+      const { data, error } = await supabase
+        .from('cards')
+        .select('*');
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      if (!data || data.length === 0) {
+        throw new Error('No cards found');
+      }
+
+      // Select a random card
+      const randomIndex = Math.floor(Math.random() * data.length);
+      const randomCard = data[randomIndex];
+
+      return getCardWithLanguage(randomCard, language);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  // Get random cards with language support
+  async getRandomCardsWithLanguage(count: number, language: string = 'en'): Promise<any[]> {
+    if (!supabase) {
+      console.warn('Supabase not configured - returning empty array');
+      return [];
+    }
+    
+    try {
+      // Get all cards first
+      const { data, error } = await supabase
+        .from('cards')
+        .select('*');
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      if (!data || data.length === 0) {
+        return [];
+      }
+
+      // Shuffle and select random cards
+      const shuffled = [...data].sort(() => 0.5 - Math.random());
+      const selectedCards = shuffled.slice(0, Math.min(count, data.length));
+
+      return selectedCards.map(card => getCardWithLanguage(card, language));
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  // Get cards by suit with language support
+  async getCardsBySuitWithLanguage(suit: string, language: string = 'en'): Promise<any[]> {
+    if (!supabase) {
+      console.warn('Supabase not configured - returning empty array');
+      return [];
+    }
+    
+    try {
+      const { data, error } = await supabase
+        .from('cards')
+        .select('*')
+        .eq('suit->en', suit)
+        .order('value_int');
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      return data.map(card => getCardWithLanguage(card, language));
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  // Get cards by type with language support
+  async getCardsByTypeWithLanguage(type: 'major' | 'minor', language: string = 'en'): Promise<any[]> {
+    if (!supabase) {
+      console.warn('Supabase not configured - returning empty array');
+      return [];
+    }
+    
+    try {
+      const { data, error } = await supabase
+        .from('cards')
+        .select('*')
+        .eq('type', type)
+        .order('value_int');
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      return data.map(card => getCardWithLanguage(card, language));
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  // Get major arcana with language support
+  async getMajorArcanaWithLanguage(language: string = 'en'): Promise<any[]> {
+    return this.getCardsByTypeWithLanguage('major', language);
+  }
+
+  // Get minor arcana with language support
+  async getMinorArcanaWithLanguage(language: string = 'en'): Promise<any[]> {
+    return this.getCardsByTypeWithLanguage('minor', language);
+  }
+
+  // Search cards with language support
+  async searchCardsWithLanguage(query: string, language: string = 'en'): Promise<any[]> {
+    if (!supabase) {
+      console.warn('Supabase not configured - returning empty array');
+      return [];
+    }
+    
+    try {
+      const { data, error } = await supabase
+        .from('cards')
+        .select('*')
+        .or(`name->en.ilike.%${query}%,name->es.ilike.%${query}%,description->en.ilike.%${query}%,description->es.ilike.%${query}%`)
         .order('name_short');
 
       if (error) {
@@ -332,7 +525,8 @@ class SupabaseTarotService {
   // Get a specific tutorial section
   async getTutorialSection(sectionKey: string, language: string = 'en'): Promise<any> {
     if (!supabase) {
-      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+      console.warn('Supabase not configured - returning empty object');
+      return {};
     }
     
     try {
@@ -340,18 +534,64 @@ class SupabaseTarotService {
         .from('tutorials')
         .select('*')
         .eq('section_key', sectionKey)
-        .eq('is_active', true)
+        .eq('language', language)
         .single();
 
       if (error) {
         throw new Error(error.message);
       }
 
-      return {
-        section_key: data.section_key,
-        title: data.title[language] || data.title.en,
-        content: data.content[language] || data.content.en
-      };
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  // Admin functions for updating cards
+  async updateCard(cardId: string, updates: Partial<{
+    name: { en: string; es?: string };
+    value: { en: string; es?: string };
+    meaning_up: { en: string; es?: string };
+    meaning_rev: { en: string; es?: string };
+    description: { en: string; es?: string };
+    suit?: { en: string; es?: string };
+  }>): Promise<void> {
+    if (!supabase) {
+      throw new Error('Supabase not configured');
+    }
+    
+    try {
+      const { error } = await supabase
+        .from('cards')
+        .update(updates)
+        .eq('name_short', cardId);
+
+      if (error) {
+        throw new Error(error.message);
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  // Get all cards for admin interface
+  async getAllCardsForAdmin(): Promise<any[]> {
+    if (!supabase) {
+      console.warn('Supabase not configured - returning empty array');
+      return [];
+    }
+    
+    try {
+      const { data, error } = await supabase
+        .from('cards')
+        .select('*')
+        .order('value_int', { ascending: true });
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      return data || [];
     } catch (error) {
       throw error;
     }

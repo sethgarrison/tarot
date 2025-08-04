@@ -37,8 +37,8 @@ export const TarotCardComponent: React.FC<TarotCardProps> = ({
     );
   }
 
-  const { data: imagePath } = useCardImage(card.name);
-  const { data: imageExists } = useCardImageExists(card.name);
+  const { data: imagePath } = useCardImage(card.name_en || card.name);
+  const { data: imageExists } = useCardImageExists(card.name_en || card.name);
 
   // Debug logging (only in development)
   if (import.meta.env.DEV) {

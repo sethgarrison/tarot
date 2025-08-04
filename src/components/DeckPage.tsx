@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useAllCards } from '../hooks/useTarotAPI';
+import { useLanguage } from '../App';
 import TarotCardComponent from './TarotCard';
 
 import './DeckPage.css';
@@ -13,7 +14,8 @@ type SuitFilter = 'all' | 'wands' | 'cups' | 'swords' | 'pentacles';
 type CardTypeFilter = 'all' | 'number' | 'court';
 
 export const DeckPage: React.FC<DeckPageProps> = ({ className = '' }) => {
-  const { data: allCards, error, isLoading } = useAllCards();
+  const { currentLanguage } = useLanguage();
+  const { data: allCards, error, isLoading } = useAllCards(currentLanguage);
   
   // Filter states
   const [arcanaFilter, setArcanaFilter] = useState<FilterType>('all');
@@ -131,11 +133,6 @@ export const DeckPage: React.FC<DeckPageProps> = ({ className = '' }) => {
 
   return (
     <div className={`deck-page ${className}`}>
-      <div className="deck-header">
-        <h1>🎴 Tarot Deck</h1>
-        <p>Explore all 78 cards of the tarot deck</p>
-      </div>
-
       {/* Filters Section */}
       <div className="filters-section">
         <div className="search-bar">
