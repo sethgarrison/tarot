@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabaseTarotAPI } from '../services/supabaseAPI';
 import { useLanguage } from '../App';
-import { useMultilingualText, MultilingualText } from '../utils/languageUtils';
+import { MultilingualText } from '../utils/languageUtils';
 import type { DatabaseCard, EditableCard, MultilingualContent } from '../types/tarot';
 import './AdminPage.css';
 
@@ -12,7 +12,6 @@ const AdminPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState<'all' | 'major' | 'minor'>('all');
   const { currentLanguage } = useLanguage();
-  const { getText } = useMultilingualText();
   const [savingCard, setSavingCard] = useState<string | null>(null);
   const [editingCell, setEditingCell] = useState<{ cardId: string; field: string } | null>(null);
   const [rowChanges, setRowChanges] = useState<Record<string, Partial<DatabaseCard>>>({});
