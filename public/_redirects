@@ -1,0 +1,4 @@
+# Netlify redirects for React Router
+# This ensures that direct URL access works correctly
+
+/*    /index.html   200 

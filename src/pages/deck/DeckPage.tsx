@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { useAllCards } from '../hooks/useTarotAPI';
-import { useLanguage } from '../App';
-import TarotCardComponent from './TarotCard';
+import { useAllCards } from '../../hooks/useTarotAPI';
+import { useLanguage } from '../../App';
+import TarotCardComponent from '../../components/TarotCard';
 
 import './DeckPage.css';
 
@@ -121,9 +121,11 @@ export const DeckPage: React.FC<DeckPageProps> = ({ className = '' }) => {
     return (
       <div className={`deck-page ${className}`}>
         <div className="error-message">
-          <h3>🔮 Deck Loading Error</h3>
+          <h3>Deck Loading Error</h3>
           <p>Unable to load the tarot deck. Please try again later.</p>
-          <p className="error-details">{error.message}</p>
+          <button className="retry-btn" onClick={() => window.location.reload()}>
+            Retry
+          </button>
         </div>
       </div>
     );

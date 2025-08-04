@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { supabaseTarotAPI } from '../services/supabaseAPI';
-import { useLanguage } from '../App';
-import { MultilingualText } from '../utils/languageUtils';
-import type { DatabaseCard, EditableCard, MultilingualContent } from '../types/tarot';
+import { supabaseTarotAPI } from '../../services/supabaseAPI';
+import { useLanguage } from '../../App';
+import { MultilingualText } from '../../utils/languageUtils';
+import type { DatabaseCard, EditableCard, MultilingualContent } from '../../types/tarot';
 import './AdminPage.css';
 
 const AdminPage: React.FC = () => {
@@ -165,8 +165,8 @@ const AdminPage: React.FC = () => {
   return (
     <div className="admin-page">
       <div className="admin-header">
-        <h2>🔧 Card Management</h2>
-        <p>Edit card information and translations</p>
+        <h2>Card Management</h2>
+        <p>Edit and manage tarot card content and translations</p>
       </div>
 
       <div className="admin-controls">

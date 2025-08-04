@@ -2,16 +2,17 @@
 
 /* CSS Variables */
 :root {
-  --primary-color: #40e0d0;
-  --primary-dark: #48d1cc;
-  --secondary-color: #ffd700;
+  --primary-color: #40e0d0; /* Turquoise */
+  --primary-dark: #30c0b0;
+  --secondary-color: #ffd700; /* Mustard */
+  --secondary-dark: #e6c200;
   --background-dark: #000000;
-  --background-light: #1a1a1a;
+  --background-light: #0a0a0a;
   --text-primary: #ffffff;
-  --text-secondary: #cccccc;
+  --text-secondary: #f0f0f0;
   --text-muted: #888888;
-  --border-color: rgba(64, 224, 208, 0.3);
-  --shadow-color: rgba(0, 0, 0, 0.3);
+  --border-color: rgba(64, 224, 208, 0.2);
+  --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Reset and Base Styles */

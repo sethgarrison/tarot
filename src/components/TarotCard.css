@@ -41,10 +41,11 @@
 .card-image-container {
   width: 100%;
   height: 100%;
-  border-radius: 20px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  background: var(--background-light);
+  border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,7 +54,7 @@
 .card-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
@@ -67,10 +68,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-  color: #fff;
+  background: var(--background-light);
+  color: var(--text-primary);
   text-align: center;
   padding: 20px;
+  border: 1px solid var(--border-color);
 }
 
 .no-image.hidden {
@@ -87,15 +89,16 @@
 .card-symbol {
   font-size: 4rem;
   opacity: 0.8;
-  color: #40e0d0;
+  color: var(--primary-color);
 }
 
 .card-name {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 300;
   text-align: center;
   line-height: 1.3;
-  color: #40e0d0;
+  color: var(--primary-color);
+  letter-spacing: 1px;
 }
 
 .flip-hint {
@@ -126,10 +129,10 @@
   transition: transform 0.8s ease;
   transform-style: preserve-3d;
   transform: rotateY(180deg);
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2a2a2a 100%);
-  border-radius: 20px;
-  border: 3px solid rgba(64, 224, 208, 0.4);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  background: var(--background-light);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -138,19 +141,17 @@
 .card-back-content {
   flex: 1;
   padding: 30px;
-  color: #fff;
+  color: var(--text-primary);
   overflow-y: auto;
 }
 
 .card-back .card-title {
   font-size: 1.8rem;
-  font-weight: bold;
+  font-weight: 300;
   margin: 0 0 15px 0;
-  background: linear-gradient(45deg, #40e0d0, #48d1cc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary-color);
   text-align: center;
+  letter-spacing: 1px;
 }
 
 .card-back .card-meta {
@@ -165,12 +166,12 @@
 .card-back .card-suit,
 .card-back .card-value {
   background: rgba(64, 224, 208, 0.1);
-  color: #40e0d0;
+  color: var(--primary-color);
   padding: 4px 10px;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 0.8rem;
-  font-weight: 500;
-  border: 1px solid rgba(64, 224, 208, 0.3);
+  font-weight: 400;
+  border: 1px solid var(--border-color);
 }
 
 .card-back .meanings-section {
@@ -181,42 +182,44 @@
 }
 
 .card-back .meaning-group {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
   padding: 15px;
-  border-left: 3px solid #40e0d0;
+  border-left: 2px solid var(--primary-color);
 }
 
 .card-back .meaning-title {
-  color: #40e0d0;
+  color: var(--primary-color);
   margin: 0 0 8px 0;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 .card-back .meaning-text {
-  color: #ccc;
+  color: var(--text-secondary);
   line-height: 1.5;
   margin: 0;
   font-size: 0.9rem;
 }
 
 .card-back .description-section {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
   padding: 15px;
-  border-left: 3px solid #ffd700;
+  border-left: 2px solid var(--secondary-color);
 }
 
 .card-back .description-title {
-  color: #ffd700;
+  color: var(--secondary-color);
   margin: 0 0 8px 0;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 .card-back .description-text {
-  color: #ccc;
+  color: var(--text-secondary);
   line-height: 1.5;
   margin: 0;
   font-size: 0.9rem;
@@ -230,22 +233,22 @@
 }
 
 .details-toggle {
-  background: linear-gradient(45deg, #40e0d0, #48d1cc);
-  color: #000000;
-  border: none;
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
   padding: 12px 24px;
-  border-radius: 25px;
+  border-radius: 4px;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 400;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(64, 224, 208, 0.3);
+  letter-spacing: 1px;
   margin-bottom: 20px;
 }
 
 .details-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(64, 224, 208, 0.4);
+  background: rgba(64, 224, 208, 0.1);
+  border-color: var(--primary-color);
 }
 
 .details-content {

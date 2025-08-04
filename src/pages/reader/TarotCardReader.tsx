@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useRandomCard } from '../hooks/useTarotAPI';
-import { useLanguage } from '../App';
-import TarotCardComponent from './TarotCard';
+import { useRandomCard } from '../../hooks/useTarotAPI';
+import { useLanguage } from '../../App';
+import TarotCardComponent from '../../components/TarotCard';
 
 import './TarotCardReader.css';
 
@@ -99,7 +99,7 @@ export const TarotCardReader: React.FC = () => {
     return (
       <div className="card-reader">
         <div className="error-message">
-          <h3>🔮 {t.mysticalInterference}</h3>
+          <h3>{t.mysticalInterference}</h3>
           <p>{t.cardsNotResponding}</p>
           <button className="retry-btn" onClick={() => drawNewCard()}>
             {t.tryAgain}
@@ -123,18 +123,17 @@ export const TarotCardReader: React.FC = () => {
           </div>
           
           <div className="drawing-instructions">
-            <h2>🔮 {t.welcome}</h2>
+            <h2>{t.welcome}</h2>
             <p className="instruction-text">
               {t.instruction}
             </p>
             
             <div className="reading-tips">
-              <h3>💡 {t.readingTips}</h3>
+              <h3>{t.readingTips}</h3>
               <ul>
                 <li>{t.tip1}</li>
                 <li>{t.tip2}</li>
                 <li>{t.tip3}</li>
-                <li>{t.tip4}</li>
               </ul>
             </div>
             
@@ -150,7 +149,7 @@ export const TarotCardReader: React.FC = () => {
       ) : (
         <div className="reading-area">
           <div className="reading-header">
-            <h2>🔮 {t.yourReading}</h2>
+            <h2>{t.yourReading}</h2>
             <p className="reading-subtitle">
               {t.readingSubtitle}
             </p>
@@ -184,7 +183,7 @@ export const TarotCardReader: React.FC = () => {
                 </button>
                 
                 <div className="reading-guidance">
-                  <h3>💭 {t.howToInterpret}</h3>
+                  <h3>{t.howToInterpret}</h3>
                   <ul>
                     <li><strong>{t.uprightMeaning}:</strong> {t.uprightDescription}</li>
                     <li><strong>{t.reversedMeaning}:</strong> {t.reversedDescription}</li>

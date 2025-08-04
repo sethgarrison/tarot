@@ -495,10 +495,11 @@ class SupabaseTarotService {
     }
   }
 
-  // Get tutorials
+  // Get tutorials with language support
   async getTutorials(language: string = 'en'): Promise<any[]> {
     if (!supabase) {
-      throw new Error('Supabase not configured. Please update credentials in src/services/supabaseAPI.ts');
+      console.warn('Supabase not configured - returning empty array');
+      return [];
     }
     
     try {
@@ -522,7 +523,7 @@ class SupabaseTarotService {
     }
   }
 
-  // Get a specific tutorial section
+  // Get a specific tutorial section with language support
   async getTutorialSection(sectionKey: string, language: string = 'en'): Promise<any> {
     if (!supabase) {
       console.warn('Supabase not configured - returning empty object');
@@ -534,14 +535,19 @@ class SupabaseTarotService {
         .from('tutorials')
         .select('*')
         .eq('section_key', sectionKey)
-        .eq('language', language)
+        .eq('is_active', true)
         .single();
 
       if (error) {
         throw new Error(error.message);
       }
 
-      return data;
+      // Transform the data to use the selected language
+      return {
+        section_key: data.section_key,
+        title: data.title[language] || data.title.en,
+        content: data.content[language] || data.content.en
+      };
     } catch (error) {
       throw error;
     }

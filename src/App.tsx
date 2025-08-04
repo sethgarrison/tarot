@@ -1,14 +1,14 @@
-import { useState, createContext, useContext } from 'react'
+import { createContext, useContext, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
 import { SWRProvider } from './components/SWRProvider'
-import TarotCardReader from './components/TarotCardReader'
-import DeckPage from './components/DeckPage'
-import TutorialPage from './components/TutorialPage'
-import AdminPage from './components/AdminPage'
+import HomePage from './pages/home'
+import TarotCardReader from './pages/reader'
+import DeckPage from './pages/deck'
+import TutorialPage from './pages/tutorial'
+import AdminPage from './pages/admin'
 import LanguageSwitcher from './components/LanguageSwitcher'
 import './App.css'
 import './utils/languageUtils.css'
-
-type AppPage = 'drawer' | 'deck' | 'tutorial' | 'admin';
 
 // Global language context
 export type Language = 'en' | 'es';
@@ -25,8 +25,51 @@ export const LanguageContext = createContext<LanguageContextType>({
 
 export const useLanguage = () => useContext(LanguageContext);
 
+// Navigation component
+function Navigation() {
+  const location = useLocation();
+  
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
+
+  return (
+    <nav className="app-navigation">
+      <Link 
+        to="/"
+        className={`nav-btn ${isActive('/') ? 'active' : ''}`}
+      >
+        Home
+      </Link>
+      <Link 
+        to="/reader"
+        className={`nav-btn ${isActive('/reader') ? 'active' : ''}`}
+      >
+        Draw Cards
+      </Link>
+      <Link 
+        to="/deck"
+        className={`nav-btn ${isActive('/deck') ? 'active' : ''}`}
+      >
+        View Deck
+      </Link>
+      <Link 
+        to="/tutorial"
+        className={`nav-btn ${isActive('/tutorial') ? 'active' : ''}`}
+      >
+        Tutorial
+      </Link>
+      <Link 
+        to="/admin"
+        className={`nav-btn ${isActive('/admin') ? 'active' : ''}`}
+      >
+        Admin
+      </Link>
+    </nav>
+  );
+}
+
 function App() {
-  const [currentPage, setCurrentPage] = useState<AppPage>('drawer');
   const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
 
   const setLanguage = (lang: Language) => {
@@ -36,49 +79,27 @@ function App() {
   return (
     <LanguageContext.Provider value={{ currentLanguage, setLanguage }}>
       <SWRProvider>
-        <div className="App">
-          <header className="App-header">
-            <div className="header-top">
-              <h1>🔮 Tarot Deck Reader</h1>
-              <LanguageSwitcher />
-            </div>
-            <p>Your mystical journey into tarot begins here</p>
-            
-            <nav className="app-navigation">
-              <button 
-                className={`nav-btn ${currentPage === 'drawer' ? 'active' : ''}`}
-                onClick={() => setCurrentPage('drawer')}
-              >
-                🎴 Draw Cards
-              </button>
-              <button 
-                className={`nav-btn ${currentPage === 'deck' ? 'active' : ''}`}
-                onClick={() => setCurrentPage('deck')}
-              >
-                📚 View Deck
-              </button>
-              <button 
-                className={`nav-btn ${currentPage === 'tutorial' ? 'active' : ''}`}
-                onClick={() => setCurrentPage('tutorial')}
-              >
-                📖 Tutorial
-              </button>
-              <button 
-                className={`nav-btn ${currentPage === 'admin' ? 'active' : ''}`}
-                onClick={() => setCurrentPage('admin')}
-              >
-                🔧 Admin
-              </button>
-            </nav>
-          </header>
+        <Router>
+          <div className="App">
+            <header className="App-header">
+              <div className="header-top">
+                <h1>Tarot Deck Reader</h1>
+                <LanguageSwitcher />
+              </div>
+              <Navigation />
+            </header>
 
-          <main className="App-main">
-            {currentPage === 'drawer' && <TarotCardReader />}
-            {currentPage === 'deck' && <DeckPage />}
-            {currentPage === 'tutorial' && <TutorialPage />}
-            {currentPage === 'admin' && <AdminPage />}
-          </main>
-        </div>
+            <main className="App-main">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/reader" element={<TarotCardReader />} />
+                <Route path="/deck" element={<DeckPage />} />
+                <Route path="/tutorial" element={<TutorialPage />} />
+                <Route path="/admin" element={<AdminPage />} />
+              </Routes>
+            </main>
+          </div>
+        </Router>
       </SWRProvider>
     </LanguageContext.Provider>
   );

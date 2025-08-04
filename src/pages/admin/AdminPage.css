@@ -2,7 +2,7 @@
   padding: 20px;
   max-width: 1400px;
   margin: 0 auto;
-  color: #000000;
+  color: var(--text-primary);
 }
 
 .admin-header {
@@ -11,12 +11,14 @@
 }
 
 .admin-header h2 {
-  color: #000000;
+  color: var(--primary-color);
   margin-bottom: 10px;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
 .admin-header p {
-  color: #333333;
+  color: var(--text-secondary);
   font-size: 16px;
 }
 
@@ -39,11 +41,11 @@
 .filter-select,
 .language-select {
   padding: 10px 15px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
   font-size: 14px;
-  background: white;
-  color: #000000;
+  background: transparent;
+  color: var(--text-primary);
   transition: border-color 0.3s ease;
 }
 
@@ -51,8 +53,8 @@
 .filter-select:focus,
 .language-select:focus {
   outline: none;
-  border-color: #3498db;
-  color: #000000;
+  border-color: var(--primary-color);
+  color: var(--text-primary);
 }
 
 .search-input {
@@ -68,38 +70,40 @@
   display: flex;
   gap: 20px;
   font-size: 14px;
-  color: #333333;
+  color: var(--text-secondary);
 }
 
 .stats span {
-  background: #f8f9fa;
+  background: var(--background-light);
   padding: 5px 10px;
-  border-radius: 15px;
-  color: #000000;
+  border-radius: 4px;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
 
 /* Table Styles */
 .table-container {
   overflow-x: auto;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--background-light);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--border-color);
 }
 
 .cards-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
-  color: #000000;
+  color: var(--text-primary);
 }
 
 .cards-table th {
-  background: #f8f9fa;
+  background: var(--background-dark);
   padding: 15px 10px;
   text-align: left;
-  font-weight: 600;
-  color: #000000;
-  border-bottom: 2px solid #e0e0e0;
+  font-weight: 400;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 10;
