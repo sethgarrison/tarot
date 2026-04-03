@@ -4,7 +4,7 @@ export interface MultilingualContent {
   es?: string;
 }
 
-// Database card interface (matches actual Supabase schema)
+// Full card row as returned by GET /api/admin/cards (multilingual JSON fields)
 export interface DatabaseCard {
   name_short: string;
   name: MultilingualContent;
@@ -31,6 +31,12 @@ export interface TarotCard {
   desc: string;
   suit?: string; // Only present for minor arcana
 }
+
+/** Card row as returned by the API for a specific language (includes optional extras) */
+export type TarotCardLocalized = TarotCard & {
+  name_en?: string;
+  image_path?: string;
+};
 
 export interface TarotCardResponse {
   nhits: number;

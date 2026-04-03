@@ -11,8 +11,6 @@ export const TutorialSuits: React.FC<TutorialSuitsProps> = ({ content, title }) 
 
   if (!content) return null;
 
-  console.log('suits', content);
-
   return (
     <div className="tutorial-section">
       <div className="section-header">

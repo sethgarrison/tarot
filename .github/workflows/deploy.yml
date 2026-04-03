@@ -1,7 +1,7 @@
-name: Deploy to GitHub Pages (DISABLED - Using Netlify)
+name: Deploy to GitHub Pages (DISABLED - Use Render)
 
 on:
-  # Disabled - using Netlify for deployment
+  # Disabled - deploy via Render static site (see DEPLOYMENT.md, render.yaml)
   # push:
   #   branches: [ main ]
   # pull_request:
@@ -25,9 +25,6 @@ jobs:
       run: npm ci
       
     - name: Build
-      env:
-        VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-        VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
       run: npm run build
       
     - name: Create .nojekyll file

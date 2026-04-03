@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { supabaseTarotAPI } from '../services/supabaseAPI';
+import {
+  tarotDataAPI,
+  getAdminSessionToken,
+  setAdminSessionToken,
+  clearAdminSessionToken,
+} from '../services/backendApi';
 import { useLanguage } from '../App';
 import { MultilingualText } from '../utils/languageUtils';
 import type { DatabaseCard, EditableCard, MultilingualContent } from '../types/tarot';
@@ -15,15 +20,17 @@ const AdminPage: React.FC = () => {
   const [savingCard, setSavingCard] = useState<string | null>(null);
   const [editingCell, setEditingCell] = useState<{ cardId: string; field: string } | null>(null);
   const [rowChanges, setRowChanges] = useState<Record<string, Partial<DatabaseCard>>>({});
+  const [adminReady, setAdminReady] = useState(() => !!getAdminSessionToken());
+  const [apiKeyInput, setApiKeyInput] = useState('');
 
   useEffect(() => {
-    loadCards();
-  }, []);
+    if (adminReady) void loadCards();
+  }, [adminReady]);
 
   const loadCards = async () => {
     try {
       setLoading(true);
-      const cardsData = await supabaseTarotAPI.getAllCardsForAdmin();
+      const cardsData = (await tarotDataAPI.getAllCardsForAdmin()) as DatabaseCard[];
       const editableCards: EditableCard[] = cardsData.map((card: DatabaseCard) => ({
         ...card,
         isEditing: false,
@@ -90,7 +97,7 @@ const AdminPage: React.FC = () => {
         return;
       }
 
-      await supabaseTarotAPI.updateCard(cardId, changes);
+      await tarotDataAPI.updateCard(cardId, changes);
 
       // Update local state
       setCards(cards.map(c => {
@@ -145,6 +152,39 @@ const AdminPage: React.FC = () => {
     return matchesSearch && matchesType;
   });
 
+  if (!adminReady) {
+    return (
+      <div className="admin-page">
+        <div className="admin-header">
+          <h2>Admin access</h2>
+          <p>Enter the API key (same value as ADMIN_API_KEY on the server).</p>
+        </div>
+        <form
+          className="admin-controls"
+          onSubmit={(e) => {
+            e.preventDefault();
+            const v = apiKeyInput.trim();
+            if (!v) return;
+            setAdminSessionToken(v);
+            setAdminReady(true);
+          }}
+        >
+          <input
+            type="password"
+            className="search-input"
+            value={apiKeyInput}
+            onChange={(e) => setApiKeyInput(e.target.value)}
+            placeholder="API key"
+            autoComplete="off"
+          />
+          <button type="submit" className="save-btn">
+            Continue
+          </button>
+        </form>
+      </div>
+    );
+  }
+
   if (loading) {
     return (
       <div className="admin-page">
@@ -167,6 +207,18 @@ const AdminPage: React.FC = () => {
       <div className="admin-header">
         <h2>Card Management</h2>
         <p>Edit and manage tarot card content and translations</p>
+        <button
+          type="button"
+          className="cancel-btn"
+          onClick={() => {
+            clearAdminSessionToken();
+            setAdminReady(false);
+            setApiKeyInput('');
+            setCards([]);
+          }}
+        >
+          Sign out
+        </button>
       </div>
 
       <div className="admin-controls">

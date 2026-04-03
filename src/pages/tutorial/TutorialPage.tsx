@@ -3,6 +3,7 @@ import { useTutorials, useTutorialSection } from '../../hooks/useTarotAPI';
 import { useLanguage } from '../../App';
 import { useTranslations } from '../../utils/translationUtils';
 import { TutorialOverview, TutorialMajorArcana, TutorialMinorArcana, TutorialSuits } from './components';
+import { asTutorialContentRecord } from '../../utils/tutorialContent';
 import './TutorialPage.css';
 
 interface TutorialPageProps {
@@ -36,21 +37,25 @@ export const TutorialPage: React.FC<TutorialPageProps> = ({ className = '' }) =>
     
     const content = activeTutorialData.content;
     const title = activeTutorialData.title;
+    const contentRec = asTutorialContentRecord(content);
 
     switch (activeSection) {
       case 'overview':
-        return <TutorialOverview content={content} />;
+        return <TutorialOverview content={contentRec} />;
       case 'major_arcana':
-        return <TutorialMajorArcana content={content} title={title} />;
-      case 'minor_arcana':
-        // Pass both minor arcana and suits data
+        return <TutorialMajorArcana content={contentRec} title={title} />;
+      case 'minor_arcana': {
+        const suitsRec = asTutorialContentRecord(suitsData?.content);
+        const suitsFromSuitsSection =
+          (suitsRec.suits as Record<string, unknown> | undefined) ?? {};
         const combinedContent = {
-          ...content,
-          suits: suitsData?.content?.suits || {}
+          ...contentRec,
+          suits: suitsFromSuitsSection || contentRec.suits || {},
         };
         return <TutorialMinorArcana content={combinedContent} title={title} />;
+      }
       case 'suits':
-        return <TutorialSuits content={content} title={title} />;
+        return <TutorialSuits content={contentRec} title={title} />;
       default:
         return <TutorialOverview content={content} />;
     }

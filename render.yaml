@@ -1,0 +1,19 @@
+# Static site + external API. See DEPLOYMENT.md
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: tarot-web
+    runtime: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: VITE_API_BASE
+        value: https://sissyfoot-astrological-api.onrender.com

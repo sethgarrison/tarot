@@ -1,68 +1,47 @@
-# 🔮 Tarot Deck Reader
+# Tarot Deck Reader
 
-A Vite-powered React TypeScript application for a tarot deck reader and tutorial system.
+Vite + React frontend for a tarot reader and tutorials. Data comes from a separate HTTP API ([contract](docs/TAROT_API_SERVER_SPEC.md)).
 
-## 🚀 Getting Started
+## Prerequisites
 
-### Prerequisites
+- Node.js 20+
+- npm
 
-- Node.js (version 18 or higher)
-- npm or yarn
+## Setup
 
-### Installation
-
-1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/tarot.git
 cd tarot
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Start the development server:
+## Local development
+
+[`.env.development`](.env.development) sets `VITE_API_BASE` for the hosted API. Run:
+
 ```bash
 npm run dev
 ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+Open `http://localhost:5173`. The API must allow **CORS** from your dev origin (or use `Access-Control-Allow-Origin: *`).
 
-## 📦 Available Scripts
+To point at another API, edit `VITE_API_BASE` in `.env.development`.
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm run deploy` - Deploy to GitHub Pages
+## Scripts
 
-## 🌐 Deployment
+- `npm run dev` — Vite dev server
+- `npm run build` — typecheck + production build → `dist/`
+- `npm run preview` — serve `dist/` locally
+- `npm run lint` — ESLint
 
-This application is configured for GitHub Pages deployment. To deploy:
+## Deployment
 
-1. Update the `homepage` field in `package.json` with your GitHub username
-2. Update the `base` field in `vite.config.ts` to match your repository name
-3. Run the deployment command:
-```bash
-npm run deploy
-```
+See [DEPLOYMENT.md](DEPLOYMENT.md) and [render.yaml](render.yaml) (Render **static site**).
 
-## 🎯 Features (Coming Soon)
+## Tech stack
 
-- Interactive tarot card deck
-- Card reading tutorials
-- Card meanings and interpretations
-- Reading history
-- Custom spreads
+- React 19, TypeScript, Vite, SWR, react-router-dom
 
-## 🛠️ Tech Stack
+## License
 
-- **React 19** - UI library
-- **TypeScript** - Type safety
-- **Vite** - Build tool and dev server
-- **GitHub Pages** - Hosting
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
+[MIT License](LICENSE)

@@ -1,11 +1,11 @@
 import useSWR from 'swr';
-import { supabaseTarotAPI } from '../services/supabaseAPI';
-import type { TarotCard, TarotCardDetail } from '../types/tarot';
+import { tarotDataAPI } from '../services/backendApi';
+import type { TarotCardLocalized } from '../types/tarot';
 import { getImagePath, checkImageExists } from '../utils/imageUtils';
 
 // Hook to get all cards
 export const useAllCards = (language: string = 'en') => {
-  return useSWR<TarotCard[]>(`all-cards-${language}`, () => supabaseTarotAPI.getAllCardsWithLanguage(language), {
+  return useSWR<TarotCardLocalized[]>(`all-cards-${language}`, () => tarotDataAPI.getAllCardsWithLanguage(language), {
     revalidateOnFocus: false,
     revalidateOnReconnect: true,
     dedupingInterval: 60000, // 1 minute
@@ -15,9 +15,9 @@ export const useAllCards = (language: string = 'en') => {
 
 // Hook to get a specific card by name
 export const useCardByName = (name: string, language: string = 'en') => {
-  return useSWR<TarotCard>(
+  return useSWR<TarotCardLocalized>(
     name ? `card-${name}-${language}` : null,
-    () => supabaseTarotAPI.getCardByNameWithLanguage(name, language),
+    () => tarotDataAPI.getCardByNameWithLanguage(name, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -29,9 +29,9 @@ export const useCardByName = (name: string, language: string = 'en') => {
 
 // Hook to get a specific card by short name
 export const useCardByNameShort = (nameShort: string, language: string = 'en') => {
-  return useSWR<TarotCard>(
+  return useSWR<TarotCardLocalized>(
     nameShort ? `card-short-${nameShort}-${language}` : null,
-    () => supabaseTarotAPI.getCardByNameShortWithLanguage(nameShort, language),
+    () => tarotDataAPI.getCardByNameShortWithLanguage(nameShort, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -43,9 +43,9 @@ export const useCardByNameShort = (nameShort: string, language: string = 'en') =
 
 // Hook to get a random card
 export const useRandomCard = (language: string = 'en') => {
-  return useSWR<TarotCard>(
+  return useSWR<TarotCardLocalized>(
     `random-card-${language}`,
-    () => supabaseTarotAPI.getRandomCardWithLanguage(language),
+    () => tarotDataAPI.getRandomCardWithLanguage(language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
@@ -57,9 +57,9 @@ export const useRandomCard = (language: string = 'en') => {
 
 // Hook to get multiple random cards
 export const useRandomCards = (count: number, language: string = 'en') => {
-  return useSWR<TarotCardDetail[]>(
+  return useSWR<TarotCardLocalized[]>(
     `random-cards-${count}-${language}`,
-    () => supabaseTarotAPI.getRandomCardsWithLanguage(count, language),
+    () => tarotDataAPI.getRandomCardsWithLanguage(count, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
@@ -71,9 +71,9 @@ export const useRandomCards = (count: number, language: string = 'en') => {
 
 // Hook to get cards by suit
 export const useCardsBySuit = (suit: string, language: string = 'en') => {
-  return useSWR<TarotCard[]>(
+  return useSWR<TarotCardLocalized[]>(
     suit ? `cards-suit-${suit}-${language}` : null,
-    () => supabaseTarotAPI.getCardsBySuitWithLanguage(suit, language),
+    () => tarotDataAPI.getCardsBySuitWithLanguage(suit, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -85,9 +85,9 @@ export const useCardsBySuit = (suit: string, language: string = 'en') => {
 
 // Hook to get cards by type
 export const useCardsByType = (type: 'major' | 'minor', language: string = 'en') => {
-  return useSWR<TarotCard[]>(
+  return useSWR<TarotCardLocalized[]>(
     type ? `cards-type-${type}-${language}` : null,
-    () => supabaseTarotAPI.getCardsByTypeWithLanguage(type, language),
+    () => tarotDataAPI.getCardsByTypeWithLanguage(type, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -99,9 +99,9 @@ export const useCardsByType = (type: 'major' | 'minor', language: string = 'en')
 
 // Hook to get major arcana
 export const useMajorArcana = (language: string = 'en') => {
-  return useSWR<TarotCard[]>(
+  return useSWR<TarotCardLocalized[]>(
     `major-arcana-${language}`,
-    () => supabaseTarotAPI.getMajorArcanaWithLanguage(language),
+    () => tarotDataAPI.getMajorArcanaWithLanguage(language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -113,9 +113,9 @@ export const useMajorArcana = (language: string = 'en') => {
 
 // Hook to get minor arcana
 export const useMinorArcana = (language: string = 'en') => {
-  return useSWR<TarotCard[]>(
+  return useSWR<TarotCardLocalized[]>(
     `minor-arcana-${language}`,
-    () => supabaseTarotAPI.getMinorArcanaWithLanguage(language),
+    () => tarotDataAPI.getMinorArcanaWithLanguage(language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -127,9 +127,9 @@ export const useMinorArcana = (language: string = 'en') => {
 
 // Hook to search cards
 export const useSearchCards = (query: string, language: string = 'en') => {
-  return useSWR<TarotCard[]>(
+  return useSWR<TarotCardLocalized[]>(
     query ? `search-${query}-${language}` : null,
-    () => supabaseTarotAPI.searchCardsWithLanguage(query, language),
+    () => tarotDataAPI.searchCardsWithLanguage(query, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -141,9 +141,9 @@ export const useSearchCards = (query: string, language: string = 'en') => {
 
 // Hook to get tutorials
 export const useTutorials = (language: string = 'en') => {
-  return useSWR<any[]>(
+  return useSWR<{ section_key: string; title: string; content: unknown }[]>(
     `tutorials-${language}`,
-    () => supabaseTarotAPI.getTutorials(language),
+    () => tarotDataAPI.getTutorials(language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
@@ -155,9 +155,9 @@ export const useTutorials = (language: string = 'en') => {
 
 // Hook to get tutorial section
 export const useTutorialSection = (sectionKey: string, language: string = 'en') => {
-  return useSWR<any>(
+  return useSWR<{ section_key: string; title: string; content: unknown }>(
     sectionKey ? `tutorial-section-${sectionKey}-${language}` : null,
-    () => supabaseTarotAPI.getTutorialSection(sectionKey, language),
+    () => tarotDataAPI.getTutorialSection(sectionKey, language),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: true,
