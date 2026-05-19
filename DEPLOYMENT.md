@@ -14,26 +14,32 @@ Do **not** put privileged secrets in `VITE_*` variables (they are embedded in th
 
 ## Render (Blueprint)
 
-[render.yaml](render.yaml) defines a **static site** (`runtime: static`): `npm install && npm run build`, publish `./dist`, SPA rewrite `/*` → `/index.html`, and `VITE_API_BASE` for the build.
+[render.yaml](render.yaml) defines a **static site** (`runtime: static`): `npm install && npm run build`, publish `./dist`, SPA rewrite `/*` → `/index.html`, and `VITE_API_BASE` for the build. The `name` field must match your static site’s name in the Render dashboard (it controls the default `*.onrender.com` hostname).
 
 1. Connect the repo on Render and apply the blueprint (or create a **Static Site** manually with the same settings).
 2. Change `VITE_API_BASE` in `render.yaml` (or in the dashboard) if your API URL changes.
 3. After deploy, open the `.onrender.com` URL and exercise routes (e.g. `/tutorial`, `/admin`).
+4. If `curl -I https://…/deck` still returns **404**, add the rewrite in the dashboard as in [SPA routing](#spa-routing-deep-links-refresh-ios) (blueprint routes are easy to miss on older services).
 
 ## SPA routing (deep links, refresh, iOS)
 
-This app uses **React Router** with browser URLs (`/reader`, `/deck`, …). The static host must serve **`index.html`** for those paths (not a real file on disk). Otherwise a **full page load** to `/reader` returns **404**; some browsers (especially mobile Safari) may show a generic “not found” and odd download-like behavior depending on the response `Content-Type`.
+This app uses **React Router** with browser URLs (`/reader`, `/deck`, …). The static host must serve **`index.html`** for those paths with **HTTP 200** (a **rewrite**, not “show a 404 page that happens to be HTML”).
 
-- **Render** (this repo’s [render.yaml](render.yaml)): configure **`/*` → `/index.html`** (rewrite), as in the blueprint.
-- **GitHub Pages**: there is no rewrite rule. After `npm run build`, **`postbuild`** copies `dist/index.html` to **`dist/404.html`** so GitHub Pages serves your app shell for unknown paths (see `scripts/gh-pages-spa-fallback.mjs`). For a **project site** at `https://<user>.github.io/<repo>/`, also set Vite [`base`](https://vite.dev/config/shared-options.html#base) to `'/<repo>/'` and the npm `homepage` field so asset URLs resolve.
+If `curl` shows **`HTTP/2 404`** but the response body is still your small `index.html` shell (same size as `/`), the CDN may be serving **`404.html`** (if present in the published bundle) with a **404 status**. Mobile Safari treats that as a failed navigation even though the HTML is correct. Prefer a **rewrite** and avoid shipping a duplicate of `index.html` as `404.html` unless you know your host expects it.
 
-**Check your deployment** (replace with your site origin):
+### Render (required)
+
+1. In the [Render Dashboard](https://dashboard.render.com/), open your **static site** (e.g. `sissy-foot-tarot`).
+2. Open **Redirects / Rewrites** (or **Redirects** in the sidebar, depending on UI).
+3. Add a rule: **Source** `/*`, **Destination** `/index.html`, action **Rewrite** (not redirect).
+
+[Blueprint](render.yaml) can define the same `routes`, but if the service was created earlier or the blueprint was not applied, **add the rule in the dashboard** and save. Redeploy if needed.
+
+**Verify** (you want **`200`** for deep links):
 
 ```bash
-curl -sI "https://YOUR-SITE/reader" | sed -n '1,15p'
+curl -sI "https://YOUR-SITE.onrender.com/deck" | sed -n '1,12p'
 ```
-
-You want **200** (or GitHub Pages **404** with an HTML body from your `404.html` shell) and **`content-type: text/html`**, not `application/octet-stream` or similar.
 
 ## Admin UI
 

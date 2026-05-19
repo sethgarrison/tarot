@@ -3,7 +3,8 @@
 
 services:
   - type: web
-    name: tarot-web
+    # Must match the static site name in Render (drives the *.onrender.com hostname).
+    name: sissy-foot-tarot
     runtime: static
     plan: free
     buildCommand: npm install && npm run build
