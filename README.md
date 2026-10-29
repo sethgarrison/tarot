@@ -1,6 +1,6 @@
 # Tarot Deck Reader
 
-Vite + React frontend for a tarot reader and tutorials. Data comes from a separate HTTP API ([contract](docs/TAROT_API_SERVER_SPEC.md)).
+Vite + React tarot reader and tutorials. Fully static: card and tutorial content lives in [src/data/](src/data/).
 
 ## Prerequisites
 
@@ -10,22 +10,18 @@ Vite + React frontend for a tarot reader and tutorials. Data comes from a separa
 ## Setup
 
 ```bash
-git clone https://github.com/yourusername/tarot.git
+git clone https://github.com/sethgarrison/tarot.git
 cd tarot
 npm install
 ```
 
 ## Local development
 
-[`.env.development`](.env.development) sets `VITE_API_BASE` for the hosted API. Run:
-
 ```bash
 npm run dev
 ```
 
-Open `http://localhost:5173`. The API must allow **CORS** from your dev origin (or use `Access-Control-Allow-Origin: *`).
-
-To point at another API, edit `VITE_API_BASE` in `.env.development`.
+Open `http://localhost:5173`.
 
 ## Scripts
 
@@ -36,7 +32,7 @@ To point at another API, edit `VITE_API_BASE` in `.env.development`.
 
 ## Deployment
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) and [render.yaml](render.yaml) (Render **static site**).
+See [DEPLOYMENT.md](DEPLOYMENT.md) (Cloudflare Pages).
 
 ## Tech stack
 

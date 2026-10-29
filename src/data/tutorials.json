@@ -1,0 +1,382 @@
+[
+  {
+    "section_key": "overview",
+    "title": {
+      "en": "Tarot Overview",
+      "es": "Resumen del Tarot"
+    },
+    "content": {
+      "en": {
+        "trivia": [
+          "The word 'tarot' comes from the Italian 'tarocchi', which originally meant 'triumph' or 'trump' cards.",
+          "The oldest surviving tarot cards date back to the 1440s and were painted for the Visconti family of Milan.",
+          "Carl Jung studied tarot as a way to understand the collective unconscious and archetypal patterns.",
+          "During the Renaissance, tarot cards were often used to teach moral lessons and classical mythology.",
+          "The Rider-Waite-Smith deck was the first to include detailed scenes on all 78 cards, not just the Major Arcana.",
+          "Many modern tarot decks are created by artists who bring their own cultural and spiritual perspectives to the tradition."
+        ],
+        "history": "Tarot cards originated in 15th century Italy as playing cards, but evolved into a tool for divination and spiritual guidance. The most popular deck today, the Rider-Waite-Smith deck, was created in 1909 and revolutionized tarot with its rich symbolism and detailed illustrations. Throughout history, tarot has been used by mystics, artists, and spiritual seekers to explore the human experience and connect with deeper wisdom.",
+        "total_cards": 78,
+        "cards_overview": "A standard tarot deck contains 78 cards, each with its own unique meaning and symbolism. These cards are divided into two main categories: the Major Arcana (22 cards) and the Minor Arcana (56 cards). Each card can be interpreted in multiple ways depending on its position, surrounding cards, and the question being asked.",
+        "major_arcana_count": 22,
+        "minor_arcana_count": 56,
+        "major_arcana_overview": "The Major Arcana consists of 22 cards numbered 0-21, representing life's major themes and spiritual lessons. These cards depict archetypal figures and situations that reflect universal human experiences. From The Fool's journey of new beginnings to The World's completion and fulfillment, the Major Arcana tells the story of the soul's journey through life.",
+        "minor_arcana_overview": "The Minor Arcana contains 56 cards divided into four suits: Wands (fire), Cups (water), Swords (air), and Pentacles (earth). Each suit has 14 cards: Ace through 10, plus Page, Knight, Queen, and King. The suits represent different aspects of daily life, while the numbers and court cards add layers of meaning to readings."
+      },
+      "es": {
+        "trivia": [
+          "La palabra 'tarot' viene del italiano 'tarocchi', que originalmente significaba cartas de 'triunfo' o 'triunfo'.",
+          "Las cartas de tarot más antiguas que sobreviven datan de la década de 1440 y fueron pintadas para la familia Visconti de Milán.",
+          "Carl Jung estudió el tarot como una forma de entender el inconsciente colectivo y los patrones arquetípicos.",
+          "Durante el Renacimiento, las cartas del tarot se usaban a menudo para enseñar lecciones morales y mitología clásica.",
+          "El mazo Rider-Waite-Smith fue el primero en incluir escenas detalladas en las 78 cartas, no solo en el Arcano Mayor.",
+          "Muchos mazos modernos de tarot son creados por artistas que aportan sus propias perspectivas culturales y espirituales a la tradición."
+        ],
+        "history": "Las cartas del tarot se originaron en la Italia del siglo XV como cartas de juego, pero evolucionaron hasta convertirse en una herramienta para la adivinación y la orientación espiritual. El mazo más popular hoy en día, el mazo Rider-Waite-Smith, fue creado en 1909 y revolucionó el tarot con su rico simbolismo e ilustraciones detalladas. A lo largo de la historia, el tarot ha sido utilizado por místicos, artistas y buscadores espirituales para explorar la experiencia humana y conectarse con una sabiduría más profunda.",
+        "total_cards": 78,
+        "cards_overview": "Un mazo estándar de tarot contiene 78 cartas, cada una con su propio significado y simbolismo únicos. Estas cartas se dividen en dos categorías principales: el Arcano Mayor (22 cartas) y el Arcano Menor (56 cartas). Cada carta puede interpretarse de múltiples maneras dependiendo de su posición, las cartas que la rodean y la pregunta que se está haciendo.",
+        "major_arcana_count": 22,
+        "minor_arcana_count": 56,
+        "major_arcana_overview": "El Arcano Mayor consta de 22 cartas numeradas del 0 al 21, que representan los temas principales de la vida y las lecciones espirituales. Estas cartas representan figuras arquetípicas y situaciones que reflejan experiencias humanas universales. Desde el viaje de El Loco de nuevos comienzos hasta la completitud y realización de El Mundo, el Arcano Mayor cuenta la historia del viaje del alma a través de la vida.",
+        "minor_arcana_overview": "El Arcano Menor contiene 56 cartas divididas en cuatro palos: Bastos (fuego), Copas (agua), Espadas (aire) y Oros (tierra). Cada palo tiene 14 cartas: As hasta 10, más Paje, Caballero, Reina y Rey. Los palos representan diferentes aspectos de la vida diaria, mientras que los números y las cartas de la corte añaden capas de significado a las lecturas."
+      }
+    }
+  },
+  {
+    "section_key": "major_arcana",
+    "title": {
+      "en": "The Major Arcana",
+      "es": "El Arcano Mayor"
+    },
+    "content": {
+      "en": {
+        "themes": [
+          "Spiritual growth and enlightenment",
+          "Life cycles and transformations",
+          "Archetypal energies and universal experiences",
+          "Karmic patterns and soul lessons",
+          "Major life decisions and turning points"
+        ],
+        "subtitle": "The Greater Mysteries",
+        "numbering": "Cards are numbered 0-21, with The Fool as 0 and The World as 21",
+        "description": "The Major Arcana consists of 22 cards that represent significant life events, spiritual lessons, and archetypal energies. These cards carry the most weight in a reading and often indicate major turning points or profound spiritual insights.",
+        "characteristics": [
+          "Represent major life themes and spiritual lessons",
+          "Indicate significant turning points and transformations",
+          "Carry more weight in readings than Minor Arcana",
+          "Often represent archetypal energies and universal experiences",
+          "Can indicate long-term influences and karmic patterns"
+        ]
+      },
+      "es": {
+        "themes": [
+          "Crecimiento espiritual e iluminación",
+          "Ciclos de vida y transformaciones",
+          "Energías arquetípicas y experiencias universales",
+          "Patrones kármicos y lecciones del alma",
+          "Decisiones importantes de la vida y puntos de inflexión"
+        ],
+        "subtitle": "Los Misterios Mayores",
+        "numbering": "Las cartas están numeradas 0-21, con El Loco como 0 y El Mundo como 21",
+        "description": "El Arcano Mayor consta de 22 cartas que representan eventos significativos de la vida, lecciones espirituales y energías arquetípicas. Estas cartas tienen el mayor peso en una lectura y a menudo indican puntos de inflexión importantes o insights espirituales profundos.",
+        "characteristics": [
+          "Representan temas importantes de la vida y lecciones espirituales",
+          "Indican puntos de inflexión y transformaciones significativas",
+          "Tienen más peso en las lecturas que el Arcano Menor",
+          "A menudo representan energías arquetípicas y experiencias universales",
+          "Pueden indicar influencias a largo plazo y patrones kármicos"
+        ]
+      }
+    }
+  },
+  {
+    "section_key": "minor_arcana",
+    "title": {
+      "en": "The Minor Arcana",
+      "es": "El Arcano Menor"
+    },
+    "content": {
+      "en": {
+        "subtitle": "The Lesser Mysteries",
+        "structure": "The Minor Arcana consists of 4 suits with 14 cards each: Ace through 10 (number cards) plus Page, Knight, Queen, and King (court cards).",
+        "court_cards": "Page, Knight, Queen, and King represent different personality types and approaches to life within each suit's domain.",
+        "description": "The Minor Arcana consists of 56 cards divided into four suits, each representing different aspects of daily life and human experience. These cards provide practical guidance and reflect the everyday situations we encounter.",
+        "number_cards": "Ace through 10 represent the progression of energy and experience within each suit, from new beginnings to completion.",
+        "characteristics": [
+          "Represent daily life and practical matters",
+          "Provide specific guidance for everyday situations",
+          "Reflect immediate influences and short-term energies",
+          "Offer practical advice and actionable insights",
+          "Show the details and nuances of life circumstances"
+        ]
+      },
+      "es": {
+        "subtitle": "Los Misterios Menores",
+        "structure": "El Arcano Menor consta de 4 palos con 14 cartas cada uno: As hasta 10 (cartas numeradas) más Paje, Caballero, Reina y Rey (cartas de corte).",
+        "court_cards": "Paje, Caballero, Reina y Rey representan diferentes tipos de personalidad y enfoques a la vida dentro del dominio de cada palo.",
+        "description": "El Arcano Menor consta de 56 cartas divididas en cuatro palos, cada uno representando diferentes aspectos de la vida diaria y la experiencia humana. Estas cartas proporcionan orientación práctica y reflejan las situaciones cotidianas que encontramos.",
+        "number_cards": "As hasta 10 representan la progresión de energía y experiencia dentro de cada palo, desde nuevos comienzos hasta la finalización.",
+        "characteristics": [
+          "Representan la vida diaria y asuntos prácticos",
+          "Proporcionan orientación específica para situaciones cotidianas",
+          "Reflejan influencias inmediatas y energías a corto plazo",
+          "Ofrecen consejos prácticos e insights accionables",
+          "Muestran los detalles y matices de las circunstancias de la vida"
+        ]
+      }
+    }
+  },
+  {
+    "section_key": "suits",
+    "title": {
+      "en": "The Four Suits",
+      "es": "Los Cuatro Palos"
+    },
+    "content": {
+      "en": {
+        "suits": {
+          "Cups": {
+            "name": "Cups",
+            "element": "Water",
+            "keywords": [
+              "emotions",
+              "relationships",
+              "intuition",
+              "love",
+              "compassion",
+              "creativity",
+              "spirituality",
+              "healing"
+            ],
+            "life_areas": [
+              "Romantic relationships and love",
+              "Emotional well-being and healing",
+              "Intuition and psychic abilities",
+              "Family and close friendships",
+              "Creative expression and artistic pursuits"
+            ],
+            "description": "Cups represent emotions, relationships, intuition, and matters of the heart. They are associated with love, compassion, and emotional fulfillment.",
+            "personality_traits": [
+              "Emotional and sensitive",
+              "Intuitive and empathetic",
+              "Romantic and idealistic",
+              "Creative and artistic",
+              "Compassionate and caring"
+            ]
+          },
+          "Wands": {
+            "name": "Wands",
+            "element": "Fire",
+            "keywords": [
+              "creativity",
+              "passion",
+              "energy",
+              "inspiration",
+              "ambition",
+              "spiritual growth",
+              "action",
+              "enthusiasm"
+            ],
+            "life_areas": [
+              "Career and professional development",
+              "Creative projects and artistic endeavors",
+              "Spiritual growth and personal development",
+              "Passion and romantic relationships",
+              "New ventures and opportunities"
+            ],
+            "description": "Wands represent creativity, passion, energy, and spiritual growth. They are associated with inspiration, ambition, and the spark of new ideas.",
+            "personality_traits": [
+              "Energetic and enthusiastic",
+              "Creative and innovative",
+              "Passionate and driven",
+              "Spontaneous and adventurous",
+              "Optimistic and inspiring"
+            ]
+          },
+          "Swords": {
+            "name": "Swords",
+            "element": "Air",
+            "keywords": [
+              "intellect",
+              "communication",
+              "challenges",
+              "mental clarity",
+              "truth",
+              "justice",
+              "conflict",
+              "transformation"
+            ],
+            "life_areas": [
+              "Intellectual pursuits and education",
+              "Communication and self-expression",
+              "Decision-making and problem-solving",
+              "Legal matters and justice",
+              "Mental health and clarity"
+            ],
+            "description": "Swords represent intellect, communication, challenges, and mental clarity. They are associated with thoughts, decisions, and the power of the mind.",
+            "personality_traits": [
+              "Intellectual and analytical",
+              "Direct and honest",
+              "Strategic and logical",
+              "Truth-seeking and just",
+              "Mental and communicative"
+            ]
+          },
+          "Pentacles": {
+            "name": "Pentacles",
+            "element": "Earth",
+            "keywords": [
+              "wealth",
+              "practicality",
+              "health",
+              "abundance",
+              "security",
+              "material success",
+              "stability",
+              "manifestation"
+            ],
+            "life_areas": [
+              "Financial matters and wealth",
+              "Career and professional success",
+              "Health and physical well-being",
+              "Home and family life",
+              "Material goals and achievements"
+            ],
+            "description": "Pentacles represent material wealth, practical matters, health, and physical manifestation. They are associated with abundance, security, and tangible results.",
+            "personality_traits": [
+              "Practical and grounded",
+              "Reliable and responsible",
+              "Ambitious and hardworking",
+              "Generous and abundant",
+              "Stable and secure"
+            ]
+          }
+        },
+        "subtitle": "The Four Suits of the Minor Arcana",
+        "description": "Each suit represents different aspects of life and human experience."
+      },
+      "es": {
+        "suits": {
+          "Oros": {
+            "name": "Oros",
+            "element": "Tierra",
+            "keywords": [
+              "riqueza",
+              "practicidad",
+              "salud",
+              "abundancia",
+              "seguridad",
+              "éxito material",
+              "estabilidad",
+              "manifestación"
+            ],
+            "life_areas": [
+              "Asuntos financieros y riqueza",
+              "Carrera y éxito profesional",
+              "Salud y bienestar físico",
+              "Hogar y vida familiar",
+              "Metas materiales y logros"
+            ],
+            "description": "Los Oros representan riqueza material, asuntos prácticos, salud y manifestación física. Están asociados con abundancia, seguridad y resultados tangibles.",
+            "personality_traits": [
+              "Práctico y fundamentado",
+              "Confiable y responsable",
+              "Ambicioso y trabajador",
+              "Generoso y abundante",
+              "Estable y seguro"
+            ]
+          },
+          "Copas": {
+            "name": "Copas",
+            "element": "Agua",
+            "keywords": [
+              "emociones",
+              "relaciones",
+              "intuición",
+              "amor",
+              "compasión",
+              "creatividad",
+              "espiritualidad",
+              "sanación"
+            ],
+            "life_areas": [
+              "Relaciones románticas y amor",
+              "Bienestar emocional y sanación",
+              "Intuición y habilidades psíquicas",
+              "Familia y amistades cercanas",
+              "Expresión creativa y esfuerzos artísticos"
+            ],
+            "description": "Las Copas representan emociones, relaciones, intuición y asuntos del corazón. Están asociadas con el amor, la compasión y la realización emocional.",
+            "personality_traits": [
+              "Emocional y sensible",
+              "Intuitivo y empático",
+              "Romántico e idealista",
+              "Creativo y artístico",
+              "Compasivo y cariñoso"
+            ]
+          },
+          "Bastos": {
+            "name": "Bastos",
+            "element": "Fuego",
+            "keywords": [
+              "creatividad",
+              "pasión",
+              "energía",
+              "inspiración",
+              "ambición",
+              "crecimiento espiritual",
+              "acción",
+              "entusiasmo"
+            ],
+            "life_areas": [
+              "Carrera y desarrollo profesional",
+              "Proyectos creativos y esfuerzos artísticos",
+              "Crecimiento espiritual y desarrollo personal",
+              "Pasión y relaciones románticas",
+              "Nuevas empresas y oportunidades"
+            ],
+            "description": "Los Bastos representan creatividad, pasión, energía y crecimiento espiritual. Están asociados con la inspiración, la ambición y la chispa de nuevas ideas.",
+            "personality_traits": [
+              "Energético y entusiasta",
+              "Creativo e innovador",
+              "Apasionado y motivado",
+              "Espontáneo y aventurero",
+              "Optimista e inspirador"
+            ]
+          },
+          "Espadas": {
+            "name": "Espadas",
+            "element": "Aire",
+            "keywords": [
+              "intelecto",
+              "comunicación",
+              "desafíos",
+              "claridad mental",
+              "verdad",
+              "justicia",
+              "conflicto",
+              "transformación"
+            ],
+            "life_areas": [
+              "Pursuits intelectuales y educación",
+              "Comunicación y auto-expresión",
+              "Toma de decisiones y resolución de problemas",
+              "Asuntos legales y justicia",
+              "Salud mental y claridad"
+            ],
+            "description": "Las Espadas representan intelecto, comunicación, desafíos y claridad mental. Están asociadas con pensamientos, decisiones y el poder de la mente.",
+            "personality_traits": [
+              "Intelectual y analítico",
+              "Directo y honesto",
+              "Estratégico y lógico",
+              "Buscador de verdad y justo",
+              "Mental y comunicativo"
+            ]
+          }
+        },
+        "subtitle": "Los Cuatro Palos del Arcano Menor",
+        "description": "Cada palo representa diferentes aspectos de la vida y la experiencia humana."
+      }
+    }
+  }
+]

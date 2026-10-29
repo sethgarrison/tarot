@@ -5,7 +5,6 @@ import HomePage from './pages/home'
 import TarotCardReader from './pages/reader'
 import DeckPage from './pages/deck'
 import TutorialPage from './pages/tutorial'
-import AdminPage from './pages/admin'
 import LanguageSwitcher from './components/LanguageSwitcher'
 import { useTranslations } from './utils/translationUtils'
 import { usePageTitle } from './utils/pageTitleUtils'
@@ -41,8 +40,7 @@ function Navigation() {
     { path: '/', label: t('navigation.home') },
     { path: '/reader', label: t('navigation.drawCards') },
     { path: '/deck', label: t('navigation.viewDeck') },
-    { path: '/tutorial', label: t('navigation.tutorial') },
-    { path: '/admin', label: t('navigation.admin') }
+    { path: '/tutorial', label: t('navigation.tutorial') }
   ];
 
   const currentPage = navItems.find(item => item.path === location.pathname)?.label || t('navigation.home');
@@ -125,7 +123,6 @@ function App() {
                 <Route path="/reader" element={<TarotCardReader />} />
                 <Route path="/deck" element={<DeckPage />} />
                 <Route path="/tutorial" element={<TutorialPage />} />
-                <Route path="/admin" element={<AdminPage />} />
               </Routes>
             </main>
           </div>

@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import { tarotDataAPI } from '../services/backendApi';
+import { tarotDataAPI } from '../services/tarotData';
 import type { TarotCardLocalized } from '../types/tarot';
 import { getImagePath, checkImageExists } from '../utils/imageUtils';
 

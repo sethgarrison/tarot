@@ -1,4 +1,4 @@
-# Static site + external API. See DEPLOYMENT.md
+# Legacy Render static site; moving to Cloudflare Pages (see DEPLOYMENT.md). Delete after cutover.
 # https://render.com/docs/blueprint-spec
 
 services:
@@ -16,5 +16,3 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 20.18.0
-      - key: VITE_API_BASE
-        value: https://sissyfoot-astrological-api.onrender.com
