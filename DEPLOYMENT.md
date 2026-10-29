@@ -1,28 +1,34 @@
-# Deploy the Tarot web app (Cloudflare Pages)
+# Deploy the Tarot web app (Cloudflare Workers)
 
-The app is fully static. Card and tutorial content is bundled from [src/data/](src/data/), so there's no API, database, or build-time env var to set up.
+The app is fully static. Card and tutorial content is bundled from [src/data/](src/data/), so there is no API, database or build-time env var to set up. It is served as Workers static assets, configured in [wrangler.jsonc](wrangler.jsonc).
 
-## Cloudflare Pages
+## Cloudflare Workers Builds
 
-1. Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → pick `sethgarrison/tarot`.
-2. Build settings:
-   - Framework preset: **None**, or Vite if offered
-   - Build command: `npm run build`
-   - Build output directory: `dist`
-   - Environment variable: `NODE_VERSION=20`
-3. Save and deploy. Every push to the production branch redeploys.
+The `tarot` Worker is connected to this repo (Cloudflare dashboard → **Workers & Pages** → `tarot` → **Settings** → **Build**). It needs:
+
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy` (the default)
+- Root directory: `/`
+
+Each push to `main` deploys to production, and pushes to other branches upload a preview version. The build check shows up on PRs.
 
 ### SPA routing
 
-No configuration is needed. When the output has no `404.html`, Pages serves `index.html` with a **200** status for unknown paths, so deep links like `/deck` and `/tutorial` work on refresh and on iOS. Don't add a `404.html` to `public/`, because it would switch this behavior off.
+`"not_found_handling": "single-page-application"` in `wrangler.jsonc` serves `index.html` with a **200** status for paths that aren’t files, so deep links like `/deck` and `/tutorial` work on refresh and on iOS. Don’t remove it.
 
 Check it:
 
 ```bash
-curl -sI "https://YOUR-SITE.pages.dev/deck" | head -1
+curl -sI "https://tarot.YOUR-SUBDOMAIN.workers.dev/deck" | head -1
 ```
 
 You want `HTTP/2 200`.
+
+### Deploy from your machine (optional)
+
+```bash
+npm run build && npx wrangler deploy
+```
 
 ## Editing content
 

@@ -32,7 +32,7 @@ Open `http://localhost:5173`.
 
 ## Deployment
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) (Cloudflare Pages).
+See [DEPLOYMENT.md](DEPLOYMENT.md) (Cloudflare Workers).
 
 ## Tech stack
 
