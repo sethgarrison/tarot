@@ -1,0 +1,18 @@
+.deck-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.deck-switcher select {
+  padding: 6px 8px;
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
