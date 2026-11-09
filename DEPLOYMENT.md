@@ -33,7 +33,8 @@ npm run build && npx wrangler deploy
 ## Editing content
 
 - Cards: [src/data/cards.json](src/data/cards.json). Multilingual fields look like `{ "en": "...", "es": "..." }`. A missing `es` falls back to English.
-- UI strings: [src/data/translations.json](src/data/translations.json).
+- Minor Arcana teaching text: [src/data/minorArcana.json](src/data/minorArcana.json). It holds the intro, the four suits, the 14 ranks, and one `combined` entry per card (for example `cups_ace`), each in `en` and `es`.
+- UI strings, plus reading spreads and positions: [src/data/translations.json](src/data/translations.json).
 
 Commit and push to redeploy.
 

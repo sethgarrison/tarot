@@ -59,7 +59,8 @@
     },
     "navigation": {
       "deck": "Explore the Deck",
-      "reading": "Practice a Reading"
+      "reading": "Practice a Reading",
+      "minor": "Explore Minor Arcana"
     },
     "readingPage": {
       "title": "Practice a Reading",
@@ -153,6 +154,22 @@
           "question": "Where this leads if nothing changes."
         }
       }
+    },
+    "minorPage": {
+      "chooseSuit": "Choose a suit",
+      "chooseCard": "Choose a card",
+      "numberCards": "Number Cards",
+      "courtCards": "Court Cards",
+      "element": "Element",
+      "keywords": "Keywords",
+      "lifeAreas": "Life areas",
+      "personalityTraits": "Personality traits",
+      "combinedTitle": "Combined meaning",
+      "theSuit": "The suit",
+      "theRank": "The card",
+      "classicUpright": "Classic upright meaning",
+      "classicReversed": "Classic reversed meaning",
+      "selectPrompt": "Choose a card to see how its number or rank combines with the suit."
     }
   },
   "es": {
@@ -215,7 +232,8 @@
     },
     "navigation": {
       "deck": "Explorar el Mazo",
-      "reading": "Practicar una Lectura"
+      "reading": "Practicar una Lectura",
+      "minor": "Explorar Arcanos Menores"
     },
     "readingPage": {
       "title": "Practicar una Lectura",
@@ -309,6 +327,22 @@
           "question": "Adónde lleva esto si nada cambia."
         }
       }
+    },
+    "minorPage": {
+      "chooseSuit": "Elige un palo",
+      "chooseCard": "Elige una carta",
+      "numberCards": "Cartas Numeradas",
+      "courtCards": "Cartas de Corte",
+      "element": "Elemento",
+      "keywords": "Palabras clave",
+      "lifeAreas": "Ámbitos de la vida",
+      "personalityTraits": "Rasgos de personalidad",
+      "combinedTitle": "Significado combinado",
+      "theSuit": "El palo",
+      "theRank": "La carta",
+      "classicUpright": "Significado clásico al derecho",
+      "classicReversed": "Significado clásico invertido",
+      "selectPrompt": "Elige una carta para ver cómo se combina su número o rango con el palo."
     }
   }
 }

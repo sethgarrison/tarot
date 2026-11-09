@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, NavLink } from 'react
 import { SWRProvider } from './components/SWRProvider'
 import DeckPage from './pages/deck'
 import ReadingPage from './pages/reading'
+import MinorArcanaPage from './pages/minor'
 import LanguageSwitcher from './components/LanguageSwitcher'
 import { useTranslations } from './utils/translationUtils'
 import './App.css'
@@ -30,6 +31,7 @@ function Navigation() {
   return (
     <nav className="app-navigation">
       <NavLink to="/" end className="nav-link">{t('navigation.deck')}</NavLink>
+      <NavLink to="/minor-arcana" className="nav-link">{t('navigation.minor')}</NavLink>
       <NavLink to="/reading" className="nav-link">{t('navigation.reading')}</NavLink>
     </nav>
   );
@@ -59,6 +61,7 @@ function App() {
             <main className="App-main">
               <Routes>
                 <Route path="/" element={<DeckPage />} />
+                <Route path="/minor-arcana" element={<MinorArcanaPage />} />
                 <Route path="/reading" element={<ReadingPage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
