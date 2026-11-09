@@ -56,6 +56,103 @@
         "description": "Description",
         "value": "Value"
       }
+    },
+    "navigation": {
+      "deck": "Explore the Deck",
+      "reading": "Practice a Reading"
+    },
+    "readingPage": {
+      "title": "Practice a Reading",
+      "intro": "Lay out a spread and test what you remember. Say what each card means in its position, then check yourself against the classic meanings.",
+      "oneCard": "1 card",
+      "cardCount": "{count} cards",
+      "includeReversed": "Include reversed cards",
+      "upright": "Upright",
+      "reversed": "Reversed",
+      "chooseAnother": "Choose another spread",
+      "drawFirst": "Draw the first card",
+      "nextCard": "Next card",
+      "interpret": "Interpret",
+      "drawAgain": "Practice again",
+      "readyHint": "Take a breath, then draw when you are ready.",
+      "recallHint": "What do you remember about this card?",
+      "summaryTitle": "Summary",
+      "practiceTitle": "Now try it yourself",
+      "spreads": {
+        "single": {
+          "name": "One Card",
+          "description": "A quick way to learn the deck, one card at a time.",
+          "practice": "In your own words, say what this card means. Then think of a moment from today where that meaning shows up."
+        },
+        "three": {
+          "name": "Three Cards",
+          "description": "Past, present and future: the simplest way to practice reading cards together.",
+          "practice": "Tell the story from left to right. How does the first card lead into the second, and the second into the third? Which meaning surprised you?"
+        },
+        "celtic": {
+          "name": "Celtic Cross",
+          "description": "The classic ten-card spread from A. E. Waite, for practicing a reading in depth.",
+          "practice": "Start with cards 1 and 2 as the central tension. Compare 5 and 6 to see what is leaving and arriving, then read 7 through 10 as a path to the outcome. Look for repeated suits and numbers."
+        }
+      },
+      "positions": {
+        "focus": {
+          "name": "The Card",
+          "question": "What is this card asking you to notice?"
+        },
+        "past": {
+          "name": "Past",
+          "question": "What led to this moment?"
+        },
+        "present": {
+          "name": "Present",
+          "question": "What is happening now?"
+        },
+        "future": {
+          "name": "Future",
+          "question": "Where are things heading?"
+        },
+        "cover": {
+          "name": "Covers",
+          "question": "The situation as it stands now."
+        },
+        "cross": {
+          "name": "Crosses",
+          "question": "The obstacle or force working against it."
+        },
+        "crown": {
+          "name": "Crowns",
+          "question": "The goal, or the best that can come of it."
+        },
+        "foundation": {
+          "name": "Beneath",
+          "question": "The root of the situation."
+        },
+        "behind": {
+          "name": "Behind",
+          "question": "What is passing out of influence."
+        },
+        "before": {
+          "name": "Before",
+          "question": "What is coming into influence soon."
+        },
+        "self": {
+          "name": "Yourself",
+          "question": "How you are meeting this."
+        },
+        "environment": {
+          "name": "Your House",
+          "question": "The people and circumstances around you."
+        },
+        "hopes": {
+          "name": "Hopes and Fears",
+          "question": "What you long for or dread."
+        },
+        "outcome": {
+          "name": "Outcome",
+          "question": "Where this leads if nothing changes."
+        }
+      }
     }
   },
   "es": {
@@ -114,6 +211,103 @@
         "reversedMeaning": "Significado Invertido",
         "description": "Descripción",
         "value": "Valor"
+      }
+    },
+    "navigation": {
+      "deck": "Explorar el Mazo",
+      "reading": "Practicar una Lectura"
+    },
+    "readingPage": {
+      "title": "Practicar una Lectura",
+      "intro": "Dispón una tirada y pon a prueba lo que recuerdas. Di qué significa cada carta en su posición y luego compara con los significados clásicos.",
+      "oneCard": "1 carta",
+      "cardCount": "{count} cartas",
+      "includeReversed": "Incluir cartas invertidas",
+      "upright": "Al derecho",
+      "reversed": "Invertida",
+      "chooseAnother": "Elegir otra tirada",
+      "drawFirst": "Saca la primera carta",
+      "nextCard": "Siguiente carta",
+      "interpret": "Interpretar",
+      "drawAgain": "Practicar otra vez",
+      "readyHint": "Respira hondo y saca una carta cuando quieras.",
+      "recallHint": "¿Qué recuerdas de esta carta?",
+      "summaryTitle": "Resumen",
+      "practiceTitle": "Ahora inténtalo tú",
+      "spreads": {
+        "single": {
+          "name": "Una Carta",
+          "description": "Una forma rápida de aprender el mazo, carta por carta.",
+          "practice": "Di con tus propias palabras qué significa esta carta. Luego piensa en un momento de hoy en el que aparezca ese significado."
+        },
+        "three": {
+          "name": "Tres Cartas",
+          "description": "Pasado, presente y futuro: la forma más sencilla de practicar la lectura de varias cartas.",
+          "practice": "Cuenta la historia de izquierda a derecha. ¿Cómo lleva la primera carta a la segunda y la segunda a la tercera? ¿Qué significado te sorprendió?"
+        },
+        "celtic": {
+          "name": "Cruz Celta",
+          "description": "La tirada clásica de diez cartas de A. E. Waite, para practicar una lectura en profundidad.",
+          "practice": "Empieza por las cartas 1 y 2 como la tensión central. Compara la 5 y la 6 para ver qué se va y qué llega, y lee de la 7 a la 10 como un camino hacia el desenlace. Busca palos y números repetidos."
+        }
+      },
+      "positions": {
+        "focus": {
+          "name": "La Carta",
+          "question": "¿Qué te pide notar esta carta?"
+        },
+        "past": {
+          "name": "Pasado",
+          "question": "¿Qué condujo a este momento?"
+        },
+        "present": {
+          "name": "Presente",
+          "question": "¿Qué está pasando ahora?"
+        },
+        "future": {
+          "name": "Futuro",
+          "question": "¿Hacia dónde van las cosas?"
+        },
+        "cover": {
+          "name": "Lo que cubre",
+          "question": "La situación tal como está ahora."
+        },
+        "cross": {
+          "name": "Lo que cruza",
+          "question": "El obstáculo o la fuerza en contra."
+        },
+        "crown": {
+          "name": "Lo que corona",
+          "question": "La meta, o lo mejor que puede resultar."
+        },
+        "foundation": {
+          "name": "La base",
+          "question": "La raíz de la situación."
+        },
+        "behind": {
+          "name": "Lo que queda atrás",
+          "question": "Lo que va perdiendo influencia."
+        },
+        "before": {
+          "name": "Lo que viene",
+          "question": "Lo que pronto tendrá influencia."
+        },
+        "self": {
+          "name": "Tú",
+          "question": "Cómo estás afrontando esto."
+        },
+        "environment": {
+          "name": "Tu entorno",
+          "question": "Las personas y circunstancias que te rodean."
+        },
+        "hopes": {
+          "name": "Esperanzas y miedos",
+          "question": "Lo que anhelas o temes."
+        },
+        "outcome": {
+          "name": "Desenlace",
+          "question": "Adónde lleva esto si nada cambia."
+        }
       }
     }
   }
