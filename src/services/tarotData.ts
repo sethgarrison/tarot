@@ -1,36 +1,16 @@
 import type { DatabaseCard, MultilingualContent, TarotCardLocalized } from '../types/tarot';
 import cardsData from '../data/cards.json';
-import tutorialsData from '../data/tutorials.json';
 
 /**
- * Card and tutorial data bundled with the app (src/data/*.json); edit those files to change content.
+ * Card data bundled with the app (src/data/cards.json); edit that file to change content.
  * Mirrors the lookups the old tarot API did, resolving each field as `content[lang] ?? content.en`.
  */
 
-type Localizable = Partial<Record<string, unknown>> & { en: unknown };
-
-interface TutorialRow {
-  section_key: string;
-  title: MultilingualContent;
-  content: Localizable;
-}
-
-export interface TutorialSection {
-  section_key: string;
-  title: string;
-  content: unknown;
-}
-
 const cards = cardsData as DatabaseCard[];
-const tutorials = tutorialsData as TutorialRow[];
 
 function pickLang(content: MultilingualContent | undefined, lang: string): string {
   if (!content) return '';
   return content[lang as keyof MultilingualContent] ?? content.en ?? '';
-}
-
-function pickLangContent(content: Localizable, lang: string): unknown {
-  return lang in content ? content[lang] : content.en;
 }
 
 function localize(card: DatabaseCard, lang: string): TarotCardLocalized {
@@ -45,7 +25,7 @@ function localize(card: DatabaseCard, lang: string): TarotCardLocalized {
     meaning_rev: pickLang(card.meaning_rev, lang),
     desc: pickLang(card.description, lang),
     suit: card.suit ? pickLang(card.suit, lang) : undefined,
-    image_path: card.image_path,
+    suit_en: card.suit?.en,
   };
 }
 
@@ -132,20 +112,6 @@ class TarotDataService {
         )
       )
       .map((c) => localize(c, language));
-  }
-
-  async getTutorials(language: string = 'en'): Promise<TutorialSection[]> {
-    return tutorials.map((t) => ({
-      section_key: t.section_key,
-      title: pickLang(t.title, language),
-      content: pickLangContent(t.content, language),
-    }));
-  }
-
-  async getTutorialSection(sectionKey: string, language: string = 'en'): Promise<TutorialSection> {
-    const section = (await this.getTutorials(language)).find((t) => t.section_key === sectionKey);
-    if (!section) throw notFound('Tutorial');
-    return section;
   }
 }
 

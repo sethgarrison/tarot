@@ -36,20 +36,17 @@ export const DeckPage: React.FC<DeckPageProps> = ({ className = '' }) => {
           return false;
         }
 
-        // Suit filter (only applies to minor arcana)
-        if (suitFilter !== 'all' && card.type === 'minor') {
-          if (card.suit?.toLowerCase() !== suitFilter) {
+        // Suit and card type filters narrow to the minor arcana; both are disabled when viewing major arcana
+        if (arcanaFilter !== 'major') {
+          if (suitFilter !== 'all' && card.suit_en !== suitFilter) {
             return false;
           }
-        }
 
-        // Card type filter (only applies to minor arcana)
-        if (cardTypeFilter !== 'all' && card.type === 'minor') {
           const valueInt = card.value_int;
-          if (cardTypeFilter === 'number' && (valueInt < 1 || valueInt > 10)) {
+          if (cardTypeFilter === 'number' && (card.type !== 'minor' || valueInt < 1 || valueInt > 10)) {
             return false;
           }
-          if (cardTypeFilter === 'court' && (valueInt < 11 || valueInt > 14)) {
+          if (cardTypeFilter === 'court' && (card.type !== 'minor' || valueInt < 11 || valueInt > 14)) {
             return false;
           }
         }
@@ -76,8 +73,8 @@ export const DeckPage: React.FC<DeckPageProps> = ({ className = '' }) => {
         // Sort minor arcana by suit then by value_int
         if (a.type === 'minor' && b.type === 'minor') {
           const suitOrder = { wands: 0, cups: 1, swords: 2, pentacles: 3 };
-          const aSuit = a.suit?.toLowerCase() || '';
-          const bSuit = b.suit?.toLowerCase() || '';
+          const aSuit = a.suit_en || '';
+          const bSuit = b.suit_en || '';
           
           if (aSuit !== bSuit) {
             return (suitOrder[aSuit as keyof typeof suitOrder] || 0) - 
@@ -142,7 +139,8 @@ export const DeckPage: React.FC<DeckPageProps> = ({ className = '' }) => {
         <div className="search-bar">
           <input
             type="text"
-            placeholder="Search cards..."
+            placeholder={t('deckPage.searchPlaceholder')}
+            aria-label={t('deckPage.searchPlaceholder')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="search-input"
@@ -220,16 +218,12 @@ export const DeckPage: React.FC<DeckPageProps> = ({ className = '' }) => {
             <div key={card.name_short} className="card-grid-item">
               <TarotCardComponent 
                 card={card} 
-                showDetails={true}
-                flipOnClick={true}
-                className="deck-card"
               />
             </div>
           ))
         ) : (
           <div className="no-cards">
             <div className="no-cards-content">
-              <span className="no-cards-icon">🔍</span>
               <h3>{t('deckPage.emptyState.title')}</h3>
               <p>{t('deckPage.emptyState.message')}</p>
               <button 

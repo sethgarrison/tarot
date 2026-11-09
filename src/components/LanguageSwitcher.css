@@ -1,38 +1,29 @@
 .language-switcher {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   align-items: center;
 }
 
 .lang-btn {
-  padding: 8px 16px;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
+  padding: 7px 14px;
+  border: 2px solid var(--cream);
+  border-radius: 999px;
   background: transparent;
-  color: var(--text-primary);
-  font-size: 14px;
-  font-weight: 400;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
   letter-spacing: 0.5px;
 }
 
 .lang-btn:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-  background: rgba(64, 224, 208, 0.1);
+  border-color: var(--orange);
+  color: var(--orange);
 }
 
-.lang-btn.active {
-  background: rgba(64, 224, 208, 0.15);
-  color: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
+.lang-btn.active,
 .lang-btn.active:hover {
-  background: rgba(64, 224, 208, 0.2);
-  border-color: var(--primary-color);
-} 
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--ink);
+}

@@ -1,6 +1,6 @@
-# Tarot Deck Reader
+# Sissy Señor Tarot
 
-Vite + React tarot reader and tutorials. Fully static: card and tutorial content lives in [src/data/](src/data/).
+Vite + React deck explorer for the Sissy Señor tarot, in English and Spanish. Fully static: card content lives in [src/data/](src/data/) and card art in [public/decks/](public/decks/).
 
 ## Prerequisites
 

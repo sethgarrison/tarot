@@ -13,15 +13,17 @@ const LanguageSwitcher: React.FC = () => {
         className={`lang-btn ${currentLanguage === 'en' ? 'active' : ''}`}
         onClick={() => setLanguage('en')}
         title={t('languageSwitcher.english')}
+        aria-pressed={currentLanguage === 'en'}
       >
-        🇺🇸 EN
+        EN
       </button>
       <button
         className={`lang-btn ${currentLanguage === 'es' ? 'active' : ''}`}
         onClick={() => setLanguage('es')}
         title={t('languageSwitcher.spanish')}
+        aria-pressed={currentLanguage === 'es'}
       >
-        🇪🇸 ES
+        ES
       </button>
     </div>
   );

@@ -1,193 +1,43 @@
 /* App-specific styles only */
 
 .App {
-  text-align: center;
   min-height: 100vh;
-  background: var(--background-dark);
-  color: var(--text-primary);
 }
 
 .App-header {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.02);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 12px;
+  padding: 20px clamp(16px, 4vw, 40px);
+  background: var(--deep-blue);
 }
 
 .App-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: var(--text-primary);
-  letter-spacing: 2px;
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  color: var(--orange);
 }
 
-.App-header p {
-  margin: 10px 0 20px 0;
-  font-size: 1.1rem;
-  opacity: 0.8;
-  color: var(--text-secondary);
+.header-accent {
+  color: var(--cream);
 }
 
-.app-navigation {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.nav-btn {
-  padding: 12px 24px;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  background: transparent;
-  color: var(--text-primary);
-  font-size: 1rem;
-  font-weight: 400;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.nav-btn:hover {
-  background: rgba(64, 224, 208, 0.1);
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-}
-
-.nav-btn.active {
-  background: rgba(64, 224, 208, 0.15);
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+/* Punky stripe pulled from the card palette */
+.brand-stripe {
+  height: 10px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--pink) 0 24px,
+    var(--orange) 24px 48px,
+    var(--green) 48px 72px,
+    var(--red) 72px 96px,
+    var(--purple) 96px 120px
+  );
 }
 
 .App-main {
-  padding: 20px;
-  max-width: 1200px;
+  padding: clamp(16px, 3vw, 32px);
+  max-width: 1280px;
   margin: 0 auto;
-}
-
-/* Desktop Navigation */
-.nav-desktop {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-/* Mobile Navigation */
-.nav-mobile {
-  display: none;
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.nav-dropdown-toggle {
-  width: 100%;
-  padding: 12px 20px;
-  background: transparent;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  color: var(--text-primary);
-  font-size: 1rem;
-  font-weight: 400;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-dropdown-toggle:hover {
-  background: rgba(64, 224, 208, 0.1);
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-}
-
-.nav-dropdown-label {
-  flex: 1;
-  text-align: left;
-}
-
-.nav-dropdown-arrow {
-  font-size: 0.8rem;
-  transition: transform 0.3s ease;
-  margin-left: 10px;
-}
-
-.nav-dropdown-arrow.open {
-  transform: rotate(180deg);
-}
-
-.nav-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--background-dark);
-  border: 1px solid var(--border-color);
-  border-top: none;
-  border-radius: 0 0 4px 4px;
-  z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.nav-dropdown-item {
-  display: block;
-  padding: 12px 20px;
-  color: var(--text-primary);
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.nav-dropdown-item:last-child {
-  border-bottom: none;
-}
-
-.nav-dropdown-item:hover {
-  background: rgba(64, 224, 208, 0.1);
-  color: var(--primary-color);
-}
-
-.nav-dropdown-item.active {
-  background: rgba(64, 224, 208, 0.15);
-  color: var(--primary-color);
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .header-top {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .App-header h1 {
-    font-size: 2rem;
-  }
-  
-  .nav-desktop {
-    display: none;
-  }
-  
-  .nav-mobile {
-    display: block;
-  }
 }
