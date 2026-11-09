@@ -11,7 +11,6 @@
   flex-wrap: wrap;
   gap: 12px;
   padding: 20px clamp(16px, 4vw, 40px);
-  background: var(--deep-blue);
 }
 
 .App-header h1 {
@@ -51,21 +50,8 @@
 
 .nav-link.active,
 .nav-link.active:hover {
-  background: var(--teal);
+  background: var(--deep-blue);
   color: var(--cream);
-}
-
-/* Punky stripe pulled from the card palette */
-.brand-stripe {
-  height: 10px;
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--pink) 0 24px,
-    var(--orange) 24px 48px,
-    var(--green) 48px 72px,
-    var(--red) 72px 96px,
-    var(--purple) 96px 120px
-  );
 }
 
 .App-main {

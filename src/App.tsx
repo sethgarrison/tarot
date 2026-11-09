@@ -80,7 +80,6 @@ function App() {
                   <LanguageSwitcher />
                 </div>
               </header>
-              <div className="brand-stripe" aria-hidden="true" />
 
               <main className="App-main">
                 <Routes>
