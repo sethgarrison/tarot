@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useAllCards } from '../../hooks/useTarotAPI';
-import { useLanguage } from '../../App';
+import { useDeck, useLanguage } from '../../App';
 import { useTranslations } from '../../utils/translationUtils';
 import { getCardImagePath } from '../../utils/imageUtils';
 import minorArcanaData from '../../data/minorArcana.json';
@@ -53,6 +53,7 @@ const englishCardName = (suit: string, rank: string) => `${capitalize(rank)} of 
 const MinorArcanaPage: React.FC = () => {
   const { currentLanguage } = useLanguage();
   const { t } = useTranslations();
+  const { deck } = useDeck();
   const { data: allCards } = useAllCards(currentLanguage);
 
   const [selectedSuit, setSelectedSuit] = useState<string | null>(null);
@@ -102,7 +103,7 @@ const MinorArcanaPage: React.FC = () => {
             aria-pressed={selectedRank === key}
             onClick={() => setSelectedRank(key)}
           >
-            <img src={getCardImagePath(name)} alt="" className="rank-art" width={825} height={1426} loading="lazy" />
+            <img src={getCardImagePath(name, deck)} alt="" className="rank-art" width={825} height={1426} loading="lazy" />
             <span className="rank-name">{local(content.ranks[key]).name}</span>
             <span className="rank-description">{local(content.ranks[key]).description}</span>
           </button>
@@ -132,7 +133,7 @@ const MinorArcanaPage: React.FC = () => {
               onClick={() => selectSuit(key)}
             >
               <img
-                src={getCardImagePath(englishCardName(key, 'ace'))}
+                src={getCardImagePath(englishCardName(key, 'ace'), deck)}
                 alt=""
                 className="suit-art"
                 width={825}
@@ -192,7 +193,7 @@ const MinorArcanaPage: React.FC = () => {
               {selectedCard && rank && selectedSuit && selectedRank ? (
                 <>
                   <img
-                    src={getCardImagePath(selectedCard.name_en || selectedCard.name)}
+                    src={getCardImagePath(selectedCard.name_en || selectedCard.name, deck)}
                     alt={selectedCard.name}
                     className="combined-art"
                     width={825}

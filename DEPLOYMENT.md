@@ -40,7 +40,7 @@ Commit and push to redeploy.
 
 ## Assets
 
-Card art lives in `public/decks/<deck>/`, one folder per deck: `sissy-senor` (WebP, the default) and `rws` (Rider-Waite-Smith JPEGs). Files are named after the English card name, such as `two_of_cups.webp`. The default deck is set in [src/utils/imageUtils.ts](src/utils/imageUtils.ts).
+Card art lives in `public/decks/<deck>/`, one folder per deck: `sissy-senor` (WebP, the default) and `rws` (Rider-Waite-Smith JPEGs). Files are named after the English card name, such as `two_of_cups.webp`. Decks are listed in [src/utils/imageUtils.ts](src/utils/imageUtils.ts), which also sets the default. To add a deck, add a folder with all 78 cards and one entry in `DECKS`; it then appears in the header selector.
 
 ## Local production build
 

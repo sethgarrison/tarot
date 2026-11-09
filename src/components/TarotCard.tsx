@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { TarotCardLocalized } from '../types/tarot';
 import { getCardImagePath } from '../utils/imageUtils';
 import { useTranslations } from '../utils/translationUtils';
+import { useDeck } from '../App';
 import './TarotCard.css';
 
 interface TarotCardProps {
@@ -12,7 +13,9 @@ interface TarotCardProps {
 export const TarotCardComponent: React.FC<TarotCardProps> = ({ card, className = '' }) => {
   const { t } = useTranslations();
   const [isFlipped, setIsFlipped] = useState(false);
-  const [imageFailed, setImageFailed] = useState(false);
+  const { deck } = useDeck();
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  const imageSrc = getCardImagePath(card.name_en || card.name, deck);
 
   const toggleFlip = () => setIsFlipped((flipped) => !flipped);
 
@@ -38,20 +41,20 @@ export const TarotCardComponent: React.FC<TarotCardProps> = ({ card, className =
       >
         {/* Front of Card - Just the Image */}
         <div className="card-front">
-          {imageFailed ? (
+          {failedSrc === imageSrc ? (
             <div className="no-image">
               <span className="card-name">{card.name}</span>
             </div>
           ) : (
             <img
-              src={getCardImagePath(card.name_en || card.name)}
+              src={imageSrc}
               alt={card.name}
               className="card-image"
               width={825}
               height={1426}
               loading="lazy"
               decoding="async"
-              onError={() => setImageFailed(true)}
+              onError={() => setFailedSrc(imageSrc)}
             />
           )}
           <div className="flip-hint">

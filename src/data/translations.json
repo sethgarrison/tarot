@@ -170,6 +170,9 @@
       "classicUpright": "Classic upright meaning",
       "classicReversed": "Classic reversed meaning",
       "selectPrompt": "Choose a card to see how its number or rank combines with the suit."
+    },
+    "deckSwitcher": {
+      "label": "Deck"
     }
   },
   "es": {
@@ -343,6 +346,9 @@
       "classicUpright": "Significado clásico al derecho",
       "classicReversed": "Significado clásico invertido",
       "selectPrompt": "Elige una carta para ver cómo se combina su número o rango con el palo."
+    },
+    "deckSwitcher": {
+      "label": "Mazo"
     }
   }
 }

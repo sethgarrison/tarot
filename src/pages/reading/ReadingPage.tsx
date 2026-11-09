@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useAllCards } from '../../hooks/useTarotAPI';
-import { useLanguage } from '../../App';
+import { useDeck, useLanguage } from '../../App';
 import { shuffled } from '../../services/tarotData';
 import { useTranslations } from '../../utils/translationUtils';
 import { getCardImagePath } from '../../utils/imageUtils';
@@ -16,6 +16,7 @@ interface DrawnCard {
 const ReadingPage: React.FC = () => {
   const { currentLanguage } = useLanguage();
   const { t } = useTranslations();
+  const { deck } = useDeck();
   const { data: allCards } = useAllCards(currentLanguage);
 
   const [spread, setSpread] = useState<Spread | null>(null);
@@ -120,7 +121,7 @@ const ReadingPage: React.FC = () => {
                 <div className="slot-frame">
                   {card ? (
                     <img
-                      src={getCardImagePath(card.name_en || card.name)}
+                      src={getCardImagePath(card.name_en || card.name, deck)}
                       alt={`${card.name} (${orientation(draw.reversed)})`}
                       className={`slot-card ${draw.reversed ? 'reversed' : ''}`}
                       width={825}
@@ -185,7 +186,7 @@ const ReadingPage: React.FC = () => {
               return (
                 <li key={key} className="interpretation-item">
                   <img
-                    src={getCardImagePath(card.name_en || card.name)}
+                    src={getCardImagePath(card.name_en || card.name, deck)}
                     alt=""
                     className={`interpretation-card ${draw.reversed ? 'reversed' : ''}`}
                     width={825}
