@@ -1,6 +1,6 @@
 # Sissy Señor Tarot
 
-Vite + React deck explorer and reading practice for the Sissy Señor tarot, in English and Spanish. Fully static: card content lives in [src/data/](src/data/) and card art in [public/decks/](public/decks/).
+Vite + React deck explorer, Minor Arcana guide and reading practice for the Sissy Señor tarot, in English and Spanish. Fully static: card content lives in [src/data/](src/data/) and card art in [public/decks/](public/decks/).
 
 ## Prerequisites
 

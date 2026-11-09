@@ -1,0 +1,798 @@
+{
+  "intro": {
+    "en": {
+      "title": "The Minor Arcana",
+      "subtitle": "The Lesser Mysteries",
+      "description": "The Minor Arcana consists of 56 cards divided into four suits, each representing different aspects of daily life and human experience. These cards provide practical guidance and reflect the everyday situations we encounter.",
+      "structure": "The Minor Arcana consists of 4 suits with 14 cards each: Ace through 10 (number cards) plus Page, Knight, Queen, and King (court cards).",
+      "numberCards": "Ace through 10 represent the progression of energy and experience within each suit, from new beginnings to completion.",
+      "courtCards": "Page, Knight, Queen, and King represent different personality types and approaches to life within each suit's domain."
+    },
+    "es": {
+      "title": "Los Arcanos Menores",
+      "subtitle": "Los Misterios Menores",
+      "description": "El Arcano Menor consta de 56 cartas divididas en cuatro palos, cada uno representando diferentes aspectos de la vida diaria y la experiencia humana. Estas cartas proporcionan orientación práctica y reflejan las situaciones cotidianas que encontramos.",
+      "structure": "El Arcano Menor consta de 4 palos con 14 cartas cada uno: As hasta 10 (cartas numeradas) más Paje, Caballero, Reina y Rey (cartas de corte).",
+      "numberCards": "As hasta 10 representan la progresión de energía y experiencia dentro de cada palo, desde nuevos comienzos hasta la finalización.",
+      "courtCards": "Paje, Caballero, Reina y Rey representan diferentes tipos de personalidad y enfoques a la vida dentro del dominio de cada palo."
+    }
+  },
+  "suits": {
+    "wands": {
+      "en": {
+        "name": "Wands",
+        "element": "Fire",
+        "description": "Wands represent creativity, passion, energy, and spiritual growth. They are associated with inspiration, ambition, and the spark of new ideas.",
+        "keywords": [
+          "creativity",
+          "passion",
+          "energy",
+          "inspiration",
+          "ambition",
+          "spiritual growth",
+          "action",
+          "enthusiasm"
+        ],
+        "lifeAreas": [
+          "Career and professional development",
+          "Creative projects and artistic endeavors",
+          "Spiritual growth and personal development",
+          "Passion and romantic relationships",
+          "New ventures and opportunities"
+        ],
+        "personalityTraits": [
+          "Energetic and enthusiastic",
+          "Creative and innovative",
+          "Passionate and driven",
+          "Spontaneous and adventurous",
+          "Optimistic and inspiring"
+        ]
+      },
+      "es": {
+        "name": "Bastos",
+        "element": "Fuego",
+        "description": "Los Bastos representan creatividad, pasión, energía y crecimiento espiritual. Están asociados con la inspiración, la ambición y la chispa de nuevas ideas.",
+        "keywords": [
+          "creatividad",
+          "pasión",
+          "energía",
+          "inspiración",
+          "ambición",
+          "crecimiento espiritual",
+          "acción",
+          "entusiasmo"
+        ],
+        "lifeAreas": [
+          "Carrera y desarrollo profesional",
+          "Proyectos creativos y esfuerzos artísticos",
+          "Crecimiento espiritual y desarrollo personal",
+          "Pasión y relaciones románticas",
+          "Nuevas empresas y oportunidades"
+        ],
+        "personalityTraits": [
+          "Energético y entusiasta",
+          "Creativo e innovador",
+          "Apasionado y motivado",
+          "Espontáneo y aventurero",
+          "Optimista e inspirador"
+        ]
+      }
+    },
+    "cups": {
+      "en": {
+        "name": "Cups",
+        "element": "Water",
+        "description": "Cups represent emotions, relationships, intuition, and matters of the heart. They are associated with love, compassion, and emotional fulfillment.",
+        "keywords": [
+          "emotions",
+          "relationships",
+          "intuition",
+          "love",
+          "compassion",
+          "creativity",
+          "spirituality",
+          "healing"
+        ],
+        "lifeAreas": [
+          "Romantic relationships and love",
+          "Emotional well-being and healing",
+          "Intuition and psychic abilities",
+          "Family and close friendships",
+          "Creative expression and artistic pursuits"
+        ],
+        "personalityTraits": [
+          "Emotional and sensitive",
+          "Intuitive and empathetic",
+          "Romantic and idealistic",
+          "Creative and artistic",
+          "Compassionate and caring"
+        ]
+      },
+      "es": {
+        "name": "Copas",
+        "element": "Agua",
+        "description": "Las Copas representan emociones, relaciones, intuición y asuntos del corazón. Están asociadas con el amor, la compasión y la realización emocional.",
+        "keywords": [
+          "emociones",
+          "relaciones",
+          "intuición",
+          "amor",
+          "compasión",
+          "creatividad",
+          "espiritualidad",
+          "sanación"
+        ],
+        "lifeAreas": [
+          "Relaciones románticas y amor",
+          "Bienestar emocional y sanación",
+          "Intuición y habilidades psíquicas",
+          "Familia y amistades cercanas",
+          "Expresión creativa y esfuerzos artísticos"
+        ],
+        "personalityTraits": [
+          "Emocional y sensible",
+          "Intuitivo y empático",
+          "Romántico e idealista",
+          "Creativo y artístico",
+          "Compasivo y cariñoso"
+        ]
+      }
+    },
+    "swords": {
+      "en": {
+        "name": "Swords",
+        "element": "Air",
+        "description": "Swords represent intellect, communication, challenges, and mental clarity. They are associated with thoughts, decisions, and the power of the mind.",
+        "keywords": [
+          "intellect",
+          "communication",
+          "challenges",
+          "mental clarity",
+          "truth",
+          "justice",
+          "conflict",
+          "transformation"
+        ],
+        "lifeAreas": [
+          "Intellectual pursuits and education",
+          "Communication and self-expression",
+          "Decision-making and problem-solving",
+          "Legal matters and justice",
+          "Mental health and clarity"
+        ],
+        "personalityTraits": [
+          "Intellectual and analytical",
+          "Direct and honest",
+          "Strategic and logical",
+          "Truth-seeking and just",
+          "Mental and communicative"
+        ]
+      },
+      "es": {
+        "name": "Espadas",
+        "element": "Aire",
+        "description": "Las Espadas representan intelecto, comunicación, desafíos y claridad mental. Están asociadas con pensamientos, decisiones y el poder de la mente.",
+        "keywords": [
+          "intelecto",
+          "comunicación",
+          "desafíos",
+          "claridad mental",
+          "verdad",
+          "justicia",
+          "conflicto",
+          "transformación"
+        ],
+        "lifeAreas": [
+          "Actividades intelectuales y educación",
+          "Comunicación y autoexpresión",
+          "Toma de decisiones y resolución de problemas",
+          "Asuntos legales y justicia",
+          "Salud mental y claridad"
+        ],
+        "personalityTraits": [
+          "Intelectual y analítico",
+          "Directo y honesto",
+          "Estratégico y lógico",
+          "Buscador de verdad y justo",
+          "Mental y comunicativo"
+        ]
+      }
+    },
+    "pentacles": {
+      "en": {
+        "name": "Pentacles",
+        "element": "Earth",
+        "description": "Pentacles represent material wealth, practical matters, health, and physical manifestation. They are associated with abundance, security, and tangible results.",
+        "keywords": [
+          "wealth",
+          "practicality",
+          "health",
+          "abundance",
+          "security",
+          "material success",
+          "stability",
+          "manifestation"
+        ],
+        "lifeAreas": [
+          "Financial matters and wealth",
+          "Career and professional success",
+          "Health and physical well-being",
+          "Home and family life",
+          "Material goals and achievements"
+        ],
+        "personalityTraits": [
+          "Practical and grounded",
+          "Reliable and responsible",
+          "Ambitious and hardworking",
+          "Generous and abundant",
+          "Stable and secure"
+        ]
+      },
+      "es": {
+        "name": "Oros",
+        "element": "Tierra",
+        "description": "Los Oros representan riqueza material, asuntos prácticos, salud y manifestación física. Están asociados con abundancia, seguridad y resultados tangibles.",
+        "keywords": [
+          "riqueza",
+          "practicidad",
+          "salud",
+          "abundancia",
+          "seguridad",
+          "éxito material",
+          "estabilidad",
+          "manifestación"
+        ],
+        "lifeAreas": [
+          "Asuntos financieros y riqueza",
+          "Carrera y éxito profesional",
+          "Salud y bienestar físico",
+          "Hogar y vida familiar",
+          "Metas materiales y logros"
+        ],
+        "personalityTraits": [
+          "Práctico y con los pies en la tierra",
+          "Confiable y responsable",
+          "Ambicioso y trabajador",
+          "Generoso y abundante",
+          "Estable y seguro"
+        ]
+      }
+    }
+  },
+  "ranks": {
+    "ace": {
+      "en": {
+        "name": "Ace",
+        "keywords": [
+          "new beginnings",
+          "potential",
+          "opportunity",
+          "pure energy"
+        ],
+        "description": "The Ace represents the pure essence of the suit, new beginnings, and unlimited potential."
+      },
+      "es": {
+        "name": "As",
+        "keywords": [
+          "nuevos comienzos",
+          "potencial",
+          "oportunidad",
+          "energía pura"
+        ],
+        "description": "El As representa la esencia pura del palo, los nuevos comienzos y un potencial ilimitado."
+      }
+    },
+    "two": {
+      "en": {
+        "name": "Two",
+        "keywords": [
+          "partnership",
+          "balance",
+          "choice",
+          "harmony"
+        ],
+        "description": "The Two represents partnership, balance, and the need to make choices."
+      },
+      "es": {
+        "name": "Dos",
+        "keywords": [
+          "asociación",
+          "equilibrio",
+          "elección",
+          "armonía"
+        ],
+        "description": "El Dos representa la asociación, el equilibrio y la necesidad de tomar decisiones."
+      }
+    },
+    "three": {
+      "en": {
+        "name": "Three",
+        "keywords": [
+          "creativity",
+          "growth",
+          "expansion",
+          "collaboration"
+        ],
+        "description": "The Three represents creativity, growth, and the power of collaboration."
+      },
+      "es": {
+        "name": "Tres",
+        "keywords": [
+          "creatividad",
+          "crecimiento",
+          "expansión",
+          "colaboración"
+        ],
+        "description": "El Tres representa la creatividad, el crecimiento y el poder de la colaboración."
+      }
+    },
+    "four": {
+      "en": {
+        "name": "Four",
+        "keywords": [
+          "stability",
+          "foundation",
+          "security",
+          "structure"
+        ],
+        "description": "The Four represents stability, foundation, and creating solid structures."
+      },
+      "es": {
+        "name": "Cuatro",
+        "keywords": [
+          "estabilidad",
+          "cimientos",
+          "seguridad",
+          "estructura"
+        ],
+        "description": "El Cuatro representa la estabilidad, los cimientos y la creación de estructuras sólidas."
+      }
+    },
+    "five": {
+      "en": {
+        "name": "Five",
+        "keywords": [
+          "challenge",
+          "conflict",
+          "change",
+          "adaptation"
+        ],
+        "description": "The Five represents challenges, conflicts, and the need to adapt to change."
+      },
+      "es": {
+        "name": "Cinco",
+        "keywords": [
+          "desafío",
+          "conflicto",
+          "cambio",
+          "adaptación"
+        ],
+        "description": "El Cinco representa los desafíos, los conflictos y la necesidad de adaptarse al cambio."
+      }
+    },
+    "six": {
+      "en": {
+        "name": "Six",
+        "keywords": [
+          "harmony",
+          "balance",
+          "resolution",
+          "cooperation"
+        ],
+        "description": "The Six represents harmony, balance, and finding resolution to conflicts."
+      },
+      "es": {
+        "name": "Seis",
+        "keywords": [
+          "armonía",
+          "equilibrio",
+          "resolución",
+          "cooperación"
+        ],
+        "description": "El Seis representa la armonía, el equilibrio y la resolución de los conflictos."
+      }
+    },
+    "seven": {
+      "en": {
+        "name": "Seven",
+        "keywords": [
+          "assessment",
+          "evaluation",
+          "reflection",
+          "perseverance"
+        ],
+        "description": "The Seven represents assessment, evaluation, and the need to persevere."
+      },
+      "es": {
+        "name": "Siete",
+        "keywords": [
+          "análisis",
+          "evaluación",
+          "reflexión",
+          "perseverancia"
+        ],
+        "description": "El Siete representa el análisis, la evaluación y la necesidad de perseverar."
+      }
+    },
+    "eight": {
+      "en": {
+        "name": "Eight",
+        "keywords": [
+          "movement",
+          "progress",
+          "action",
+          "momentum"
+        ],
+        "description": "The Eight represents movement, progress, and taking decisive action."
+      },
+      "es": {
+        "name": "Ocho",
+        "keywords": [
+          "movimiento",
+          "progreso",
+          "acción",
+          "impulso"
+        ],
+        "description": "El Ocho representa el movimiento, el progreso y la acción decidida."
+      }
+    },
+    "nine": {
+      "en": {
+        "name": "Nine",
+        "keywords": [
+          "completion",
+          "fulfillment",
+          "satisfaction",
+          "preparation"
+        ],
+        "description": "The Nine represents completion, fulfillment, and preparation for the final stage."
+      },
+      "es": {
+        "name": "Nueve",
+        "keywords": [
+          "culminación",
+          "plenitud",
+          "satisfacción",
+          "preparación"
+        ],
+        "description": "El Nueve representa la culminación, la plenitud y la preparación para la etapa final."
+      }
+    },
+    "ten": {
+      "en": {
+        "name": "Ten",
+        "keywords": [
+          "completion",
+          "culmination",
+          "fullness",
+          "end of cycle"
+        ],
+        "description": "The Ten represents the completion of a cycle and the fullness of experience."
+      },
+      "es": {
+        "name": "Diez",
+        "keywords": [
+          "finalización",
+          "culminación",
+          "plenitud",
+          "fin de ciclo"
+        ],
+        "description": "El Diez representa la finalización de un ciclo y la plenitud de la experiencia."
+      }
+    },
+    "page": {
+      "en": {
+        "name": "Page",
+        "keywords": [
+          "learning",
+          "curiosity",
+          "new skills",
+          "messages"
+        ],
+        "description": "The Page represents learning, curiosity, and the beginning of a new journey."
+      },
+      "es": {
+        "name": "Paje",
+        "keywords": [
+          "aprendizaje",
+          "curiosidad",
+          "nuevas habilidades",
+          "mensajes"
+        ],
+        "description": "El Paje representa el aprendizaje, la curiosidad y el comienzo de un nuevo viaje."
+      }
+    },
+    "knight": {
+      "en": {
+        "name": "Knight",
+        "keywords": [
+          "action",
+          "movement",
+          "adventure",
+          "impulsiveness"
+        ],
+        "description": "The Knight represents action, movement, and taking bold steps forward."
+      },
+      "es": {
+        "name": "Caballero",
+        "keywords": [
+          "acción",
+          "movimiento",
+          "aventura",
+          "impulsividad"
+        ],
+        "description": "El Caballero representa la acción, el movimiento y los pasos audaces hacia adelante."
+      }
+    },
+    "queen": {
+      "en": {
+        "name": "Queen",
+        "keywords": [
+          "nurturing",
+          "wisdom",
+          "maturity",
+          "emotional intelligence"
+        ],
+        "description": "The Queen represents nurturing, wisdom, and emotional maturity."
+      },
+      "es": {
+        "name": "Reina",
+        "keywords": [
+          "cuidado",
+          "sabiduría",
+          "madurez",
+          "inteligencia emocional"
+        ],
+        "description": "La Reina representa el cuidado, la sabiduría y la madurez emocional."
+      }
+    },
+    "king": {
+      "en": {
+        "name": "King",
+        "keywords": [
+          "authority",
+          "leadership",
+          "mastery",
+          "control"
+        ],
+        "description": "The King represents authority, leadership, and mastery of the suit's domain."
+      },
+      "es": {
+        "name": "Rey",
+        "keywords": [
+          "autoridad",
+          "liderazgo",
+          "maestría",
+          "control"
+        ],
+        "description": "El Rey representa la autoridad, el liderazgo y el dominio del ámbito del palo."
+      }
+    }
+  },
+  "combined": {
+    "wands_ace": {
+      "en": "The Ace represents the pure essence of the suit, new beginnings, and unlimited potential. In the context of Wands (Fire), this represents new beginnings, potential, opportunity, pure energy.",
+      "es": "El As representa la esencia pura del palo, los nuevos comienzos y un potencial ilimitado. En el contexto de Bastos (Fuego), esto representa nuevos comienzos, potencial, oportunidad, energía pura."
+    },
+    "wands_two": {
+      "en": "The Two represents partnership, balance, and the need to make choices. In the context of Wands (Fire), this represents partnership, balance, choice, harmony.",
+      "es": "El Dos representa la asociación, el equilibrio y la necesidad de tomar decisiones. En el contexto de Bastos (Fuego), esto representa asociación, equilibrio, elección, armonía."
+    },
+    "wands_three": {
+      "en": "The Three represents creativity, growth, and the power of collaboration. In the context of Wands (Fire), this represents creativity, growth, expansion, collaboration.",
+      "es": "El Tres representa la creatividad, el crecimiento y el poder de la colaboración. En el contexto de Bastos (Fuego), esto representa creatividad, crecimiento, expansión, colaboración."
+    },
+    "wands_four": {
+      "en": "The Four represents stability, foundation, and creating solid structures. In the context of Wands (Fire), this represents stability, foundation, security, structure.",
+      "es": "El Cuatro representa la estabilidad, los cimientos y la creación de estructuras sólidas. En el contexto de Bastos (Fuego), esto representa estabilidad, cimientos, seguridad, estructura."
+    },
+    "wands_five": {
+      "en": "The Five represents challenges, conflicts, and the need to adapt to change. In the context of Wands (Fire), this represents challenge, conflict, change, adaptation.",
+      "es": "El Cinco representa los desafíos, los conflictos y la necesidad de adaptarse al cambio. En el contexto de Bastos (Fuego), esto representa desafío, conflicto, cambio, adaptación."
+    },
+    "wands_six": {
+      "en": "The Six represents harmony, balance, and finding resolution to conflicts. In the context of Wands (Fire), this represents harmony, balance, resolution, cooperation.",
+      "es": "El Seis representa la armonía, el equilibrio y la resolución de los conflictos. En el contexto de Bastos (Fuego), esto representa armonía, equilibrio, resolución, cooperación."
+    },
+    "wands_seven": {
+      "en": "The Seven represents assessment, evaluation, and the need to persevere. In the context of Wands (Fire), this represents assessment, evaluation, reflection, perseverance.",
+      "es": "El Siete representa el análisis, la evaluación y la necesidad de perseverar. En el contexto de Bastos (Fuego), esto representa análisis, evaluación, reflexión, perseverancia."
+    },
+    "wands_eight": {
+      "en": "The Eight represents movement, progress, and taking decisive action. In the context of Wands (Fire), this represents movement, progress, action, momentum.",
+      "es": "El Ocho representa el movimiento, el progreso y la acción decidida. En el contexto de Bastos (Fuego), esto representa movimiento, progreso, acción, impulso."
+    },
+    "wands_nine": {
+      "en": "The Nine represents completion, fulfillment, and preparation for the final stage. In the context of Wands (Fire), this represents completion, fulfillment, satisfaction, preparation.",
+      "es": "El Nueve representa la culminación, la plenitud y la preparación para la etapa final. En el contexto de Bastos (Fuego), esto representa culminación, plenitud, satisfacción, preparación."
+    },
+    "wands_ten": {
+      "en": "The Ten represents the completion of a cycle and the fullness of experience. In the context of Wands (Fire), this represents completion, culmination, fullness, end of cycle.",
+      "es": "El Diez representa la finalización de un ciclo y la plenitud de la experiencia. En el contexto de Bastos (Fuego), esto representa finalización, culminación, plenitud, fin de ciclo."
+    },
+    "wands_page": {
+      "en": "The Page represents learning, curiosity, and the beginning of a new journey. In the context of Wands (Fire), this represents learning, curiosity, new skills, messages.",
+      "es": "El Paje representa el aprendizaje, la curiosidad y el comienzo de un nuevo viaje. En el contexto de Bastos (Fuego), esto representa aprendizaje, curiosidad, nuevas habilidades, mensajes."
+    },
+    "wands_knight": {
+      "en": "The Knight represents action, movement, and taking bold steps forward. In the context of Wands (Fire), this represents action, movement, adventure, impulsiveness.",
+      "es": "El Caballero representa la acción, el movimiento y los pasos audaces hacia adelante. En el contexto de Bastos (Fuego), esto representa acción, movimiento, aventura, impulsividad."
+    },
+    "wands_queen": {
+      "en": "The Queen represents nurturing, wisdom, and emotional maturity. In the context of Wands (Fire), this represents nurturing, wisdom, maturity, emotional intelligence.",
+      "es": "La Reina representa el cuidado, la sabiduría y la madurez emocional. En el contexto de Bastos (Fuego), esto representa cuidado, sabiduría, madurez, inteligencia emocional."
+    },
+    "wands_king": {
+      "en": "The King represents authority, leadership, and mastery of the suit's domain. In the context of Wands (Fire), this represents authority, leadership, mastery, control.",
+      "es": "El Rey representa la autoridad, el liderazgo y el dominio del ámbito del palo. En el contexto de Bastos (Fuego), esto representa autoridad, liderazgo, maestría, control."
+    },
+    "cups_ace": {
+      "en": "The Ace represents the pure essence of the suit, new beginnings, and unlimited potential. In the context of Cups (Water), this represents new beginnings, potential, opportunity, pure energy.",
+      "es": "El As representa la esencia pura del palo, los nuevos comienzos y un potencial ilimitado. En el contexto de Copas (Agua), esto representa nuevos comienzos, potencial, oportunidad, energía pura."
+    },
+    "cups_two": {
+      "en": "The Two represents partnership, balance, and the need to make choices. In the context of Cups (Water), this represents partnership, balance, choice, harmony.",
+      "es": "El Dos representa la asociación, el equilibrio y la necesidad de tomar decisiones. En el contexto de Copas (Agua), esto representa asociación, equilibrio, elección, armonía."
+    },
+    "cups_three": {
+      "en": "The Three represents creativity, growth, and the power of collaboration. In the context of Cups (Water), this represents creativity, growth, expansion, collaboration.",
+      "es": "El Tres representa la creatividad, el crecimiento y el poder de la colaboración. En el contexto de Copas (Agua), esto representa creatividad, crecimiento, expansión, colaboración."
+    },
+    "cups_four": {
+      "en": "The Four represents stability, foundation, and creating solid structures. In the context of Cups (Water), this represents stability, foundation, security, structure.",
+      "es": "El Cuatro representa la estabilidad, los cimientos y la creación de estructuras sólidas. En el contexto de Copas (Agua), esto representa estabilidad, cimientos, seguridad, estructura."
+    },
+    "cups_five": {
+      "en": "The Five represents challenges, conflicts, and the need to adapt to change. In the context of Cups (Water), this represents challenge, conflict, change, adaptation.",
+      "es": "El Cinco representa los desafíos, los conflictos y la necesidad de adaptarse al cambio. En el contexto de Copas (Agua), esto representa desafío, conflicto, cambio, adaptación."
+    },
+    "cups_six": {
+      "en": "The Six represents harmony, balance, and finding resolution to conflicts. In the context of Cups (Water), this represents harmony, balance, resolution, cooperation.",
+      "es": "El Seis representa la armonía, el equilibrio y la resolución de los conflictos. En el contexto de Copas (Agua), esto representa armonía, equilibrio, resolución, cooperación."
+    },
+    "cups_seven": {
+      "en": "The Seven represents assessment, evaluation, and the need to persevere. In the context of Cups (Water), this represents assessment, evaluation, reflection, perseverance.",
+      "es": "El Siete representa el análisis, la evaluación y la necesidad de perseverar. En el contexto de Copas (Agua), esto representa análisis, evaluación, reflexión, perseverancia."
+    },
+    "cups_eight": {
+      "en": "The Eight represents movement, progress, and taking decisive action. In the context of Cups (Water), this represents movement, progress, action, momentum.",
+      "es": "El Ocho representa el movimiento, el progreso y la acción decidida. En el contexto de Copas (Agua), esto representa movimiento, progreso, acción, impulso."
+    },
+    "cups_nine": {
+      "en": "The Nine represents completion, fulfillment, and preparation for the final stage. In the context of Cups (Water), this represents completion, fulfillment, satisfaction, preparation.",
+      "es": "El Nueve representa la culminación, la plenitud y la preparación para la etapa final. En el contexto de Copas (Agua), esto representa culminación, plenitud, satisfacción, preparación."
+    },
+    "cups_ten": {
+      "en": "The Ten represents the completion of a cycle and the fullness of experience. In the context of Cups (Water), this represents completion, culmination, fullness, end of cycle.",
+      "es": "El Diez representa la finalización de un ciclo y la plenitud de la experiencia. En el contexto de Copas (Agua), esto representa finalización, culminación, plenitud, fin de ciclo."
+    },
+    "cups_page": {
+      "en": "The Page represents learning, curiosity, and the beginning of a new journey. In the context of Cups (Water), this represents learning, curiosity, new skills, messages.",
+      "es": "El Paje representa el aprendizaje, la curiosidad y el comienzo de un nuevo viaje. En el contexto de Copas (Agua), esto representa aprendizaje, curiosidad, nuevas habilidades, mensajes."
+    },
+    "cups_knight": {
+      "en": "The Knight represents action, movement, and taking bold steps forward. In the context of Cups (Water), this represents action, movement, adventure, impulsiveness.",
+      "es": "El Caballero representa la acción, el movimiento y los pasos audaces hacia adelante. En el contexto de Copas (Agua), esto representa acción, movimiento, aventura, impulsividad."
+    },
+    "cups_queen": {
+      "en": "The Queen represents nurturing, wisdom, and emotional maturity. In the context of Cups (Water), this represents nurturing, wisdom, maturity, emotional intelligence.",
+      "es": "La Reina representa el cuidado, la sabiduría y la madurez emocional. En el contexto de Copas (Agua), esto representa cuidado, sabiduría, madurez, inteligencia emocional."
+    },
+    "cups_king": {
+      "en": "The King represents authority, leadership, and mastery of the suit's domain. In the context of Cups (Water), this represents authority, leadership, mastery, control.",
+      "es": "El Rey representa la autoridad, el liderazgo y el dominio del ámbito del palo. En el contexto de Copas (Agua), esto representa autoridad, liderazgo, maestría, control."
+    },
+    "swords_ace": {
+      "en": "The Ace represents the pure essence of the suit, new beginnings, and unlimited potential. In the context of Swords (Air), this represents new beginnings, potential, opportunity, pure energy.",
+      "es": "El As representa la esencia pura del palo, los nuevos comienzos y un potencial ilimitado. En el contexto de Espadas (Aire), esto representa nuevos comienzos, potencial, oportunidad, energía pura."
+    },
+    "swords_two": {
+      "en": "The Two represents partnership, balance, and the need to make choices. In the context of Swords (Air), this represents partnership, balance, choice, harmony.",
+      "es": "El Dos representa la asociación, el equilibrio y la necesidad de tomar decisiones. En el contexto de Espadas (Aire), esto representa asociación, equilibrio, elección, armonía."
+    },
+    "swords_three": {
+      "en": "The Three represents creativity, growth, and the power of collaboration. In the context of Swords (Air), this represents creativity, growth, expansion, collaboration.",
+      "es": "El Tres representa la creatividad, el crecimiento y el poder de la colaboración. En el contexto de Espadas (Aire), esto representa creatividad, crecimiento, expansión, colaboración."
+    },
+    "swords_four": {
+      "en": "The Four represents stability, foundation, and creating solid structures. In the context of Swords (Air), this represents stability, foundation, security, structure.",
+      "es": "El Cuatro representa la estabilidad, los cimientos y la creación de estructuras sólidas. En el contexto de Espadas (Aire), esto representa estabilidad, cimientos, seguridad, estructura."
+    },
+    "swords_five": {
+      "en": "The Five represents challenges, conflicts, and the need to adapt to change. In the context of Swords (Air), this represents challenge, conflict, change, adaptation.",
+      "es": "El Cinco representa los desafíos, los conflictos y la necesidad de adaptarse al cambio. En el contexto de Espadas (Aire), esto representa desafío, conflicto, cambio, adaptación."
+    },
+    "swords_six": {
+      "en": "The Six represents harmony, balance, and finding resolution to conflicts. In the context of Swords (Air), this represents harmony, balance, resolution, cooperation.",
+      "es": "El Seis representa la armonía, el equilibrio y la resolución de los conflictos. En el contexto de Espadas (Aire), esto representa armonía, equilibrio, resolución, cooperación."
+    },
+    "swords_seven": {
+      "en": "The Seven represents assessment, evaluation, and the need to persevere. In the context of Swords (Air), this represents assessment, evaluation, reflection, perseverance.",
+      "es": "El Siete representa el análisis, la evaluación y la necesidad de perseverar. En el contexto de Espadas (Aire), esto representa análisis, evaluación, reflexión, perseverancia."
+    },
+    "swords_eight": {
+      "en": "The Eight represents movement, progress, and taking decisive action. In the context of Swords (Air), this represents movement, progress, action, momentum.",
+      "es": "El Ocho representa el movimiento, el progreso y la acción decidida. En el contexto de Espadas (Aire), esto representa movimiento, progreso, acción, impulso."
+    },
+    "swords_nine": {
+      "en": "The Nine represents completion, fulfillment, and preparation for the final stage. In the context of Swords (Air), this represents completion, fulfillment, satisfaction, preparation.",
+      "es": "El Nueve representa la culminación, la plenitud y la preparación para la etapa final. En el contexto de Espadas (Aire), esto representa culminación, plenitud, satisfacción, preparación."
+    },
+    "swords_ten": {
+      "en": "The Ten represents the completion of a cycle and the fullness of experience. In the context of Swords (Air), this represents completion, culmination, fullness, end of cycle.",
+      "es": "El Diez representa la finalización de un ciclo y la plenitud de la experiencia. En el contexto de Espadas (Aire), esto representa finalización, culminación, plenitud, fin de ciclo."
+    },
+    "swords_page": {
+      "en": "The Page represents learning, curiosity, and the beginning of a new journey. In the context of Swords (Air), this represents learning, curiosity, new skills, messages.",
+      "es": "El Paje representa el aprendizaje, la curiosidad y el comienzo de un nuevo viaje. En el contexto de Espadas (Aire), esto representa aprendizaje, curiosidad, nuevas habilidades, mensajes."
+    },
+    "swords_knight": {
+      "en": "The Knight represents action, movement, and taking bold steps forward. In the context of Swords (Air), this represents action, movement, adventure, impulsiveness.",
+      "es": "El Caballero representa la acción, el movimiento y los pasos audaces hacia adelante. En el contexto de Espadas (Aire), esto representa acción, movimiento, aventura, impulsividad."
+    },
+    "swords_queen": {
+      "en": "The Queen represents nurturing, wisdom, and emotional maturity. In the context of Swords (Air), this represents nurturing, wisdom, maturity, emotional intelligence.",
+      "es": "La Reina representa el cuidado, la sabiduría y la madurez emocional. En el contexto de Espadas (Aire), esto representa cuidado, sabiduría, madurez, inteligencia emocional."
+    },
+    "swords_king": {
+      "en": "The King represents authority, leadership, and mastery of the suit's domain. In the context of Swords (Air), this represents authority, leadership, mastery, control.",
+      "es": "El Rey representa la autoridad, el liderazgo y el dominio del ámbito del palo. En el contexto de Espadas (Aire), esto representa autoridad, liderazgo, maestría, control."
+    },
+    "pentacles_ace": {
+      "en": "The Ace represents the pure essence of the suit, new beginnings, and unlimited potential. In the context of Pentacles (Earth), this represents new beginnings, potential, opportunity, pure energy.",
+      "es": "El As representa la esencia pura del palo, los nuevos comienzos y un potencial ilimitado. En el contexto de Oros (Tierra), esto representa nuevos comienzos, potencial, oportunidad, energía pura."
+    },
+    "pentacles_two": {
+      "en": "The Two represents partnership, balance, and the need to make choices. In the context of Pentacles (Earth), this represents partnership, balance, choice, harmony.",
+      "es": "El Dos representa la asociación, el equilibrio y la necesidad de tomar decisiones. En el contexto de Oros (Tierra), esto representa asociación, equilibrio, elección, armonía."
+    },
+    "pentacles_three": {
+      "en": "The Three represents creativity, growth, and the power of collaboration. In the context of Pentacles (Earth), this represents creativity, growth, expansion, collaboration.",
+      "es": "El Tres representa la creatividad, el crecimiento y el poder de la colaboración. En el contexto de Oros (Tierra), esto representa creatividad, crecimiento, expansión, colaboración."
+    },
+    "pentacles_four": {
+      "en": "The Four represents stability, foundation, and creating solid structures. In the context of Pentacles (Earth), this represents stability, foundation, security, structure.",
+      "es": "El Cuatro representa la estabilidad, los cimientos y la creación de estructuras sólidas. En el contexto de Oros (Tierra), esto representa estabilidad, cimientos, seguridad, estructura."
+    },
+    "pentacles_five": {
+      "en": "The Five represents challenges, conflicts, and the need to adapt to change. In the context of Pentacles (Earth), this represents challenge, conflict, change, adaptation.",
+      "es": "El Cinco representa los desafíos, los conflictos y la necesidad de adaptarse al cambio. En el contexto de Oros (Tierra), esto representa desafío, conflicto, cambio, adaptación."
+    },
+    "pentacles_six": {
+      "en": "The Six represents harmony, balance, and finding resolution to conflicts. In the context of Pentacles (Earth), this represents harmony, balance, resolution, cooperation.",
+      "es": "El Seis representa la armonía, el equilibrio y la resolución de los conflictos. En el contexto de Oros (Tierra), esto representa armonía, equilibrio, resolución, cooperación."
+    },
+    "pentacles_seven": {
+      "en": "The Seven represents assessment, evaluation, and the need to persevere. In the context of Pentacles (Earth), this represents assessment, evaluation, reflection, perseverance.",
+      "es": "El Siete representa el análisis, la evaluación y la necesidad de perseverar. En el contexto de Oros (Tierra), esto representa análisis, evaluación, reflexión, perseverancia."
+    },
+    "pentacles_eight": {
+      "en": "The Eight represents movement, progress, and taking decisive action. In the context of Pentacles (Earth), this represents movement, progress, action, momentum.",
+      "es": "El Ocho representa el movimiento, el progreso y la acción decidida. En el contexto de Oros (Tierra), esto representa movimiento, progreso, acción, impulso."
+    },
+    "pentacles_nine": {
+      "en": "The Nine represents completion, fulfillment, and preparation for the final stage. In the context of Pentacles (Earth), this represents completion, fulfillment, satisfaction, preparation.",
+      "es": "El Nueve representa la culminación, la plenitud y la preparación para la etapa final. En el contexto de Oros (Tierra), esto representa culminación, plenitud, satisfacción, preparación."
+    },
+    "pentacles_ten": {
+      "en": "The Ten represents the completion of a cycle and the fullness of experience. In the context of Pentacles (Earth), this represents completion, culmination, fullness, end of cycle.",
+      "es": "El Diez representa la finalización de un ciclo y la plenitud de la experiencia. En el contexto de Oros (Tierra), esto representa finalización, culminación, plenitud, fin de ciclo."
+    },
+    "pentacles_page": {
+      "en": "The Page represents learning, curiosity, and the beginning of a new journey. In the context of Pentacles (Earth), this represents learning, curiosity, new skills, messages.",
+      "es": "El Paje representa el aprendizaje, la curiosidad y el comienzo de un nuevo viaje. En el contexto de Oros (Tierra), esto representa aprendizaje, curiosidad, nuevas habilidades, mensajes."
+    },
+    "pentacles_knight": {
+      "en": "The Knight represents action, movement, and taking bold steps forward. In the context of Pentacles (Earth), this represents action, movement, adventure, impulsiveness.",
+      "es": "El Caballero representa la acción, el movimiento y los pasos audaces hacia adelante. En el contexto de Oros (Tierra), esto representa acción, movimiento, aventura, impulsividad."
+    },
+    "pentacles_queen": {
+      "en": "The Queen represents nurturing, wisdom, and emotional maturity. In the context of Pentacles (Earth), this represents nurturing, wisdom, maturity, emotional intelligence.",
+      "es": "La Reina representa el cuidado, la sabiduría y la madurez emocional. En el contexto de Oros (Tierra), esto representa cuidado, sabiduría, madurez, inteligencia emocional."
+    },
+    "pentacles_king": {
+      "en": "The King represents authority, leadership, and mastery of the suit's domain. In the context of Pentacles (Earth), this represents authority, leadership, mastery, control.",
+      "es": "El Rey representa la autoridad, el liderazgo y el dominio del ámbito del palo. En el contexto de Oros (Tierra), esto representa autoridad, liderazgo, maestría, control."
+    }
+  }
+}
