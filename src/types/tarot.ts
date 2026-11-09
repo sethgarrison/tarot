@@ -15,7 +15,6 @@ export interface DatabaseCard {
   meaning_rev: MultilingualContent;
   description: MultilingualContent;
   suit?: MultilingualContent;
-  image_path?: string;
 }
 
 // Legacy interface for backward compatibility (flattened for API)
@@ -35,5 +34,5 @@ export interface TarotCard {
 /** Card resolved to a single language (includes optional extras) */
 export type TarotCardLocalized = TarotCard & {
   name_en?: string;
-  image_path?: string;
+  suit_en?: string; // English suit key, stable across languages
 };

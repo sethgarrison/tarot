@@ -1,22 +1,38 @@
 .tarot-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1000px;
-  margin: 20px auto;
-  position: relative;
+  width: 100%;
+  max-width: 340px;
+  animation: fadeInUp 0.5s ease-out;
 }
 
-/* Card Flip Container */
+/* Sized to the card art (825 x 1426) */
 .card-flip-container {
   position: relative;
-  width: 400px;
-  height: 600px;
-  perspective: 1000px;
+  width: 100%;
+  aspect-ratio: 825 / 1426;
+  perspective: 1200px;
   cursor: pointer;
+  border-radius: var(--card-radius);
+  transition: transform 0.25s ease;
+}
+
+.card-flip-container:hover {
+  transform: translateY(-6px);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 0.7s ease;
 }
 
 .card-flip-container.flipped .card-front {
+  transform: rotateY(180deg);
+}
+
+.card-back {
   transform: rotateY(180deg);
 }
 
@@ -25,41 +41,12 @@
 }
 
 /* Front of Card - Just the Image */
-.card-front {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  transition: transform 0.8s ease;
-  transform-style: preserve-3d;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-image-container {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-  background: var(--background-light);
-  border: 1px solid var(--border-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .card-image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.card-image:hover {
-  transform: scale(1.02);
+  filter: drop-shadow(0 8px 14px rgba(38, 32, 19, 0.45));
 }
 
 .no-image {
@@ -68,407 +55,160 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--background-light);
-  color: var(--text-primary);
-  text-align: center;
   padding: 20px;
-  border: 1px solid var(--border-color);
-}
-
-.no-image.hidden {
-  display: none;
-}
-
-.no-image-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.card-symbol {
-  font-size: 4rem;
-  opacity: 0.8;
-  color: var(--primary-color);
+  background: var(--cream);
+  border-radius: var(--card-radius);
 }
 
 .card-name {
-  font-size: 1.5rem;
-  font-weight: 300;
-  text-align: center;
-  line-height: 1.3;
-  color: var(--primary-color);
-  letter-spacing: 1px;
+  font-family: var(--font-heading);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--ink);
 }
 
 .flip-hint {
   position: absolute;
-  bottom: 10px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.8);
-  color: #40e0d0;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
   font-weight: 500;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
-.card-front:hover .flip-hint {
+.card-flip-container:hover .flip-hint,
+.card-flip-container:focus-visible .flip-hint {
   opacity: 1;
 }
 
 /* Back of Card - Meanings */
 .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  transition: transform 0.8s ease;
-  transform-style: preserve-3d;
-  transform: rotateY(180deg);
-  background: var(--background-light);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: var(--card-radius);
+  box-shadow: 0 8px 14px rgba(38, 32, 19, 0.45);
+  overflow: hidden;
+  text-align: left;
 }
 
 .card-back-content {
   flex: 1;
-  padding: 30px;
-  color: var(--text-primary);
+  min-height: 0;
+  padding: 22px 20px;
   overflow-y: auto;
 }
 
-.card-back .card-title {
-  font-size: 1.8rem;
-  font-weight: 300;
-  margin: 0 0 15px 0;
-  color: var(--primary-color);
+.card-title {
+  font-family: var(--font-heading);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 1.35rem;
+  line-height: 1.15;
   text-align: center;
-  letter-spacing: 1px;
+  margin-bottom: 12px;
 }
 
-.card-back .card-meta {
+.card-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 6px;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-.card-back .card-type,
-.card-back .card-suit,
-.card-back .card-value {
-  background: rgba(64, 224, 208, 0.1);
-  color: var(--primary-color);
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 400;
-  border: 1px solid var(--border-color);
+.card-type,
+.card-suit,
+.card-value {
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
-.card-back .meanings-section {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
+.card-type {
+  background: var(--purple);
+  color: var(--cream);
 }
 
-.card-back .meaning-group {
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 4px;
-  padding: 15px;
-  border-left: 2px solid var(--primary-color);
+.card-suit {
+  background: var(--green);
+  color: var(--ink);
 }
 
-.card-back .meaning-title {
-  color: var(--primary-color);
-  margin: 0 0 8px 0;
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.5px;
+.card-value {
+  background: var(--orange);
+  color: var(--ink);
 }
 
-.card-back .meaning-text {
-  color: var(--text-secondary);
+.meaning-group {
+  padding-left: 12px;
+  margin-bottom: 14px;
+  border-left: 4px solid var(--rust);
+}
+
+.meaning-group:last-child {
+  margin-bottom: 0;
+}
+
+.meaning-upright {
+  border-left-color: var(--green);
+}
+
+.meaning-reversed {
+  border-left-color: var(--red);
+}
+
+.meaning-description {
+  border-left-color: var(--pink);
+}
+
+.meaning-title {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.meaning-text {
+  font-size: 0.88rem;
   line-height: 1.5;
-  margin: 0;
-  font-size: 0.9rem;
 }
 
-.card-back .description-section {
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 4px;
-  padding: 15px;
-  border-left: 2px solid var(--secondary-color);
-}
-
-.card-back .description-title {
-  color: var(--secondary-color);
-  margin: 0 0 8px 0;
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-}
-
-.card-back .description-text {
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-/* Details Panel (Alternative to flip) */
-.details-panel {
-  margin-top: 20px;
-  width: 100%;
-  max-width: 600px;
-}
-
-.details-toggle {
-  background: transparent;
-  color: var(--primary-color);
-  border: 1px solid var(--border-color);
-  padding: 12px 24px;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: 400;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-}
-
-.details-toggle:hover {
-  background: rgba(64, 224, 208, 0.1);
-  border-color: var(--primary-color);
-}
-
-.details-content {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.8) 100%);
-  border-radius: 16px;
-  padding: 25px;
-  border: 1px solid rgba(64, 224, 208, 0.3);
-  color: #fff;
-}
-
-.details-content .card-header {
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.details-content .card-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin: 0 0 12px 0;
-  background: linear-gradient(45deg, #40e0d0, #48d1cc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.details-content .card-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-}
-
-.details-content .card-type,
-.details-content .card-suit,
-.details-content .card-value {
-  background: rgba(64, 224, 208, 0.1);
-  color: #40e0d0;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.9rem;
+.flip-back-hint {
+  padding: 8px;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
   font-weight: 500;
-  border: 1px solid rgba(64, 224, 208, 0.3);
+  text-align: center;
 }
 
-.details-content .card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+@media (hover: none) {
+  .card-flip-container:hover {
+    transform: none;
+  }
 }
 
-.details-content .meanings-section {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.details-content .meaning-group {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 20px;
-  border-left: 4px solid #40e0d0;
-  transition: transform 0.3s ease;
-}
-
-.details-content .meaning-group:hover {
-  transform: translateX(5px);
-}
-
-.details-content .meaning-title {
-  color: #40e0d0;
-  margin: 0 0 12px 0;
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
-.details-content .meaning-text {
-  color: #ccc;
-  line-height: 1.6;
-  margin: 0;
-  font-size: 1rem;
-}
-
-.details-content .description-section {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 20px;
-  border-left: 4px solid #ffd700;
-}
-
-.details-content .description-title {
-  color: #ffd700;
-  margin: 0 0 12px 0;
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
-.details-content .description-text {
-  color: #ccc;
-  line-height: 1.6;
-  margin: 0;
-  font-size: 1rem;
-}
-
-.details-content .additional-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.details-content .info-item {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.details-content .info-label {
-  color: #ccc;
-  font-weight: 500;
-  font-size: 0.9rem;
-}
-
-.details-content .info-value {
-  color: #40e0d0;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+@media (prefers-reduced-motion: reduce) {
+  .tarot-card,
+  .card-front,
+  .card-back,
   .card-flip-container {
-    width: 300px;
-    height: 450px;
-  }
-
-  .card-back-content {
-    padding: 20px;
-  }
-
-  .card-back .card-title {
-    font-size: 1.5rem;
-  }
-
-  .card-back .meaning-text,
-  .card-back .description-text {
-    font-size: 0.85rem;
-  }
-
-  .details-content {
-    padding: 20px;
-  }
-
-  .details-content .card-title {
-    font-size: 1.5rem;
-  }
-
-  .details-content .meaning-text,
-  .details-content .description-text {
-    font-size: 0.95rem;
-  }
-
-  .details-content .additional-info {
-    grid-template-columns: 1fr;
+    animation: none;
+    transition: none;
   }
 }
-
-@media (max-width: 480px) {
-  .card-flip-container {
-    width: 250px;
-    height: 375px;
-  }
-
-  .card-back-content {
-    padding: 15px;
-  }
-
-  .card-back .card-title {
-    font-size: 1.3rem;
-  }
-
-  .card-back .meaning-group,
-  .card-back .description-section {
-    padding: 12px;
-  }
-
-  .details-content {
-    padding: 15px;
-  }
-
-  .details-content .card-title {
-    font-size: 1.3rem;
-  }
-
-  .details-content .meaning-group,
-  .details-content .description-section {
-    padding: 15px;
-  }
-}
-
-/* Animations */
-.tarot-card {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.card-flip-container:hover {
-  transform: translateY(-5px);
-  transition: transform 0.3s ease;
-} 

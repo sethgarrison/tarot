@@ -1,194 +1,100 @@
 import React, { useState } from 'react';
-import type { TarotCard } from '../types/tarot';
-import { useCardImage, useCardImageExists } from '../hooks/useTarotAPI';
+import type { TarotCardLocalized } from '../types/tarot';
+import { getCardImagePath } from '../utils/imageUtils';
+import { useTranslations } from '../utils/translationUtils';
 import './TarotCard.css';
 
 interface TarotCardProps {
-  card?: TarotCard;
-  showDetails?: boolean;
+  card: TarotCardLocalized;
   className?: string;
-  flipOnClick?: boolean;
 }
 
-export const TarotCardComponent: React.FC<TarotCardProps> = ({ 
-  card, 
-  showDetails = true,
-  className = '',
-  flipOnClick = true
-}) => {
+export const TarotCardComponent: React.FC<TarotCardProps> = ({ card, className = '' }) => {
+  const { t } = useTranslations();
   const [isFlipped, setIsFlipped] = useState(false);
-  const [showDetailsPanel, setShowDetailsPanel] = useState(false);
+  const [imageFailed, setImageFailed] = useState(false);
 
-  // Safety check for undefined card
-  if (!card) {
-    return (
-      <div className={`tarot-card ${className}`}>
-        <div className="card-image-section">
-          <div className="card-image-container">
-            <div className="no-image">
-              <div className="no-image-content">
-                <span className="card-symbol">❓</span>
-                <span className="card-name">Card not found</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const toggleFlip = () => setIsFlipped((flipped) => !flipped);
 
-  const { data: imagePath } = useCardImage(card.name_en || card.name);
-  const { data: imageExists } = useCardImageExists(card.name_en || card.name);
-
-  const getCardTypeLabel = (type: string) => {
-    return type === 'major' ? 'Major Arcana' : 'Minor Arcana';
-  };
-
-  const getSuitLabel = (suit?: string) => {
-    if (!suit) return null;
-    const suitLabels: Record<string, string> = {
-      wands: 'Wands',
-      cups: 'Cups', 
-      swords: 'Swords',
-      pentacles: 'Pentacles'
-    };
-    return suitLabels[suit.toLowerCase()] || suit;
-  };
-
-  const handleCardClick = () => {
-    if (flipOnClick) {
-      setIsFlipped(!isFlipped);
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleFlip();
     }
   };
 
+  const typeLabel = t(card.type === 'major' ? 'deckPage.filters.arcana.majorArcana' : 'deckPage.filters.arcana.minorArcana');
+
   return (
     <div className={`tarot-card ${className}`}>
-      {/* Card Container with Flip */}
-      <div className={`card-flip-container ${isFlipped ? 'flipped' : ''}`}>
+      <div
+        className={`card-flip-container ${isFlipped ? 'flipped' : ''}`}
+        role="button"
+        tabIndex={0}
+        aria-pressed={isFlipped}
+        aria-label={card.name}
+        onClick={toggleFlip}
+        onKeyDown={handleKeyDown}
+      >
         {/* Front of Card - Just the Image */}
-        <div className="card-front" onClick={handleCardClick}>
-          <div className="card-image-container">
-            {imageExists ? (
-              <img 
-                src={imagePath} 
-                alt={card.name}
-                className="card-image"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  target.nextElementSibling?.classList.remove('hidden');
-                }}
-              />
-            ) : null}
-            <div className={`no-image ${imageExists ? 'hidden' : ''}`}>
-              <div className="no-image-content">
-                <span className="card-symbol">🃏</span>
-                <span className="card-name">{card.name}</span>
-              </div>
+        <div className="card-front">
+          {imageFailed ? (
+            <div className="no-image">
+              <span className="card-name">{card.name}</span>
             </div>
-          </div>
-          {flipOnClick && (
-            <div className="flip-hint">
-              <span>Click to flip</span>
-            </div>
+          ) : (
+            <img
+              src={getCardImagePath(card.name_en || card.name)}
+              alt={card.name}
+              className="card-image"
+              width={825}
+              height={1426}
+              loading="lazy"
+              decoding="async"
+              onError={() => setImageFailed(true)}
+            />
           )}
+          <div className="flip-hint">
+            <span>{t('tarotCard.interactions.clickToFlip')}</span>
+          </div>
         </div>
 
         {/* Back of Card - Meanings */}
-        <div className="card-back" onClick={handleCardClick}>
+        <div className="card-back">
           <div className="card-back-content">
             <h3 className="card-title">{card.name}</h3>
-            
+
             <div className="card-meta">
-              <span className="card-type">{getCardTypeLabel(card.type)}</span>
-              {card.suit && (
-                <span className="card-suit">{getSuitLabel(card.suit)}</span>
+              <span className="card-type">{typeLabel}</span>
+              {card.suit_en && (
+                <span className="card-suit">{t(`deckPage.filters.suit.${card.suit_en}`)}</span>
               )}
-              <span className="card-value">Value: {card.value}</span>
+              <span className="card-value">{t('tarotCard.sections.value')}: {card.value}</span>
             </div>
 
-            <div className="meanings-section">
-              <div className="meaning-group">
-                <h4 className="meaning-title">Upright Meaning</h4>
-                <p className="meaning-text">{card.meaning_up}</p>
-              </div>
-              
-              <div className="meaning-group">
-                <h4 className="meaning-title">Reversed Meaning</h4>
-                <p className="meaning-text">{card.meaning_rev}</p>
-              </div>
+            <div className="meaning-group meaning-upright">
+              <h4 className="meaning-title">{t('tarotCard.sections.uprightMeaning')}</h4>
+              <p className="meaning-text">{card.meaning_up}</p>
             </div>
 
-            <div className="description-section">
-              <h4 className="description-title">Description</h4>
-              <p className="description-text">{card.desc}</p>
+            <div className="meaning-group meaning-reversed">
+              <h4 className="meaning-title">{t('tarotCard.sections.reversedMeaning')}</h4>
+              <p className="meaning-text">{card.meaning_rev}</p>
+            </div>
+
+            <div className="meaning-group meaning-description">
+              <h4 className="meaning-title">{t('tarotCard.sections.description')}</h4>
+              <p className="meaning-text">{card.desc}</p>
             </div>
           </div>
-          
-          <div className="flip-hint">
-            <span>Click to flip back</span>
+
+          <div className="flip-back-hint">
+            <span>{t('tarotCard.interactions.clickToFlipBack')}</span>
           </div>
         </div>
       </div>
-
-      {/* Optional Details Panel */}
-      {showDetails && !flipOnClick && (
-        <div className="details-panel">
-          <button 
-            className="details-toggle"
-            onClick={() => setShowDetailsPanel(!showDetailsPanel)}
-          >
-            {showDetailsPanel ? 'Hide Details' : 'Show Details'}
-          </button>
-          
-          {showDetailsPanel && (
-            <div className="details-content">
-              <div className="card-header">
-                <h3 className="card-title">{card.name}</h3>
-                <div className="card-meta">
-                  <span className="card-type">{getCardTypeLabel(card.type)}</span>
-                  {card.suit && (
-                    <span className="card-suit">{getSuitLabel(card.suit)}</span>
-                  )}
-                  <span className="card-value">Value: {card.value}</span>
-                </div>
-              </div>
-
-              <div className="card-content">
-                <div className="meanings-section">
-                  <div className="meaning-group">
-                    <h4 className="meaning-title">Upright Meaning</h4>
-                    <p className="meaning-text">{card.meaning_up}</p>
-                  </div>
-                  
-                  <div className="meaning-group">
-                    <h4 className="meaning-title">Reversed Meaning</h4>
-                    <p className="meaning-text">{card.meaning_rev}</p>
-                  </div>
-                </div>
-
-                <div className="description-section">
-                  <h4 className="description-title">Description</h4>
-                  <p className="description-text">{card.desc}</p>
-                </div>
-
-                <div className="additional-info">
-                  <div className="info-item">
-                    <span className="info-label">Short Name:</span>
-                    <span className="info-value">{card.name_short}</span>
-                  </div>
-                  <div className="info-item">
-                    <span className="info-label">Value (Int):</span>
-                    <span className="info-value">{card.value_int}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
     </div>
   );
 };
 
-export default TarotCardComponent; 
+export default TarotCardComponent;
