@@ -23,6 +23,38 @@
   color: var(--cream);
 }
 
+.header-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.app-navigation {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  padding: 7px 14px;
+  border-radius: 8px;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: var(--orange);
+}
+
+.nav-link.active,
+.nav-link.active:hover {
+  background: var(--teal);
+  color: var(--cream);
+}
+
 /* Punky stripe pulled from the card palette */
 .brand-stripe {
   height: 10px;

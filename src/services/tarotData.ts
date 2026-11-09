@@ -36,7 +36,7 @@ function notFound(what: string): Error {
 const byNameShort = (a: DatabaseCard, b: DatabaseCard) => a.name_short.localeCompare(b.name_short);
 const byValue = (a: DatabaseCard, b: DatabaseCard) => a.value_int - b.value_int;
 
-function shuffled<T>(items: T[]): T[] {
+export function shuffled<T>(items: T[]): T[] {
   const out = [...items];
   for (let i = out.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
